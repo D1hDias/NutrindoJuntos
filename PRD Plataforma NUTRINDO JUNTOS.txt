@@ -1,0 +1,1255 @@
+# **PRODUCT REQUIREMENTS DOCUMENT (PRD)**
+## **NUTRINDO JUNTOS - Plataforma Educacional de Nutrição**
+
+**Versão:** 2.0 (Revisada)  
+**Data:** 14/11/2025  
+**Status:** Para Aprovação  
+**Autor:** Product Team NUTRINDO JUNTOS
+
+---
+
+## 📋 RESUMO EXECUTIVO (1 PÁGINA)
+
+### Em uma frase:
+> "Criar o hub digital educacional da NUTRINDO JUNTOS para estudantes e nutricionistas em início de carreira, focado em conteúdo científico aplicado, geração de leads qualificados e base para futura evolução em plataforma de streaming."
+
+### Em três bullets:
+- ✅ **Site institucional profissional** com páginas essenciais (Quem Somos, Equipe, Cursos, Mentoria, Contato)
+- ✅ **Blog otimizado para SEO** como principal canal de aquisição orgânica e educação do público
+- ✅ **Sistema de captura e gestão de leads** preparado para conversão em cursos e mentorias
+
+### Escopo deste PRD:
+Este documento cobre **exclusivamente o MVP (Fase 1)** - Site Institucional + Blog + Geração de Leads.
+
+**Funcionalidades futuras** (área logada, streaming, comunidade) estão documentadas apenas como visão direcional na seção 13.
+
+---
+
+## 🎯 1. EXECUTIVE SUMMARY
+
+### 1.1 Contexto e Visão
+
+**Contexto:**
+A NUTRINDO JUNTOS é uma empresa de educação continuada em nutrição que atualmente opera principalmente via Instagram e cursos pontuais. Para escalar o negócio e profissionalizar a operação, precisa de uma **presença digital própria e estruturada**.
+
+**Visão de Longo Prazo:**
+Tornar-se a principal plataforma educacional para nutricionistas em início de carreira no Brasil, oferecendo conteúdo científico aplicado, cursos práticos, mentorias e, futuramente, uma plataforma de streaming educacional.
+
+**Escopo deste MVP (Fase 1):**
+Site institucional + blog + captura de leads. **Não inclui:** área logada, pagamentos online, streaming de vídeos, comunidade.
+
+### 1.2 Objetivos do MVP
+
+| Objetivo | Descrição | Meta Mínima (6 meses) | Meta Aspiracional (6 meses) |
+|----------|-----------|----------------------|---------------------------|
+| **Presença Digital** | Site profissional que transmita credibilidade | Site no ar, 100% funcional | Lighthouse score > 90 |
+| **Geração de Leads** | Captar leads qualificados para cursos/mentorias | 300 leads | 600 leads |
+| **Tráfego Orgânico** | Atrair visitantes via SEO | 3.000 visitantes/mês | 7.000 visitantes/mês |
+| **Engajamento** | Construir audiência via newsletter | 500 inscritos | 1.000 inscritos |
+| **Conversão** | Transformar visitantes em leads | Taxa 3% | Taxa 5% |
+
+### 1.3 Hipóteses a Validar com o MVP
+
+Este MVP tem como objetivo validar as seguintes hipóteses de negócio:
+
+**H1 - Demanda por Conteúdo Prático:**
+> Estudantes e recém-formados em nutrição têm interesse em conteúdos práticos e científicos apresentados em formato de blog + cursos estruturados.
+
+**H2 - Qualidade dos Leads:**
+> Leads captados via blog e formulários de interesse têm probabilidade ≥ 15% de comprar pelo menos 1 curso ou contratar mentoria em 6 meses.
+
+**H3 - Viabilidade da Mentoria:**
+> Existe demanda suficiente por mentoria 1:1 para justificar a estruturação de um programa formal e, futuramente, produtos recorrentes.
+
+**H4 - Canal de Aquisição Orgânico:**
+> Blog otimizado para SEO pode gerar pelo menos 60% do tráfego total do site, reduzindo dependência de redes sociais.
+
+**H5 - Conversão via Conteúdo:**
+> Usuários que leem 3+ posts de blog têm taxa de conversão em lead 2x maior que visitantes que veem apenas páginas institucionais.
+
+### 1.4 Critérios de Sucesso do MVP
+
+O MVP será considerado **bem-sucedido** se, após 6 meses:
+
+✅ **Pelo menos 3 dos 5 critérios abaixo forem atingidos:**
+
+1. **Tráfego:** ≥ 3.000 visitantes únicos/mês (mínimo) ou ≥ 7.000 (aspiracional)
+2. **Leads:** ≥ 300 leads qualificados (mínimo) ou ≥ 600 (aspiracional)
+3. **Conversão:** Taxa de conversão visitante → lead ≥ 3%
+4. **Engajamento:** ≥ 500 inscritos na newsletter
+5. **SEO:** ≥ 10 keywords ranqueando no top 10 do Google
+
+**Gatilho de Decisão:**
+- Se 3+ critérios forem atingidos → Iniciar Fase 2 (Plataforma de Cursos Online)
+- Se < 3 critérios → Revisar: (a) proposta de valor, (b) canais de aquisição, (c) formatos de conteúdo
+
+---
+
+## 🎯 1.5 ESCOPO: MVP vs. FUTURO
+
+### ✅ O QUE ESTÁ NO ESCOPO DO MVP (Este PRD)
+
+| Área | O que inclui |
+|------|--------------|
+| **Site Institucional** | Home, Quem Somos, Equipe, Contato |
+| **Cursos** | Catálogo de cursos + páginas de detalhes + formulário de interesse |
+| **Mentoria** | Página explicativa + formulário de interesse |
+| **Blog** | Sistema completo de posts com categorias, busca e SEO |
+| **Leads** | Captura via formulários + integração com CRM (Brevo) |
+| **Newsletter** | Cadastro + email de boas-vindas |
+| **Conversão** | Manual (equipe entra em contato via WhatsApp/email) |
+
+### ❌ O QUE NÃO ESTÁ NO ESCOPO DO MVP
+
+| Área | Quando será implementado |
+|------|--------------------------|
+| **Login/Autenticação** | Fase 2 (Plataforma de Cursos) |
+| **Área do Aluno** | Fase 2 |
+| **Pagamento Online** | Fase 2 |
+| **Vídeos On-Demand** | Fase 2 |
+| **Streaming ao Vivo** | Fase 3 (12-18 meses) |
+| **Comunidade/Fórum** | Fase 3 |
+| **App Mobile** | Fase 4 (18+ meses) |
+
+---
+
+## 📊 2. PROBLEM STATEMENT
+
+### 2.1 Situação Atual do Mercado
+
+**Contexto da Nutrição no Brasil:**
+- 📈 **Crescimento:** Mercado de nutrição cresce 15% ao ano
+- 🎓 **Formandos:** ~15.000 novos nutricionistas/ano
+- 💼 **Desemprego:** 30% dos recém-formados não conseguem colocação nos primeiros 2 anos
+- 📚 **Gap de Conhecimento:** 78% dos recém-formados relatam despreparo para prática clínica
+
+**Cenário Educacional:**
+- Pós-graduações tradicionais: R$ 15.000-40.000 (inacessível para maioria)
+- Cursos online: fragmentados, sem curadoria, qualidade variável
+- Conteúdo gratuito: disperso em redes sociais, superficial, sem aplicação prática
+
+### 2.2 Dores dos Usuários (Cenários Reais)
+
+#### 🎓 **Cenário 1: Mariana - Estudante de Nutrição (7º período)**
+
+**Situação:**
+> "Estou no último ano da faculdade, mas não sei como fazer uma anamnese de verdade. Na aula, a gente vê a teoria, mas quando chega no estágio, eu travo. Tenho medo de me formar e não saber atender um paciente."
+
+**Dores:**
+- Lacuna entre teoria acadêmica e prática clínica
+- Falta de exemplos reais e casos práticos
+- Insegurança para atendimentos
+- Não sabe por onde começar a se especializar
+
+**Como isso se conecta ao produto:**
+→ Blog com casos práticos (US-004, US-005)  
+→ Cursos aplicados (US-001, US-002)  
+→ Materiais gratuitos (US-013)
+
+---
+
+#### 💼 **Cenário 2: Rafael - Recém-formado (6 meses)**
+
+**Situação:**
+> "Me formei há 6 meses e ainda não consegui meu primeiro paciente. Não sei se abro consultório, se trabalho em clínica, se faço home care... Vejo colegas se especializando em nutrição esportiva, funcional, clínica... mas não sei qual área escolher nem como começar."
+
+**Dores:**
+- Falta de orientação de carreira
+- Não sabe como escolher área de especialização
+- Dificuldade em conseguir primeiros clientes
+- Falta de rede de contatos profissionais
+- Insegurança sobre gestão de consultório
+
+**Como isso se conecta ao produto:**
+→ Página de Mentoria (US-010)  
+→ Posts sobre áreas de atuação (US-004)  
+→ Cursos de gestão e prática (US-001, US-002)
+
+---
+
+#### 📈 **Cenário 3: Júlia - Nutricionista (3 anos de formada)**
+
+**Situação:**
+> "Trabalho em uma clínica, mas sinto que estou desatualizada. Saem estudos novos toda semana e eu não tenho tempo de ler tudo. Queria fazer uma pós, mas custa R$ 20 mil e demora 2 anos. Preciso de algo mais rápido e acessível."
+
+**Dores:**
+- Dificuldade em se manter atualizada
+- Falta de tempo para estudar
+- Custo alto de especializações tradicionais
+- Sobrecarga de informação (não sabe o que é confiável)
+
+**Como isso se conecta ao produto:**
+→ Blog com curadoria científica (US-004)  
+→ Newsletter semanal (US-006)  
+→ Cursos curtos e focados (US-001)
+
+---
+
+### 2.3 Tamanho da Oportunidade
+
+**Público-Alvo Primário (Brasil):**
+- 🎓 Estudantes de nutrição: ~60.000
+- 👨‍⚕️ Nutricionistas formados há < 5 anos: ~75.000
+- **Total endereçável:** ~135.000 profissionais
+
+**Potencial de Receita (Projeção Conservadora - Ano 1):**
+
+| Produto | Preço Médio | Conversão Estimada | Receita Anual |
+|---------|-------------|-------------------|---------------|
+| Cursos Online | R$ 400 | 2% dos leads (12 vendas) | R$ 4.800 |
+| Mentorias | R$ 800 | 1% dos leads (6 vendas) | R$ 4.800 |
+| **TOTAL ANO 1** | | | **R$ 9.600** |
+
+**Nota:** Estas são projeções conservadoras para validação do modelo. O foco do MVP é **validar demanda e qualidade de leads**, não maximizar receita imediata.
+
+---
+
+### 2.4 Alternativas Atuais e Seus Problemas
+
+| Alternativa | Problemas | Como NUTRINDO JUNTOS Resolve |
+|-------------|-----------|------------------------------|
+| **Instagram/YouTube** | Conteúdo disperso, sem curadoria, superficial, difícil de encontrar depois | Conteúdo organizado, científico, aplicável, fácil de buscar |
+| **Pós-graduação tradicional** | Cara (R$ 15-40k), rígida, longa (18-24 meses), pouca prática | Cursos modulares, acessíveis (R$ 300-800), práticos, flexíveis |
+| **Cursos online avulsos** | Sem trilha coerente, qualidade variável, pouca orientação | Trilhas estruturadas + mentorias guiadas por estágio de carreira |
+| **Grupos de WhatsApp/Facebook** | Informação não verificada, muito ruído, sem estrutura | Curadoria científica, referências, conteúdo validado |
+
+---
+
+## 💡 3. SOLUTION OVERVIEW
+
+### 3.1 Proposta de Valor
+
+**Para** estudantes e nutricionistas em início de carreira  
+**Que** precisam de conhecimento prático, atualização científica e orientação profissional  
+**A NUTRINDO JUNTOS** é uma plataforma educacional  
+**Que** oferece conteúdo científico aplicado, cursos práticos e mentorias personalizadas  
+**Diferente de** pós-graduações caras e conteúdo disperso em redes sociais  
+**Nosso produto** combina acessibilidade, praticidade e curadoria científica com foco em aplicação real.
+
+### 3.2 Pilares da Solução (MVP)
+
+#### **PILAR 1: Presença Institucional Profissional**
+
+**MVP (P0 - Obrigatório):**
+- ✅ Página Home com proposta de valor clara
+- ✅ Página "Quem Somos" (história, missão, valores)
+- ✅ Página "Equipe" (bios dos membros)
+- ✅ Página "Contato" (formulário + informações)
+- ✅ Header e Footer globais
+- ✅ Design responsivo (mobile, tablet, desktop)
+
+**Pós-MVP (P1/P2):**
+- Depoimentos em vídeo
+- Página de Parcerias
+- Página de Imprensa/Mídia
+
+---
+
+#### **PILAR 2: Oferta Educacional (Cursos e Mentoria)**
+
+**MVP (P0 - Obrigatório):**
+
+**Cursos:**
+- ✅ Catálogo de cursos (lista com cards)
+- ✅ Filtros básicos (área de atuação)
+- ✅ Página de detalhes do curso:
+  - Título, descrição, carga horária
+  - Público-alvo, pré-requisitos
+  - Programa resumido (módulos principais)
+  - Preço e formas de pagamento
+  - Formulário "Tenho Interesse"
+- ✅ Integração com CRM (leads vão para Brevo)
+
+**Mentoria:**
+- ✅ Página explicativa sobre mentoria
+- ✅ Benefícios, como funciona, investimento
+- ✅ Perfis resumidos dos mentores
+- ✅ Formulário de interesse em mentoria
+
+**Conversão (MVP):**
+- ⚠️ **Importante:** No MVP, a conversão é **manual**:
+  1. Usuário preenche formulário de interesse
+  2. Lead vai para CRM (Brevo) com tags
+  3. Equipe entra em contato via WhatsApp/email em até 48h
+  4. Pagamento via Pix/transferência ou link externo (Hotmart/Stripe Checkout)
+  5. Confirmação manual de matrícula
+
+**Pós-MVP (P1):**
+- Depoimentos por curso
+- FAQ por curso
+- Vídeo de apresentação do curso
+- Filtros avançados (nível, faixa de preço)
+- Comparação de cursos lado a lado
+
+**Fase 2 (Fora do MVP):**
+- Checkout online integrado
+- Área do aluno
+- Acesso a vídeos
+- Certificados digitais
+
+---
+
+#### **PILAR 3: Blog como Motor de SEO e Educação**
+
+**MVP (P0 - Obrigatório):**
+- ✅ Listagem de posts (grid de cards)
+- ✅ Filtro por categoria
+- ✅ Busca simples por texto
+- ✅ Paginação
+- ✅ Página de post individual:
+  - Título, conteúdo, autor, data
+  - Imagem de destaque
+  - Categorias e tags
+  - CTA para newsletter (inline no post)
+  - Botões de compartilhamento social
+  - Meta tags para SEO
+- ✅ Mínimo 15 posts publicados no lançamento
+
+**Pós-MVP (P1):**
+- Table of Contents (TOC) clicável
+- Progress bar de leitura
+- Posts relacionados
+- Comentários (Disqus ou similar)
+- Schema markup para Article
+- Página por tag
+- Featured posts
+
+---
+
+#### **PILAR 4: Captura e Gestão de Leads**
+
+**MVP (P0 - Obrigatório):**
+- ✅ Formulário de newsletter (footer + inline em posts)
+- ✅ Formulário de interesse em curso
+- ✅ Formulário de interesse em mentoria
+- ✅ Formulário de contato geral
+- ✅ Integração com Brevo (CRM + email marketing)
+- ✅ Email de boas-vindas automático (newsletter)
+- ✅ Email de confirmação de interesse (cursos/mentoria)
+- ✅ Conformidade com LGPD (checkbox de consentimento)
+
+**Pós-MVP (P1/P2):**
+- Modal exit-intent para newsletter
+- Formulário de newsletter no header
+- Materiais gratuitos (lead magnets)
+- Segmentação avançada de listas
+- Automações de email (sequências)
+- A/B testing de formulários
+
+---
+
+### 3.3 Diferenciais Centrais
+
+| Diferencial | Descrição | Como se manifesta no produto |
+|-------------|-----------|------------------------------|
+| **Curadoria Científica** | Todo conteúdo baseado em evidências | Referências em posts, instrutores qualificados |
+| **Foco em Aplicação Prática** | Não é só teoria, é "como fazer" | Casos práticos, templates, checklists |
+| **Acessibilidade** | Preços justos para início de carreira | Cursos R$ 300-800 vs. pós R$ 15-40k |
+| **Orientação Personalizada** | Mentoria 1:1 por estágio de carreira | Matching mentor-mentorado por objetivos |
+| **Comunidade** (futuro) | Networking entre nutricionistas | Fórum, grupos de estudo (Fase 3) |
+
+---
+
+## 👥 4. USER PERSONAS
+
+### 📊 Mapa Rápido de Personas
+
+| Persona | Estágio | % Público | Principal Objetivo | Principal Dor |
+|---------|---------|-----------|-------------------|---------------|
+| **Mariana** | Estudante (7º período) | 40% | Aprender prática real | Lacuna entre teoria e prática |
+| **Rafael** | Recém-formado (< 1 ano) | 35% | Montar consultório e escolher nicho | Falta de orientação e gestão |
+| **Júlia** | Profissional (3-5 anos) | 25% | Atualização científica | Falta de tempo e custo alto |
+
+### 🎓 Persona 1: Mariana - A Estudante Aplicada
+
+**Demografia:**
+- **Idade:** 23 anos
+- **Localização:** Belo Horizonte, MG
+- **Formação:** Estudante de Nutrição (7º período)
+- **Renda:** R$ 0-1.500/mês (estágio + ajuda dos pais)
+- **Dispositivos:** Smartphone (principal), notebook (estudos)
+
+**Comportamento Digital:**
+- Passa 4h/dia no Instagram
+- Segue perfis de nutricionistas e professores
+- Usa Google para pesquisar dúvidas acadêmicas
+- Consome muito conteúdo em vídeo (YouTube, Reels)
+
+**Objetivos:**
+1. Se formar com segurança para atender pacientes
+2. Conseguir estágio em boa clínica/hospital
+3. Aprender ferramentas práticas (anamnese, prescrição, etc.)
+4. Decidir área de especialização
+
+**Frustrações:**
+- "A faculdade ensina muita teoria, mas pouca prática"
+- "Não sei como fazer uma anamnese de verdade"
+- "Tenho medo de errar com um paciente real"
+- "Não sei qual área seguir depois de formada"
+
+**Como NUTRINDO JUNTOS ajuda:**
+- Blog com casos práticos e passo a passo
+- Cursos acessíveis focados em prática
+- Conteúdo sobre diferentes áreas de atuação
+- Materiais gratuitos (templates, checklists)
+
+**User Stories Críticas:**
+- US-004 (Leitura de posts)
+- US-005 (Navegação no blog)
+- US-006 (Newsletter)
+- US-001 (Catálogo de cursos)
+
+---
+
+### 💼 Persona 2: Rafael - O Recém-Formado Perdido
+
+**Demografia:**
+- **Idade:** 25 anos
+- **Localização:** São Paulo, SP
+- **Formação:** Nutricionista (CRN ativo, formado há 6 meses)
+- **Renda:** R$ 2.000-3.000/mês (freelas + trabalho temporário)
+- **Dispositivos:** Smartphone + notebook
+
+**Comportamento Digital:**
+- Busca ativamente por "como montar consultório", "primeiros pacientes"
+- Participa de grupos de WhatsApp de nutricionistas
+- Consome conteúdo sobre empreendedorismo e gestão
+- Usa LinkedIn para networking
+
+**Objetivos:**
+1. Conseguir primeiros pacientes/clientes
+2. Escolher área de especialização
+3. Aprender gestão de consultório (precificação, contratos, etc.)
+4. Construir rede de contatos profissionais
+
+**Frustrações:**
+- "Não sei por onde começar"
+- "Tenho medo de cobrar errado e perder clientes"
+- "Vejo colegas se especializando, mas não sei qual área escolher"
+- "Sinto que preciso de um mentor, mas não conheço ninguém"
+
+**Como NUTRINDO JUNTOS ajuda:**
+- Mentoria 1:1 com profissionais experientes
+- Cursos sobre gestão e prática clínica
+- Blog com conteúdo sobre áreas de atuação
+- Networking (futuro: comunidade)
+
+**User Stories Críticas:**
+- US-010 (Página de mentoria)
+- US-001, US-002, US-003 (Cursos)
+- US-009 (Contato)
+- US-004 (Blog)
+
+---
+
+### 📈 Persona 3: Júlia - A Profissional Ocupada
+
+**Demografia:**
+- **Idade:** 28 anos
+- **Localização:** Rio de Janeiro, RJ
+- **Formação:** Nutricionista (3 anos de formada)
+- **Renda:** R$ 4.000-6.000/mês (CLT em clínica + atendimentos particulares)
+- **Dispositivos:** Smartphone (principal), tablet
+
+**Comportamento Digital:**
+- Pouco tempo livre (trabalha 10h/dia)
+- Consome conteúdo em momentos de deslocamento
+- Busca por "estudos recentes", "evidências científicas"
+- Usa podcasts e newsletters para se atualizar
+
+**Objetivos:**
+1. Se manter atualizada cientificamente
+2. Aprender novas abordagens/protocolos
+3. Crescer profissionalmente (virar referência em alguma área)
+4. Otimizar tempo de estudo
+
+**Frustrações:**
+- "Não tenho tempo para fazer pós-graduação de 2 anos"
+- "Saem estudos novos toda semana, não consigo acompanhar"
+- "Pós-graduação custa R$ 20 mil, não cabe no orçamento agora"
+- "Preciso de conteúdo direto ao ponto, sem enrolação"
+
+**Como NUTRINDO JUNTOS ajuda:**
+- Newsletter semanal com curadoria de estudos
+- Cursos curtos e focados (20-40h)
+- Blog com resumos de evidências científicas
+- Conteúdo aplicável imediatamente na prática
+
+**User Stories Críticas:**
+- US-006 (Newsletter)
+- US-004 (Blog)
+- US-001 (Cursos)
+- US-013 (Materiais gratuitos - pós-MVP)
+
+---
+
+### 🗺️ Mapeamento: Personas → User Stories
+
+| User Story | Mariana | Rafael | Júlia | Prioridade |
+|------------|---------|--------|-------|------------|
+| US-001 (Catálogo de cursos) | ✅ | ✅ | ✅ | P0 |
+| US-002 (Detalhes do curso) | ✅ | ✅ | ✅ | P0 |
+| US-003 (Interesse em curso) | ✅ | ✅ | ✅ | P0 |
+| US-004 (Leitura de post) | ✅ | ✅ | ✅ | P0 |
+| US-005 (Navegação no blog) | ✅ | ✅ | ✅ | P0 |
+| US-006 (Newsletter) | ✅ | ✅ | ✅ | P0 |
+| US-007 (Quem Somos) | ✅ | ✅ | ✅ | P0 |
+| US-008 (Equipe) | ✅ | ✅ | ✅ | P0 |
+| US-009 (Contato) | ✅ | ✅ | ✅ | P0 |
+| US-010 (Mentoria) | ⚪ | ✅ | ✅ | P0 |
+| US-011 (Busca global) | ✅ | ✅ | ✅ | P1 |
+| US-013 (Materiais gratuitos) | ✅ | ✅ | ✅ | P1 |
+
+---
+
+## 🏗️ 5. TECHNICAL ARCHITECTURE (Simplificada para MVP)
+
+### 5.1 Princípios Técnicos
+
+**Decisões Estratégicas Irreversíveis:**
+
+1. ✅ **Headless CMS** - Conteúdo independente do frontend (permite evolução futura)
+2. ✅ **SEO-First** - Arquitetura otimizada para mecanismos de busca
+3. ✅ **Mobile-First** - Design e performance priorizando mobile
+4. ✅ **Escalável** - Preparado para crescer sem refatoração completa
+
+**O que NÃO faremos no MVP:**
+- ❌ Backend próprio complexo (API Node.js modular)
+- ❌ Database próprio (PostgreSQL/Supabase)
+- ❌ Sistema de autenticação (JWT, Bcrypt)
+- ❌ Microserviços
+- ❌ Kubernetes/orquestração
+
+---
+
+### 5.2 Stack Tecnológico do MVP
+
+#### **Frontend**
+- **Framework:** Next.js 14+ (App Router) com TypeScript
+- **Styling:** Tailwind CSS
+- **Formulários:** React Hook Form + Zod (validação)
+- **Animações:** Framer Motion (opcional, apenas essenciais)
+
+#### **CMS (Gerenciamento de Conteúdo)**
+- **Opção Recomendada:** Strapi (Headless CMS)
+  - Gerencia: posts, cursos, equipe, depoimentos
+  - Tier: Free ou Self-hosted no início
+  - Alternativas: Contentful, Sanity, Payload CMS
+
+#### **Hospedagem & Infraestrutura**
+- **Frontend:** Vercel (tier gratuito ou Pro)
+- **CMS:** Strapi Cloud (tier gratuito) ou Railway/Render
+- **CDN:** Cloudflare (tier gratuito)
+- **Domínio:** Registro.br ou similar
+
+#### **Integrações Essenciais**
+- **Email Marketing:** Brevo (ex-Sendinblue) - tier gratuito até 300 emails/dia
+- **Analytics:** Google Analytics 4 (gratuito)
+- **Search Console:** Google Search Console (gratuito)
+- **Monitoramento:** Sentry (tier gratuito) ou similar
+
+#### **Armazenamento**
+- **Imagens:** Cloudinary (tier gratuito) ou storage do próprio CMS
+
+---
+
+### 5.3 Arquitetura Simplificada (MVP)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         USUÁRIO                             │
+│                    (Browser / Mobile)                       │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    CLOUDFLARE CDN                           │
+│              (Cache, SSL, DDoS Protection)                  │
+└────────────────────────┬────────────────────────────────────┘
+                         │
+                         ↓
+┌─────────────────────────────────────────────────────────────┐
+│                  NEXT.JS APP (Vercel)                       │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │  Páginas:                                            │  │
+│  │  - Home, Quem Somos, Equipe, Contato                │  │
+│  │  - Cursos (lista + detalhes)                        │  │
+│  │  - Mentoria                                          │  │
+│  │  - Blog (lista + post individual)                   │  │
+│  │                                                      │  │
+│  │  Formulários:                                        │  │
+│  │  - Newsletter, Interesse Curso, Mentoria, Contato   │  │
+│  └──────────────────────────────────────────────────────┘  │
+└────────────┬──────────────────────────┬─────────────────────┘
+             │                          │
+             ↓                          ↓
+┌────────────────────────┐   ┌──────────────────────────────┐
+│   STRAPI CMS           │   │   BREVO (Email Marketing)    │
+│   (Headless)           │   │                              │
+│                        │   │  - Listas de contatos        │
+│  - Posts de blog       │   │  - Automações de email       │
+│  - Cursos              │   │  - Campanhas                 │
+│  - Equipe              │   │  - Tags e segmentação        │
+│  - Categorias/Tags     │   └──────────────────────────────┘
+│  - Depoimentos         │
+│                        │
+│  Database interno      │
+│  (SQLite ou PostgreSQL)│
+└────────────────────────┘
+             │
+             ↓
+┌────────────────────────┐
+│   CLOUDINARY           │
+│   (Imagens)            │
+└────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                    ANALYTICS & MONITORING                    │
+│  - Google Analytics 4                                       │
+│  - Google Search Console                                    │
+│  - Sentry (Error Tracking)                                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 5.4 Fluxo de Dados Simplificado
+
+#### **Fluxo 1: Usuário lê post do blog**
+```
+1. Usuário acessa /blog/como-fazer-anamnese
+2. Next.js busca conteúdo do Strapi via API
+3. Strapi retorna post (título, conteúdo, autor, etc.)
+4. Next.js renderiza página (SSR ou SSG)
+5. Página é servida ao usuário via Cloudflare CDN
+6. Google Analytics registra pageview
+```
+
+#### **Fluxo 2: Usuário manifesta interesse em curso**
+```
+1. Usuário preenche formulário "Tenho Interesse"
+2. Frontend valida dados (Zod)
+3. Next.js API Route recebe dados
+4. Dados são enviados para Brevo via API:
+   - Cria/atualiza contato
+   - Adiciona à lista "Leads - Cursos"
+   - Adiciona tag com nome do curso
+   - Dispara email automático de confirmação
+5. (Opcional) Dados também salvos no Strapi para backup
+6. Usuário vê mensagem de sucesso
+7. Equipe recebe notificação (email ou webhook)
+```
+
+#### **Fluxo 3: Usuário se cadastra na newsletter**
+```
+1. Usuário preenche formulário de newsletter
+2. Frontend valida email
+3. Next.js API Route envia para Brevo:
+   - Cria contato
+   - Adiciona à lista "Newsletter"
+   - Dispara email de boas-vindas
+4. Usuário vê mensagem de sucesso
+5. Google Analytics registra evento "newsletter_signup"
+```
+
+---
+
+### 5.5 Requisitos Não-Funcionais
+
+| Requisito | Meta | Como Medir |
+|-----------|------|------------|
+| **Performance** | Lighthouse Score > 90 | Lighthouse CI |
+| **LCP** | < 2.5s | Core Web Vitals |
+| **FID** | < 100ms | Core Web Vitals |
+| **CLS** | < 0.1 | Core Web Vitals |
+| **Uptime** | > 99.5% | UptimeRobot |
+| **Responsividade** | 100% funcional em mobile/tablet/desktop | Testes manuais |
+| **Acessibilidade** | WCAG 2.1 AA | Lighthouse + testes manuais |
+| **SEO** | Lighthouse SEO = 100 | Lighthouse |
+| **Segurança** | HTTPS, headers de segurança | Security Headers |
+
+---
+
+### 5.6 Integrações Detalhadas
+
+#### **Brevo (Email Marketing & CRM)**
+
+**Endpoints Utilizados:**
+- `POST /v3/contacts` - Criar/atualizar contato
+- `POST /v3/smtp/email` - Enviar email transacional
+- `GET /v3/contacts/lists` - Listar listas
+
+**Listas no Brevo:**
+1. **Newsletter** - Todos os inscritos na newsletter
+2. **Leads - Cursos** - Manifestaram interesse em cursos
+3. **Leads - Mentoria** - Manifestaram interesse em mentoria
+4. **Leads - Contato** - Enviaram formulário de contato
+
+**Tags:**
+- `curso:[nome-do-curso]` - Ex: `curso:nutricao-clinica`
+- `interesse:[area]` - Ex: `interesse:nutricao-esportiva`
+- `estagio:[nivel]` - Ex: `estagio:estudante`, `estagio:recem-formado`
+
+**Automações:**
+- Email de boas-vindas (newsletter)
+- Email de confirmação de interesse (cursos/mentoria)
+- (Pós-MVP) Sequências de nutrição de leads
+
+---
+
+#### **Google Analytics 4**
+
+**Eventos Principais a Rastrear:**
+
+```javascript
+// Conversões
+- newsletter_signup
+- course_interest
+- mentoring_interest
+- contact_form_submit
+- material_download (pós-MVP)
+
+// Engajamento
+- scroll (25%, 50%, 75%, 100%)
+- reading_time
+- social_share
+- cta_click
+- video_view (quando houver vídeos)
+
+// Navegação
+- search
+- filter_applied
+- related_post_click
+```
+
+---
+
+## 6. REQUISITOS FUNCIONAIS DETALHADOS
+
+### 6.1 Mapeamento Persona → User Stories
+
+| User Story | Persona Principal | Persona Secundária |
+|------------|-------------------|-------------------|
+| US-001: Navegação de cursos | Ana (Estudante) | Carlos (Recém-formado) |
+| US-002: Visualização de detalhes do curso | Ana, Carlos | - |
+| US-003: Manifestação de interesse | Ana, Carlos | - |
+| US-004: Leitura de artigos do blog | Ana, Carlos, Beatriz | - |
+| US-005: Cadastro na newsletter | Ana, Carlos, Beatriz | - |
+| US-006: Busca de conteúdo | Carlos, Beatriz | Ana |
+| US-007: Compartilhamento social | Todos | - |
+| US-008: Formulário de contato | Carlos, Beatriz | Ana |
+
+### 6.2 User Stories Priorizadas (MVP - Fase 1)
+
+#### **ALTA PRIORIDADE (Must Have)**
+
+**US-001: Navegação de Cursos**
+- **Como** visitante
+- **Quero** visualizar a lista de cursos disponíveis
+- **Para** conhecer as opções educacionais oferecidas
+
+**Critérios de Aceitação:**
+- [ ] Exibir cards de cursos com imagem, título, descrição curta e CTA
+- [ ] Filtrar por categoria (Nutrição Clínica, Esportiva, etc.)
+- [ ] Responsivo em mobile, tablet e desktop
+- [ ] Tempo de carregamento < 3s
+
+**Esforço:** 5 pontos | **Prioridade:** P0
+
+---
+
+**US-002: Visualização de Detalhes do Curso**
+- **Como** visitante interessado
+- **Quero** ver informações completas sobre um curso
+- **Para** decidir se quero manifestar interesse
+
+**Critérios de Aceitação:**
+- [ ] Página dedicada com: descrição completa, módulos, carga horária, instrutor, preço estimado
+- [ ] CTA claro para "Manifestar Interesse"
+- [ ] Breadcrumb de navegação
+- [ ] Meta tags para SEO
+
+**Esforço:** 8 pontos | **Prioridade:** P0
+
+---
+
+**US-003: Manifestação de Interesse (Lead Capture)**
+- **Como** visitante interessado
+- **Quero** manifestar interesse em um curso
+- **Para** ser notificado quando estiver disponível
+
+**Critérios de Aceitação:**
+- [ ] Formulário com: nome, email, telefone (opcional), curso de interesse
+- [ ] Validação de campos obrigatórios
+- [ ] Mensagem de confirmação após envio
+- [ ] Integração com CRM/planilha para gestão de leads
+- [ ] Email automático de confirmação
+
+**Esforço:** 8 pontos | **Prioridade:** P0
+
+---
+
+**US-004: Leitura de Artigos do Blog**
+- **Como** visitante
+- **Quero** ler artigos educacionais sobre nutrição
+- **Para** aprender e conhecer a qualidade do conteúdo da plataforma
+
+**Critérios de Aceitação:**
+- [ ] Listagem de artigos com thumbnail, título, resumo, data
+- [ ] Página de artigo completo com formatação adequada
+- [ ] Categorização por temas
+- [ ] Tempo de leitura estimado
+- [ ] Botão de compartilhamento social
+
+**Esforço:** 8 pontos | **Prioridade:** P0
+
+---
+
+**US-005: Cadastro na Newsletter**
+- **Como** visitante
+- **Quero** me cadastrar na newsletter
+- **Para** receber conteúdos e novidades por email
+
+**Critérios de Aceitação:**
+- [ ] Formulário simples (nome + email)
+- [ ] Validação de email
+- [ ] Integração com ferramenta de email marketing
+- [ ] Confirmação de cadastro (double opt-in)
+- [ ] LGPD compliance (checkbox de consentimento)
+
+**Esforço:** 5 pontos | **Prioridade:** P0
+
+---
+
+#### **MÉDIA PRIORIDADE (Should Have)**
+
+**US-006: Busca de Conteúdo**
+- **Como** visitante
+- **Quero** buscar por cursos ou artigos específicos
+- **Para** encontrar rapidamente o que me interessa
+
+**Critérios de Aceitação:**
+- [ ] Campo de busca visível no header
+- [ ] Busca em títulos e descrições de cursos e artigos
+- [ ] Página de resultados com filtros
+- [ ] Sugestões de busca (nice to have)
+
+**Esforço:** 13 pontos | **Prioridade:** P1
+
+---
+
+**US-007: Compartilhamento Social**
+- **Como** leitor
+- **Quero** compartilhar artigos nas redes sociais
+- **Para** divulgar conteúdo relevante
+
+**Critérios de Aceitação:**
+- [ ] Botões de compartilhamento (WhatsApp, Facebook, LinkedIn, Twitter)
+- [ ] Open Graph tags configuradas
+- [ ] Preview adequado ao compartilhar
+
+**Esforço:** 3 pontos | **Prioridade:** P1
+
+---
+
+**US-008: Formulário de Contato**
+- **Como** visitante
+- **Quero** entrar em contato com a equipe
+- **Para** tirar dúvidas ou fazer parcerias
+
+**Critérios de Aceitação:**
+- [ ] Formulário com: nome, email, assunto, mensagem
+- [ ] Validação de campos
+- [ ] Envio para email da equipe
+- [ ] Mensagem de confirmação
+
+**Esforço:** 5 pontos | **Prioridade:** P1
+
+---
+
+#### **BAIXA PRIORIDADE (Could Have - Pós-MVP)**
+
+**US-009: Depoimentos de Alunos**
+- **Como** visitante
+- **Quero** ver depoimentos de outros estudantes
+- **Para** validar a qualidade dos cursos
+
+**Esforço:** 5 pontos | **Prioridade:** P2
+
+---
+
+**US-010: FAQ Interativo**
+- **Como** visitante
+- **Quero** acessar perguntas frequentes
+- **Para** esclarecer dúvidas comuns
+
+**Esforço:** 3 pontos | **Prioridade:** P2
+
+---
+
+### 6.3 Tabela de Priorização por Área
+
+| Área | Feature | Prioridade | Esforço | Impacto no Negócio | Status MVP |
+|------|---------|------------|---------|-------------------|-----------|
+| **Conversão** | Manifestação de interesse | P0 | 8 | Alto | ✅ Incluído |
+| **Conversão** | Newsletter signup | P0 | 5 | Alto | ✅ Incluído |
+| **Conteúdo** | Blog/Artigos | P0 | 8 | Alto | ✅ Incluído |
+| **Conteúdo** | Catálogo de cursos | P0 | 5 | Alto | ✅ Incluído |
+| **Conteúdo** | Detalhes do curso | P0 | 8 | Alto | ✅ Incluído |
+| **Descoberta** | Busca | P1 | 13 | Médio | ⏳ Fase 2 |
+| **Social** | Compartilhamento | P1 | 3 | Médio | ⏳ Fase 2 |
+| **Suporte** | Contato | P1 | 5 | Médio | ⏳ Fase 2 |
+| **Prova Social** | Depoimentos | P2 | 5 | Baixo | ❌ Futuro |
+| **Suporte** | FAQ | P2 | 3 | Baixo | ❌ Futuro |
+
+---
+
+## 7. ARQUITETURA TÉCNICA (MVP SIMPLIFICADO)
+
+### 7.1 Stack Tecnológico Recomendado para MVP
+
+**Frontend:**
+- **Framework:** Next.js 14+ (React)
+  - Justificativa: SSR/SSG para SEO, performance, developer experience
+- **Estilização:** Tailwind CSS
+  - Justificativa: Rapidez no desenvolvimento, design system consistente
+- **Hospedagem:** Vercel
+  - Justificativa: Deploy automático, CDN global, otimização automática
+
+**Backend/CMS:**
+- **Opção 1 (Recomendada para MVP):** Headless CMS
+  - Strapi (self-hosted) ou Contentful/Sanity (SaaS)
+  - Justificativa: Gestão de conteúdo sem código, APIs prontas
+- **Opção 2:** Backend próprio com Node.js + Express (se necessário customização)
+
+**Banco de Dados:**
+- **MVP:** PostgreSQL (via Supabase ou Railway)
+  - Justificativa: Gratuito para começar, escalável, relacional
+
+**Integrações Essenciais:**
+- **Email Marketing:** Mailchimp ou Brevo (ex-Sendinblue)
+- **Analytics:** Google Analytics 4 + Hotjar (comportamento)
+- **Formulários:** Integração direta ou Typeform/Google Forms
+
+### 7.2 Diagrama de Arquitetura Simplificado (MVP)
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    USUÁRIO                          │
+└──────────────────┬──────────────────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────────────────┐
+│              FRONTEND (Next.js)                     │
+│  - Páginas estáticas (SSG)                          │
+│  - SEO otimizado                                    │
+│  - Formulários de captura                           │
+│  Hospedagem: Vercel                                 │
+└──────────────────┬──────────────────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────────────────┐
+│         HEADLESS CMS (Strapi/Contentful)            │
+│  - Gestão de cursos                                 │
+│  - Gestão de artigos                                │
+│  - API REST/GraphQL                                 │
+└──────────────────┬──────────────────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────────────────┐
+│         BANCO DE DADOS (PostgreSQL)                 │
+│  - Conteúdo                                         │
+│  - Leads (opcional, pode ser só CRM)                │
+└─────────────────────────────────────────────────────┘
+
+INTEGRAÇÕES EXTERNAS:
+├─ Email Marketing (Mailchimp/Brevo)
+├─ Analytics (GA4)
+└─ CRM/Planilha (Google Sheets ou Notion)
+```
+
+### 7.3 Decisões Técnicas Justificadas
+
+| Decisão | Justificativa | Alternativa Considerada |
+|---------|---------------|------------------------|
+| Next.js | SEO crítico, performance, ecossistema React | Gatsby, Astro |
+| Headless CMS | Time não-técnico pode gerenciar conteúdo | WordPress, backend custom |
+| Vercel | Deploy simples, otimizações automáticas | Netlify, AWS |
+| PostgreSQL | Relacional, gratuito para começar, escalável | MongoDB, MySQL |
+| Tailwind CSS | Velocidade de desenvolvimento, consistência | CSS Modules, Styled Components |
+
+---
+
+## 8. HIPÓTESES A VALIDAR (MVP)
+
+### 8.1 Hipóteses de Produto
+
+| ID | Hipótese | Métrica de Validação | Critério de Sucesso |
+|----|----------|---------------------|-------------------|
+| H1 | Estudantes e recém-formados em nutrição buscam ativamente cursos de especialização online | Taxa de conversão lead > 3% | ✅ Validada se atingir |
+| H2 | Conteúdo educacional gratuito (blog) gera confiança e aumenta conversão | Taxa de conversão visitantes blog → leads 2x maior que outras páginas | ✅ Validada se atingir |
+| H3 | O modelo de "manifestação de interesse" é suficiente para validar demanda antes de criar cursos | Mínimo 50 leads por curso em 3 meses | ✅ Validada se atingir |
+| H4 | Usuários preferem cursos especializados (nichos) vs. cursos generalistas | Cursos de nicho têm 50%+ mais manifestações de interesse | ✅ Validada se atingir |
+
+### 8.2 Hipóteses de Negócio
+
+| ID | Hipótese | Métrica de Validação | Critério de Sucesso |
+|----|----------|---------------------|-------------------|
+| H5 | Existe demanda suficiente para justificar criação de cursos pagos | 200+ leads qualificados em 6 meses | ✅ Validada se atingir |
+| H6 | O CAC (Custo de Aquisição de Cliente) via conteúdo orgânico é viável | CAC < R$ 50 por lead | ✅ Validada se atingir |
+| H7 | Taxa de conversão de lead → aluno pagante é de pelo menos 10% | 10% dos leads se tornam alunos pagantes | ✅ Validada se atingir |
+
+---
+
+## 9. MODELO DE CONVERSÃO (FUNIL MVP)
+
+### 9.1 Funil de Conversão Detalhado
+
+```
+TOPO DO FUNIL (Awareness)
+├─ Visitante chega via:
+│  ├─ SEO (Google)
+│  ├─ Redes sociais (Instagram, LinkedIn)
+│  └─ Indicação direta
+│
+▼
+MEIO DO FUNIL (Consideration)
+├─ Visitante consome conteúdo:
+│  ├─ Lê artigos do blog
+│  ├─ Navega catálogo de cursos
+│  └─ Visualiza detalhes de curso específico
+│
+▼
+FUNDO DO FUNIL (Conversion - MVP)
+├─ Visitante se torna LEAD:
+│  ├─ Manifesta interesse em curso
+│  ├─ Cadastra na newsletter
+│  └─ Entra em contato
+│
+▼
+PÓS-MVP (Fase 2 - Monetização)
+└─ Lead se torna ALUNO PAGANTE:
+   ├─ Recebe comunicação sobre lançamento
+   ├─ Participa de webinar gratuito
+   └─ Compra curso
+```
+
+### 9.2 Métricas por Etapa do Funil
+
+| Etapa | Métrica | Meta Mínima (3 meses) | Meta Aspiracional (6 meses) |
+|-------|---------|----------------------|---------------------------|
+| Topo | Visitantes únicos/mês | 1.000 | 5.000 |
+| Meio | Pageviews/visitante | 2,5 | 3,5 |
+| Meio | Tempo médio no site | 2 min | 4 min |
+| Fundo | Taxa de conversão lead | 3% | 5% |
+| Fundo | Leads qualificados/mês | 30 | 150 |
+| Fundo | Crescimento MoM leads | 15% | 30% |
+
+---
+
+## 10. MÉTRICAS DE SUCESSO (REORGANIZADAS)
+
+### 10.1 KPIs de Produto
+
+| Métrica | Meta Mínima (3 meses) | Meta Aspiracional (6 meses) | Ferramenta |
+|---------|----------------------|---------------------------|-----------|
+| Visitantes únicos/mês | 1.000 | 5.000 | GA4 |
+| Taxa de rejeição | < 60% | < 50% | GA4 |
+| Tempo médio no site | 2 min | 4 min | GA4 |
+| Páginas/sessão | 2,5 | 3,5 | GA4 |
+| Taxa de conversão (lead) | 3% | 5% | GA4 + CRM |
+
+### 10.2 KPIs de Marketing
+
+| Métrica | Meta Mínima (3 meses) | Meta Aspiracional (6 meses) | Ferramenta |
+|---------|----------------------|---------------------------|-----------|
+| Leads qualificados/mês | 30 | 150 | CRM |
+| Crescimento MoM leads | 15% | 30% | CRM |
+| Taxa de abertura newsletter | 25% | 35% | Mailchimp |
+| Taxa de clique newsletter | 3% | 5% | Mailchimp |
+| Seguidores redes sociais | +500 | +2.000 | Instagram/LinkedIn |
+| CAC (Custo Aquisição Cliente) | < R$ 50 | < R$ 30 | Planilha |
+
+### 10.3 KPIs Técnicos
+
+| Métrica | Meta | Ferramenta |
+|---------|------|-----------|
+| Tempo de carregamento (LCP) | < 2,5s | Lighthouse |
+| Core Web Vitals | Todos "Good" | Google Search Console |
+| Uptime | > 99,5% | Vercel Analytics |
+| Erros JS | < 1% das sessões | Sentry (opcional) |
+
+---
+
+## 11. CRONOGRAMA E FASES
+
+### 11.1 Fase 1 - MVP LEAN (8-10 semanas)
+
+**Objetivo:** Validar demanda e capturar leads
+
+| Semana | Atividade | Responsável | Entregável |
+|--------|-----------|-------------|-----------|
+| 1-2 | Setup técnico + Design System | Dev + Designer | Ambiente configurado, componentes base |
+| 3-4 | Desenvolvimento páginas core | Dev | Home, Sobre, Catálogo, Detalhes Curso |
+| 5-6 | Desenvolvimento blog + formulários | Dev | Blog funcional, captura de leads |
+| 7 | Integração CMS + Email Marketing | Dev | Conteúdo gerenciável, emails automáticos |
+| 8 | Testes + Ajustes + SEO | Dev + Marketing | Site testado, meta tags, sitemap |
+| 9 | Criação de conteúdo inicial | Marketing | 5-10 artigos, 3-5 cursos cadastrados |
+| 10 | Lançamento MVP | Todos | Site no ar, divulgação inicial |
+
+**Investimento Estimado:** R$ 15.000 - R$ 25.000 (desenvolvimento) + R$ 2.000 - R$ 5.000 (design)
+
+---
+
+### 11.2 Fase 2 - Otimização e Crescimento (3-6 meses pós-MVP)
+
+**Objetivo:** Crescer base de leads e preparar monetização
+
+**Atividades:**
+- Produção contínua de conteúdo (2-4 artigos/mês)
+- Otimização de SEO
+- Campanhas de mídia paga (teste)
+- Implementação de features P1 (busca, FAQ, depoimentos)
+- Análise de dados e ajustes no funil
+- Preparação de primeiro curso piloto
+
+**Investimento Estimado:** R$ 3.000 - R$ 5.000/mês (marketing + manutenção)
+
+---
+
+### 11.3 Fase 3 - Monetização (6-12 meses pós-MVP)
+
+**Objetivo:** Lançar primeiro curso pago e validar modelo de negócio
+
+**Atividades:**
+- Desenvolvimento de plataforma de cursos (LMS)
+- Criação de conteúdo do primeiro curso
+- Campanha de pré-venda para base de leads
+- Lançamento e acompanhamento de turma piloto
+- Iteração baseada em feedback
+
+**Investimento Estimado:** R$ 30.000 - R$ 50.000 (desenvolvimento LMS + produção curso)
+
+---
+
+### 11.4 Visão Futura (12+ meses)
+
+**Recursos Planejados (não-MVP):**
+- Plataforma completa de streaming de cursos
+- Área de membros com gamificação
+- Certificados digitais
+- Comunidade/fórum de alunos
+- App mobile
+- Marketplace de cursos (outros instrutores)
+- Assinaturas recorrentes
+
+---
+
+## 12. RISCOS E MITIGAÇÕES
+
+### 12.1 Riscos de Negócio
+
+| Risco | Probabilidade | Impacto | Mitigação |
+|-------|--------------|---------|-----------|
+| Demanda insuficiente para cursos | Média | Alto | MVP focado em validação antes de criar cursos; pesquisa com público-alvo |
+| Concorrência de plataformas estabelecidas | Alta | Médio | Diferenciação por nicho e qualidade; foco em comunidade |
+| Dificuldade em produzir conteúdo consistente | Média | Alto | Planejamento editorial antecipado; parcerias com especialistas |
+| CAC muito alto para ser sustentável | Média | Alto | Foco em SEO e orgânico no MVP; testar canais antes de escalar |
+| Baixa conversão de lead → aluno | Alta | Alto | Nutrição de leads com conteúdo; webinars gratuitos; ofertas early-bird |
+
+### 12.2 Riscos Técnicos
+
+| Risco | Probabilidade | Impacto | Mitigação |
+|-------|--------------|---------|-----------|
+| Problemas de performance/SEO | Baixa | Médio | Next.js com SSG; testes de performance contínuos |
+| Dificuldade de integração com ferramentas | Baixa | Baixo | Escolher ferramentas com boa documentação e suporte |
+| Escalabilidade do banco de dados | Baixa | Médio | PostgreSQL escalável; monitoramento desde o início |
+| Segurança de dados (LGPD) | Média | Alto | Compliance desde o MVP; política de privacidade clara; consentimento explícito |
+
+### 12.3 Riscos de Execução
+
+| Risco | Probabilidade | Impacto | Mitigação |
+|-------|--------------|---------|-----------|
+| Atraso no desenvolvimento | Média | Médio | Cronograma com buffer; priorização clara (MVP enxuto) |
+| Falta de recursos (tempo/dinheiro) | Média | Alto | Orçamento realista; buscar investimento/parcerias se necessário |
+| Equipe pequena/sobrecarregada | Alta | Médio | Automatizar o máximo possível; terceirizar tarefas não-core |
+
+---
+
+## 13. CRITÉRIOS DE SUCESSO DO MVP
+
+### 13.1 Critérios Quantitativos (6 meses)
+
+✅ **MVP considerado bem-sucedido se:**
+- Mínimo 200 leads qualificados capturados
+- Taxa de conversão visitante → lead ≥ 3%
+- Crescimento mês a mês de leads ≥ 15%
+- Pelo menos 1 curso com 50+ manifestações de interesse
+- CAC < R$ 50 por lead
+
+### 13.2 Critérios Qualitativos
+
+✅ **MVP considerado bem-sucedido se:**
+- Feedback positivo de usuários (NPS ≥ 40)
+- Conteúdo do blog sendo compartilhado organicamente
+- Menções espontâneas em redes sociais
+- Parcerias ou interesse de instrutores em contribuir
+- Validação clara de pelo menos 2 hipóteses de produto
+
+---
+
+## 14. PRÓXIMOS PASSOS IMEDIATOS
+
+### 14.1 Pré-Desenvolvimento (Semana 0)
+
+- [ ] Validar orçamento e aprovar investimento
+- [ ] Definir equipe (dev, designer, marketing)
+- [ ] Registrar domínio e criar identidade visual
+- [ ] Pesquisa com público-alvo (entrevistas, formulário)
+- [ ] Definir 3-5 cursos iniciais para o catálogo
+
+### 14.2 Kick-off (Semana 1)
+
+- [ ] Reunião de alinhamento com toda equipe
+- [ ] Setup de ferramentas (GitHub, Figma, Trello/Notion)
+- [ ] Criação de wireframes e protótipo
+- [ ] Definição de tom de voz e guidelines de conteúdo
+- [ ] Planejamento editorial (primeiros 10 artigos)
+
+---
+
+## 15. APÊNDICES
+
+### 15.1 Glossário
+
+- **MVP:** Minimum Viable Product (Produto Mínimo Viável)
+- **Lead:** Usuário que forneceu dados de contato
+- **CAC:** Custo de Aquisição de Cliente
+- **LTV:** Lifetime Value (Valor do Cliente ao Longo do Tempo)
+- **SSG:** Static Site Generation
+- **SSR:** Server-Side Rendering
+- **CMS:** Content Management System
+- **LMS:** Learning Management System
+
+### 15.2 Referências
+
+- Plataformas similares analisadas: Nutmed, Nutritotal, Ganep
+- Ferramentas de pesquisa: Google Trends, SEMrush
+- Frameworks de priorização: RICE, MoSCoW
+
+---
+
+## 16. APROVAÇÕES
+
+| Stakeholder | Papel | Data | Assinatura |
+|-------------|-------|------|------------|
+| [Nome] | Product Owner | ___/___/___ | ___________ |
+| [Nome] | Tech Lead | ___/___/___ | ___________ |
+| [Nome] | Marketing Lead | ___/___/___ | ___________ |
+
+---
+
+**Documento criado em:** [Data]  
+**Última atualização:** [Data]  
+**Versão:** 2.0 (Revisada)  
+**Próxima revisão:** Após lançamento do MVP

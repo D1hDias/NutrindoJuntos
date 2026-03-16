@@ -1,0 +1,66 @@
+# Docker Compose - Produção (VPS Hostinger)
+# Sobrescreve configurações de desenvolvimento
+
+version: '3.9'
+
+services:
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # Não expor porta publicamente em produção
+    ports: []
+    networks:
+      - internal
+
+  cms:
+    build:
+      target: production
+    environment:
+      NODE_ENV: production
+      DATABASE_URI: ${DATABASE_URI}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      PAYLOAD_PUBLIC_SERVER_URL: ${PAYLOAD_PUBLIC_SERVER_URL}
+    volumes: []  # Sem volumes em produção (imagem já tem código)
+    restart: always
+    networks:
+      - internal
+      - web
+    labels:
+      # Labels para Traefik (se usar)
+      - "traefik.enable=true"
+      - "traefik.http.routers.cms.rule=Host(`cms.nutrindojuntos.com.br`)"
+      - "traefik.http.services.cms.loadbalancer.server.port=3001"
+
+  # Nginx como reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: nutrindo-nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+      - /var/log/nginx:/var/log/nginx
+    depends_on:
+      - cms
+    networks:
+      - web
+
+  # Remover adminer em produção
+  adminer:
+    profiles:
+      - disabled
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  internal:
+    driver: bridge
+  web:
+    driver: bridge

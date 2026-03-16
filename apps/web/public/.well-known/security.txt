@@ -1,0 +1,37 @@
+# Security Policy for NUTRINDO JUNTOS
+# https://securitytxt.org/
+
+# Primary security contact
+Contact: mailto:contato@nutrindojuntos.com.br
+Contact: https://nutrindojuntos.com.br/contato
+
+# Preferred language for security reports
+Preferred-Languages: pt-BR, en
+
+# Canonical URL
+Canonical: https://nutrindojuntos.com.br/.well-known/security.txt
+
+# Expiration date (1 year from now - update annually)
+Expires: 2026-12-01T23:59:59.000Z
+
+# Security acknowledgments page
+Acknowledgments: https://nutrindojuntos.com.br/security
+
+# Security policy
+Policy: https://nutrindojuntos.com.br/security-policy
+
+# Encryption key (to be added when available)
+# Encryption: https://nutrindojuntos.com.br/.well-known/pgp-key.txt
+
+# Hiring security researchers
+Hiring: https://nutrindojuntos.com.br/carreiras
+
+# Security researcher guidelines
+# Please report security issues responsibly:
+# 1. Do not publicly disclose the issue before we've had time to address it
+# 2. Do not exploit the vulnerability beyond what is necessary to demonstrate it
+# 3. Do not access or modify user data without permission
+# 4. Provide detailed steps to reproduce the issue
+# 5. Allow us reasonable time (90 days) to address the issue before disclosure
+
+# Thank you for helping keep NUTRINDO JUNTOS safe!

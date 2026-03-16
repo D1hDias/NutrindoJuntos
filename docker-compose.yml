@@ -1,0 +1,82 @@
+# Docker Compose - NUTRINDO JUNTOS
+# Desenvolvimento local completo
+
+version: '3.9'
+
+services:
+  # PostgreSQL (desenvolvimento local - alternativa ao Supabase)
+  postgres:
+    image: postgres:15-alpine
+    container_name: nutrindo-postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: nutrindo
+      POSTGRES_PASSWORD: nutrindo_dev_password
+      POSTGRES_DB: nutrindo_juntos
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nutrindo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Payload CMS
+  cms:
+    build:
+      context: ./apps/cms
+      dockerfile: Dockerfile
+      target: development
+    container_name: nutrindo-cms
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DATABASE_URI: postgresql://nutrindo:nutrindo_dev_password@postgres:5432/nutrindo_juntos
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET:-dev-secret-change-in-production-min-32-chars}
+      PAYLOAD_PUBLIC_SERVER_URL: http://localhost:3001
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    volumes:
+      # Hot reload em desenvolvimento
+      - ./apps/cms/src:/app/src
+      - ./apps/cms/package.json:/app/package.json
+      - ./apps/cms/tsconfig.json:/app/tsconfig.json
+      # Evitar sobrescrever node_modules
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Adminer (opcional - interface web para PostgreSQL)
+  adminer:
+    image: adminer:latest
+    container_name: nutrindo-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      - postgres
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  default:
+    name: nutrindo-network

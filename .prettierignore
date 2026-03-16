@@ -1,0 +1,41 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Generated files
+*.tsbuildinfo
+payload-types.ts
+generated-schema.graphql
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
+
+# Docker
+docker-compose.override.yml
+
+# Git
+.git
+
+# pnpm
+pnpm-lock.yaml

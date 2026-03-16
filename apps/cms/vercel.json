@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "name": "nutrindo-juntos-cms",
+  "builds": [
+    {
+      "src": "dist/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**", "build/**"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "PAYLOAD_CONFIG_PATH": "./dist/payload.config.js"
+  },
+  "functions": {
+    "dist/server.js": {
+      "maxDuration": 30
+    }
+  },
+  "outputDirectory": "dist",
+  "buildCommand": "pnpm build"
+}

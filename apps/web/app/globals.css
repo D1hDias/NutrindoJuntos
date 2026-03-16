@@ -1,0 +1,393 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scroll suave global para melhorar transições */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 142 76% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Poppins como fonte principal padrão */
+  html {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animação Marquee - Loop Infinito */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Swiper Custom Styles */
+  :root {
+    --swiper-theme-color: #22c55e;
+    --swiper-navigation-size: 24px;
+    --swiper-pagination-color: #22c55e;
+    --swiper-pagination-bullet-inactive-color: #d1d5db;
+  }
+
+  /* Team Carousel Specific Styles */
+  .team-swiper {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+  }
+
+  .team-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .team-swiper .swiper-slide > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Custom Navigation Buttons - Override Swiper defaults */
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+
+  /* Custom scrollbar */
+  .team-swiper::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Smooth transitions */
+  .team-swiper .swiper-wrapper {
+    transition-timing-function: ease-in-out;
+  }
+
+  /* Team Card Hover Effects */
+  .team-one__single {
+    transition: all 0.3s ease;
+  }
+
+  .team-one__single:hover {
+    transform: translateY(-8px);
+  }
+
+  .team-one__img img {
+    transition: transform 0.5s ease;
+  }
+
+  .team-one__img:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Disabled navigation state */
+  .team-carousel-prev.swiper-button-disabled,
+  .team-carousel-next.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Loading state */
+  .swiper-lazy-loading {
+    opacity: 0.5;
+  }
+
+  .swiper-lazy-loaded {
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
+  /* Accessibility improvements */
+  .team-carousel-prev:focus,
+  .team-carousel-next:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .team-one__single {
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Animation for shapes */
+  @keyframes float-bob-y {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-bob-x {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+
+  .float-bob-y {
+    animation: float-bob-y 3s ease-in-out infinite;
+  }
+
+  .float-bob-x {
+    animation: float-bob-x 4s ease-in-out infinite;
+  }
+
+  @keyframes img-bounce {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-15px) scale(1.05);
+    }
+  }
+
+  .img-bounce {
+    animation: img-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes leftRight {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+
+  .animate-left-right {
+    animation: leftRight 4s ease-in-out infinite;
+  }
+
+  /* Ensure proper z-index stacking */
+  .team-one__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .team-one__img {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Swiper Pagination Custom Styles */
+  .team-swiper .swiper-pagination {
+    bottom: 0 !important;
+  }
+
+  .team-swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #d1d5db;
+    opacity: 1;
+    transition: all 0.3s;
+  }
+
+  .team-swiper .swiper-pagination-bullet-active {
+    background: #22c55e;
+    width: 24px;
+    border-radius: 5px;
+  }
+
+  /* Hide default navigation arrows */
+  .team-swiper .swiper-button-next,
+  .team-swiper .swiper-button-prev {
+    display: none;
+  }
+
+  /* Rotation animation for sliding text shapes */
+  @keyframes rotate-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 10s linear infinite;
+  }
+
+  /* Testimonial Swiper Custom Styles */
+  .testimonial-swiper {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .testimonial-swiper .swiper-wrapper {
+    display: flex;
+    transition-timing-function: ease-in-out;
+    overflow: visible;
+  }
+
+  .testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .testimonial-swiper .swiper-slide-active {
+    opacity: 1;
+  }
+
+  .testimonial-swiper .swiper-slide > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .testimonial-carousel-wrapper {
+    overflow: visible;
+  }
+
+  /* Testimonial Pagination Custom Styles */
+  .testimonial-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #d1d5db;
+    opacity: 1;
+    transition: all 0.3s;
+    margin: 8px 0 !important;
+  }
+
+  .testimonial-pagination .swiper-pagination-bullet-active {
+    background: #22c55e;
+    height: 24px;
+    border-radius: 5px;
+  }
+
+  /* Blog Swiper Custom Styles */
+  .blog-swiper {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .blog-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+  }
+
+  .blog-swiper .swiper-slide > div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .blog-carousel-wrapper {
+    position: relative;
+  }
+
+  /* Hide default Swiper navigation arrows */
+  .blog-swiper .swiper-button-next,
+  .blog-swiper .swiper-button-prev {
+    display: none;
+  }
+
+  /* Blog Pagination Dots in custom wrapper */
+  .blog-pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .blog-pagination-wrapper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #d1d5db;
+    opacity: 1;
+    transition: all 0.3s;
+    margin: 0 4px;
+  }
+
+  .blog-pagination-wrapper .swiper-pagination-bullet-active {
+    background: #22c55e;
+    width: 24px;
+    border-radius: 5px;
+  }
+}
