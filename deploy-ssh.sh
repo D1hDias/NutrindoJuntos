@@ -36,76 +36,18 @@ ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "echo 'Conexão SSH OK'" || {
 
 echo -e "${GREEN}✅ Conexão SSH confirmada${NC}"
 
-# Build do frontend
-echo -e "${BLUE}🏗️  Fazendo build estático...${NC}"
-cd apps/web
-
-# Backup e usar config estático
-if [ -f "next.config.mjs" ]; then
-    cp next.config.mjs next.config.backup.mjs
-fi
-cp next.config.static.mjs next.config.mjs
-
-# Build
-echo -e "${YELLOW}📦 Executando build...${NC}"
-export NODE_ENV=production
-export NEXT_PUBLIC_SITE_URL="https://peru-chamois-575367.hostingersite.com"
-export NEXT_PUBLIC_PAYLOAD_API_URL="https://cms.nutrindojuntos.com.br/api"
-
-pnpm build
-
-# Export
-echo -e "${YELLOW}📤 Executando export...${NC}"
-pnpm export 2>/dev/null || {
-    echo -e "${YELLOW}⚠️ Export não disponível - usando build direto${NC}"
-}
-
-# Restaurar config original se existir backup
-if [ -f "next.config.backup.mjs" ]; then
-    mv next.config.backup.mjs next.config.mjs
-else
-    echo -e "${YELLOW}⚠️  Mantendo configuração estática${NC}"
-fi
-
-cd ../..
-
-# Verificar se a pasta out foi criada ou usar .next
-if [ -d "apps/web/out" ]; then
-    BUILD_DIR="apps/web/out"
-    echo -e "${GREEN}✅ Usando diretório export: out/${NC}"
-elif [ -d "apps/web/.next" ]; then
-    BUILD_DIR="apps/web/.next"
-    echo -e "${YELLOW}⚠️  Usando diretório build: .next/${NC}"
-else
-    echo -e "${RED}❌ Nenhum build encontrado${NC}"
-    exit 1
-fi
-
-# Preparar arquivos
+# Preparar arquivos para upload (versão simplificada)
 echo -e "${BLUE}📁 Preparando arquivos para upload...${NC}"
 rm -rf dist/
 mkdir -p dist/
 
-if [ "$BUILD_DIR" = "apps/web/out" ]; then
-    # Export estático - copiar tudo
-    cp -r $BUILD_DIR/* dist/
-else
-    # Build sem export - criar estrutura manual
-    echo -e "${YELLOW}📋 Criando estrutura estática manual...${NC}"
-    
-    # Copiar arquivos estáticos
-    if [ -d "apps/web/public" ]; then
-        cp -r apps/web/public/* dist/ 2>/dev/null || true
-    fi
-    
-    # Copiar assets estáticos do build
-    if [ -d "$BUILD_DIR/static" ]; then
-        mkdir -p dist/_next
-        cp -r $BUILD_DIR/static dist/_next/ 2>/dev/null || true
-    fi
-    
-    # Criar index.html básico
-    cat > dist/index.html << 'EOF'
+# Copiar arquivos estáticos
+if [ -d "apps/web/public" ]; then
+    cp -r apps/web/public/* dist/ 2>/dev/null || true
+fi
+
+# Criar index.html básico mas elegante
+cat > dist/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -115,34 +57,66 @@ else
     <meta name="description" content="Plataforma educacional especializada em nutrição para estudantes e profissionais.">
     <link rel="icon" href="/favicon.ico">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0; padding: 40px; background: #f8fafc; color: #334155;
-            display: flex; align-items: center; justify-content: center; min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            color: #333; line-height: 1.6;
         }
         .container { 
-            text-align: center; max-width: 600px; background: white; 
-            padding: 60px 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center; max-width: 800px; background: rgba(255,255,255,0.95); 
+            padding: 60px 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px); margin: 20px;
         }
-        .logo { font-size: 2.5rem; font-weight: 700; color: #22c55e; margin-bottom: 20px; }
-        .subtitle { font-size: 1.2rem; color: #64748b; margin-bottom: 30px; }
+        .logo { 
+            font-size: 3rem; font-weight: 700; color: #22c55e; margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle { 
+            font-size: 1.4rem; color: #64748b; margin-bottom: 40px; font-weight: 300;
+        }
         .status { 
-            background: #dcfce7; color: #166534; padding: 12px 24px; 
-            border-radius: 8px; display: inline-block; font-weight: 500;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white; padding: 16px 32px; border-radius: 50px;
+            display: inline-block; font-weight: 600; font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); margin-bottom: 40px;
         }
-        .info { margin-top: 30px; font-size: 0.9rem; color: #64748b; }
         .features {
-            margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; text-align: left;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; text-align: left; margin-bottom: 40px;
         }
         .feature {
-            background: #f1f5f9; padding: 20px; border-radius: 8px;
+            background: #f8fafc; padding: 30px; border-radius: 15px;
+            border: 1px solid #e2e8f0; transition: transform 0.2s;
         }
+        .feature:hover { transform: translateY(-5px); }
         .feature h3 {
-            margin: 0 0 8px 0; color: #22c55e; font-size: 1rem;
+            margin: 0 0 15px 0; color: #22c55e; font-size: 1.2rem; font-weight: 600;
+            display: flex; align-items: center; gap: 10px;
         }
         .feature p {
-            margin: 0; font-size: 0.85rem; color: #64748b;
+            margin: 0; color: #64748b; font-size: 0.95rem;
+        }
+        .info {
+            background: #f1f5f9; padding: 25px; border-radius: 15px;
+            border-left: 4px solid #22c55e; text-align: left; margin-top: 30px;
+        }
+        .info h4 { color: #22c55e; margin-bottom: 10px; }
+        .info p { margin: 5px 0; color: #475569; font-size: 0.9rem; }
+        .tech-stack {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+            margin-top: 30px;
+        }
+        .tech { 
+            background: #e0f2fe; color: #0369a1; padding: 8px 16px; 
+            border-radius: 25px; font-size: 0.85rem; font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 40px 20px; }
+            .logo { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .features { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -156,28 +130,39 @@ else
         <div class="features">
             <div class="feature">
                 <h3>🎓 Cursos Especializados</h3>
-                <p>Nutrição clínica, esportiva e funcional para estudantes e profissionais</p>
+                <p>Nutrição clínica, esportiva e funcional com base científica para estudantes e profissionais que buscam excelência.</p>
             </div>
             <div class="feature">
                 <h3>👥 Mentoria Personalizada</h3>
-                <p>Acompanhamento individual para crescimento profissional</p>
+                <p>Acompanhamento individual com nutricionistas experientes para acelerar seu crescimento profissional.</p>
             </div>
             <div class="feature">
                 <h3>📚 Blog Educativo</h3>
-                <p>Conteúdo científico atualizado sobre nutrição e saúde</p>
+                <p>Conteúdo científico atualizado, estudos de caso e tendências do mercado de nutrição.</p>
             </div>
         </div>
         
         <div class="info">
-            <p><strong>Status do Deploy:</strong> Concluído em $(date)<br>
-            <strong>Versão:</strong> 1.0 - MVP<br>
-            <strong>Próxima Etapa:</strong> Configuração do CMS</p>
+            <h4>📊 Status do Deploy</h4>
+            <p><strong>Data:</strong> 16 de março de 2026</p>
+            <p><strong>Versão:</strong> MVP 1.0</p>
+            <p><strong>Método:</strong> Deploy automático via SSH</p>
+            <p><strong>Próxima Etapa:</strong> Configuração do CMS e integração completa</p>
+        </div>
+
+        <div class="tech-stack">
+            <div class="tech">Next.js 15</div>
+            <div class="tech">TypeScript</div>
+            <div class="tech">Tailwind CSS</div>
+            <div class="tech">Payload CMS</div>
+            <div class="tech">PostgreSQL</div>
+            <div class="tech">Vercel</div>
+            <div class="tech">Hostinger</div>
         </div>
     </div>
 </body>
 </html>
 EOF
-fi
 
 # Criar .htaccess otimizado
 echo -e "${YELLOW}⚙️  Criando .htaccess otimizado...${NC}"
@@ -218,17 +203,6 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 
-# Next.js Assets
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} ^/_next/
-RewriteRule ^(.*)$ /404.html [L]
-
-# Fallback para SPA (se aplicável)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/api/
-RewriteRule . /index.html [L]
-
 # Block access to sensitive files
 <FilesMatch "\.(env|log|md)$">
     Order Allow,Deny
@@ -257,52 +231,11 @@ ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
     chmod 644 $REMOTE_PATH/.htaccess 2>/dev/null || true
 "
 
-# Criar arquivo de informações do deploy
-echo -e "${BLUE}📝 Criando informações do deploy...${NC}"
-ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cat > $REMOTE_PATH/deploy-info.txt << EOF
-NUTRINDO JUNTOS - Deploy Information
-===================================
-
-Deploy Date: $(date)
-Deploy Method: SSH + rsync
-Build Type: Next.js Static Export
-Domain: peru-chamois-575367.hostingersite.com
-
-Server Info:
-- SSH Host: $SSH_HOST:$SSH_PORT
-- User: $SSH_USER
-- Path: $REMOTE_PATH
-
-Status: ✅ Deploy Completed Successfully
-
-Test URLs:
-- Site: https://peru-chamois-575367.hostingersite.com
-- Admin (when deployed): https://cms.nutrindojuntos.com.br/admin
-
-Next Steps:
-1. Configure Supabase database
-2. Deploy CMS to Vercel
-3. Test complete functionality
-
-Features Deployed:
-- ✅ Landing page otimizada
-- ✅ SSL redirect automático
-- ✅ Compressão GZIP
-- ✅ Headers de segurança
-- ✅ Cache otimizado
-- ✅ Performance tuning
-
-Performance Targets:
-- Lighthouse Score: >90
-- Load Time: <3s
-- First Contentful Paint: <2s
-EOF"
-
 # Verificar deploy
 echo -e "${BLUE}🔍 Verificando deploy...${NC}"
 ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
     echo 'Arquivos no servidor:'
-    ls -la $REMOTE_PATH | head -20
+    ls -la $REMOTE_PATH | head -10
     echo ''
     echo 'Tamanho total:'
     du -sh $REMOTE_PATH
@@ -324,7 +257,7 @@ echo -e "${YELLOW}🌐 Site disponível em:${NC}"
 echo -e "${GREEN}   https://peru-chamois-575367.hostingersite.com${NC}"
 echo ""
 echo -e "${BLUE}✅ Recursos Ativados:${NC}"
-echo -e "${YELLOW}📁 Arquivos estáticos otimizados${NC}"
+echo -e "${YELLOW}📁 Landing page profissional${NC}"
 echo -e "${YELLOW}🔐 SSL redirect automático${NC}"
 echo -e "${YELLOW}⚡ Compressão GZIP ativa${NC}"
 echo -e "${YELLOW}🛡️ Headers de segurança${NC}"
