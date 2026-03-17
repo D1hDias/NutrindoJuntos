@@ -1,0 +1,13 @@
+{
+  "build": {
+    "source": "deploy-files",
+    "destination": "/domains/peru-chamois-575367.hostingersite.com/public_html",
+    "commands": [
+      "cp deploy-files/* /domains/peru-chamois-575367.hostingersite.com/public_html/",
+      "cp -r deploy-files/images /domains/peru-chamois-575367.hostingersite.com/public_html/",
+      "cp -r deploy-files/logos /domains/peru-chamois-575367.hostingersite.com/public_html/",
+      "chmod 644 /domains/peru-chamois-575367.hostingersite.com/public_html/*.html",
+      "chmod 644 /domains/peru-chamois-575367.hostingersite.com/public_html/.htaccess"
+    ]
+  }
+}
