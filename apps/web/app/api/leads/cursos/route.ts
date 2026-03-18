@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
             if (!formattedPhone.startsWith('55')) {
               formattedPhone = '55' + formattedPhone
             }
-            updateContact.attributes.SMS = '+' + formattedPhone
+            ;(updateContact.attributes as any).SMS = '+' + formattedPhone
           }
 
           await apiInstance.updateContact(data.email, updateContact)

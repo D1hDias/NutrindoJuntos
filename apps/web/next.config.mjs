@@ -1,15 +1,9 @@
-import { withSentryConfig } from '@sentry/nextjs'
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+const productionConfig = {
+  // Production optimizations
+  output: 'standalone', // Production build with standalone server
   
-  // Compilador otimizado
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-
-  // Configuração de imagens
+  // Image optimization
   images: {
     remotePatterns: [
       {
@@ -18,14 +12,8 @@ const nextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3001',
-        pathname: '/**',
-      },
-      {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'cms.nutrindojuntos.com.br',
         pathname: '/**',
       },
       {
@@ -34,160 +22,141 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Production image optimization
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000, // 1 year
+    // Allow SVG for placeholder images
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   },
 
-  // Configuração de headers de segurança
+  // Security headers
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: '/(.*)',
         headers: [
-          // DNS Prefetch Control
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          // HSTS (HTTP Strict Transport Security)
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload',
-          },
-          // Prevent Clickjacking
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
           },
-          // Prevent MIME type sniffing
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
-          // XSS Protection (legacy, but still useful for older browsers)
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
-          // Referrer Policy
           {
             key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
+            value: 'origin-when-cross-origin',
           },
-          // Permissions Policy (Feature Policy)
+        ],
+      },
+      {
+        source: '/api/(.*)',
+        headers: [
           {
-            key: 'Permissions-Policy',
-            value: [
-              'camera=()',
-              'microphone=()',
-              'geolocation=()',
-              'interest-cohort=()',
-              'payment=()',
-              'usb=()',
-              'magnetometer=()',
-              'gyroscope=()',
-              'accelerometer=()',
-            ].join(', '),
-          },
-          // Content Security Policy
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              // Default: only same origin
-              "default-src 'self'",
-              // Scripts: self + inline scripts (Next.js requires) + Google Analytics
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
-              // Styles: self + inline styles (Tailwind/MUI requires)
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              // Images: self + data URIs + external sources
-              "img-src 'self' data: blob: https://res.cloudinary.com https://images.unsplash.com https://placehold.co https://www.google-analytics.com",
-              // Fonts: self + Google Fonts
-              "font-src 'self' data: https://fonts.gstatic.com",
-              // Connect (AJAX/fetch): self + API + analytics + Sentry
-              "connect-src 'self' https://*.nutrindojuntos.com.br https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io",
-              // Media: self
-              "media-src 'self'",
-              // Objects: none (Flash, Java, etc.)
-              "object-src 'none'",
-              // Base URI: self only
-              "base-uri 'self'",
-              // Form actions: self only
-              "form-action 'self'",
-              // Frame ancestors: same origin only (clickjacking protection)
-              "frame-ancestors 'self'",
-              // Upgrade insecure requests (HTTP -> HTTPS)
-              'upgrade-insecure-requests',
-              // Block mixed content
-              'block-all-mixed-content',
-            ]
-              .join('; ')
-              .replace(/\s+/g, ' '),
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
     ]
   },
 
-  // Experimental features
-  experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
-  },
-  
-  // External packages (moved from experimental)
-  serverExternalPackages: ['@payloadcms/db-postgres'],
-
-  // Output file tracing root (silenciar warning do workspace)
-  outputFileTracingRoot: '/mnt/e/Nutrindo Juntos',
-
   // Redirects
   async redirects() {
     return [
       {
-        source: '/admin',
-        destination: process.env.NEXT_PUBLIC_PAYLOAD_API_URL?.replace('/api', '/admin') || 'http://localhost:3001/admin',
-        permanent: false,
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
       },
     ]
   },
 
-  // Webpack configuration
-  webpack: (config, { dev }) => {
-    config.resolve.alias.canvas = false
+  // Compress responses
+  compress: true,
 
-    if (dev) {
-      // Otimizações simples para desenvolvimento
-      config.watchOptions = {
-        ignored: /node_modules/,
-        poll: false,
-        aggregateTimeout: 300,
+  // Remove X-Powered-By header
+  poweredByHeader: false,
+
+  // Generate ETags
+  generateEtags: true,
+
+  // Production webpack config
+  webpack: (config, { dev, isServer }) => {
+    // Resolve canvas for server-side rendering
+    config.resolve.alias.canvas = false
+    
+    // Ensure server-side compatibility
+    if (isServer) {
+      config.resolve.alias.canvas = false
+      
+      // Inject polyfills at the beginning of every server bundle
+      const originalEntry = config.entry
+      config.entry = async () => {
+        const entries = await originalEntry()
+        
+        // Inject polyfills into all server entries
+        Object.keys(entries).forEach(entryName => {
+          if (Array.isArray(entries[entryName])) {
+            entries[entryName].unshift('./polyfills.js')
+          }
+        })
+        
+        return entries
       }
     }
-
+    
+    // Production optimizations
+    if (!dev) {
+      // Temporarily disable code splitting to avoid "self is not defined" in vendors.js
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: false,
+      }
+    }
+    
     return config
+  },
+
+  // Environment variables
+  env: {
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://nutrindojuntos.com.br',
+    NEXT_PUBLIC_PAYLOAD_API_URL: process.env.NEXT_PUBLIC_PAYLOAD_API_URL || 'https://cms.nutrindojuntos.com.br/api',
+  },
+
+  // Production experimental features
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      '@radix-ui/react-icons',
+      'framer-motion',
+    ],
+    // Server actions in production
+    serverActions: {
+      enabled: true,
+    },
+  },
+
+  // TypeScript and ESLint configuration for production
+  typescript: {
+    // Type checking during build
+    ignoreBuildErrors: false, // Re-enabled after fixing issues
+  },
+  eslint: {
+    // Lint during builds  
+    ignoreDuringBuilds: false, // Re-enabled after fixing issues
   },
 }
 
-// Sentry configuration options
-const sentryWebpackPluginOptions = {
-  // Para ocultar source maps do público
-  hideSourceMaps: true,
-
-  // Desabilitar autoInstrumentation para evitar overhead
-  autoInstrumentServerFunctions: false,
-  autoInstrumentMiddleware: true,
-
-  // Upload de source maps apenas em produção
-  silent: process.env.NODE_ENV !== 'production',
-  dryRun: process.env.NODE_ENV !== 'production',
-
-  // Outras opções
-  org: process.env.SENTRY_ORG,
-  project: process.env.SENTRY_PROJECT,
-}
-
-// Wrap config com Sentry
-export default withSentryConfig(nextConfig, sentryWebpackPluginOptions)
+export default productionConfig

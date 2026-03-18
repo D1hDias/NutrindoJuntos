@@ -5,7 +5,9 @@
  * Substitui console.log/warn/error em produção.
  */
 
-import * as Sentry from '@sentry/nextjs'
+// Temporarily disable Sentry to fix webpack "self is not defined" issue
+// TODO: Re-enable after solving the build problem
+const Sentry: any = null
 
 /**
  * Log levels seguindo convenção padrão
@@ -53,33 +55,46 @@ export function log(
     return
   }
 
-  // Em produção, usar Sentry
-  Sentry.withScope((scope) => {
-    // Adicionar contexto
-    if (context) {
-      Object.entries(context).forEach(([key, value]) => {
-        scope.setContext(key, value)
-      })
+  // Em produção, usar Sentry se disponível
+  if (Sentry && Sentry.withScope) {
+    Sentry.withScope((scope: any) => {
+      // Adicionar contexto
+      if (context) {
+        Object.entries(context).forEach(([key, value]) => {
+          scope.setContext(key, value)
+        })
 
-      // Tags especiais
-      if (context.userId) {
-        scope.setUser({ id: context.userId, email: context.email })
+        // Tags especiais
+        if (context.userId) {
+          scope.setUser({ id: context.userId, email: context.email })
+        }
+        if (context.requestId) {
+          scope.setTag('request_id', context.requestId)
+        }
       }
-      if (context.requestId) {
-        scope.setTag('request_id', context.requestId)
+
+      // Adicionar nível
+      scope.setLevel(level)
+
+      // Enviar para Sentry
+      if (error) {
+        Sentry.captureException(error, { contexts: { custom: context } })
+      } else {
+        Sentry.captureMessage(message, level)
       }
-    }
+    })
+  } else {
+    // Fallback para console se Sentry não estiver disponível
+    const logFn = {
+      [LogLevel.DEBUG]: console.debug,
+      [LogLevel.INFO]: console.info,
+      [LogLevel.WARN]: console.warn,
+      [LogLevel.ERROR]: console.error,
+      [LogLevel.FATAL]: console.error,
+    }[level]
 
-    // Adicionar nível
-    scope.setLevel(level as Sentry.SeverityLevel)
-
-    // Enviar para Sentry
-    if (error) {
-      Sentry.captureException(error, { contexts: { custom: context } })
-    } else {
-      Sentry.captureMessage(message, level as Sentry.SeverityLevel)
-    }
-  })
+    logFn(message, { context, error })
+  }
 }
 
 /**

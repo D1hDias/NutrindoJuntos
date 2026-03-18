@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Poppins, Outfit } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import { HeaderNew } from '@/components/layout/HeaderNew'
+import { HeaderWithScroll } from '@/components/layout/HeaderWithScroll'
 import { Footer } from '@/components/layout/Footer'
 import { Toaster } from '@/components/ui/toaster'
 import { OrganizationSchema } from '@/components/seo/OrganizationSchema'
@@ -113,7 +113,7 @@ export default function RootLayout({
         )}
       >
         <div className="flex min-h-screen flex-col">
-          <HeaderNew />
+          <HeaderWithScroll />
           <div className="flex-1">{children}</div>
           <footer id="contato">
             <Footer />

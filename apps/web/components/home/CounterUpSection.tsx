@@ -85,7 +85,7 @@ export function CounterUpSection() {
         }}
       >
         <Image
-          src="/images/backgrounds/counter-bg.webp"
+          src="/images/backgrounds/counter-one-bg.webp"
           alt=""
           fill
           quality={75}

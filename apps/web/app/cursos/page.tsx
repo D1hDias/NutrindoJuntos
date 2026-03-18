@@ -5,6 +5,16 @@ import { CallToAction } from '@/components/sections/CallToAction'
 import { getCursos } from '@/lib/payload'
 import type { Curso, Media } from '@/types/payload'
 
+// Convert English levels to Portuguese for display
+const convertLevel = (level: 'beginner' | 'intermediate' | 'advanced'): 'Iniciante' | 'Intermediário' | 'Avançado' => {
+  const levelMap = {
+    beginner: 'Iniciante' as const,
+    intermediate: 'Intermediário' as const,
+    advanced: 'Avançado' as const,
+  }
+  return levelMap[level] || 'Iniciante'
+}
+
 export const metadata: Metadata = {
   title: 'Cursos',
   description: 'Cursos de nutrição para estudantes e profissionais em início de carreira.',
@@ -46,7 +56,7 @@ export default async function CursosPage() {
                 description={curso.description}
                 slug={curso.slug}
                 thumbnail={featuredImage}
-                level={curso.level}
+                level={convertLevel(curso.level)}
                 duration={curso.duration}
                 price={curso.price}
                 isComingSoon={curso.status === 'coming_soon'}
