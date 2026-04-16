@@ -209,6 +209,7 @@ export default async function CursoPage({ params }: CursoPageProps) {
                 slug: curso.slug,
                 title: curso.title,
                 price: curso.price,
+                installments: curso.installments,
                 paymentLink: curso.paymentLink,
                 isLive: curso.isLive
               }} />
