@@ -11,21 +11,16 @@
   },
   "packageManager": "pnpm@8.15.0",
   "scripts": {
-    "dev": "pnpm --parallel --stream dev",
+    "prepare": "husky || true",
+    "dev": "pnpm --filter web dev",
     "dev:fast": "./scripts/dev-fast.sh",
     "dev:stop": "./scripts/dev-stop.sh",
-    "dev:web": "pnpm --filter web dev",
-    "dev:cms": "pnpm --filter cms dev",
-    "build": "pnpm --filter \"./apps/**\" build",
-    "build:web": "pnpm --filter web build",
-    "build:cms": "pnpm --filter cms build",
+    "build": "pnpm --filter web build",
     "build:static": "pnpm --filter web build:static",
     "export:hostinger": "pnpm --filter web export:hostinger",
-    "start": "pnpm --parallel --stream start",
-    "start:web": "pnpm --filter web start",
-    "start:cms": "pnpm --filter cms start",
-    "lint": "pnpm --filter \"./apps/**\" lint",
-    "type-check": "pnpm --filter \"./apps/**\" type-check",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm --filter web lint",
+    "type-check": "pnpm --filter web type-check",
     "test": "pnpm --filter web test",
     "test:e2e": "pnpm --filter web test:e2e",
     "clean": "pnpm --recursive exec -- rm -rf dist .next node_modules",
@@ -35,15 +30,15 @@
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "docker:build": "docker-compose build",
-    "deploy:cms": "pnpm --filter cms deploy",
     "deploy:web": "pnpm run build:static && pnpm run export:hostinger"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
+    "husky": "^9.1.7",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "typescript": "^5.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.5.2"
   },
   "pnpm": {
     "overrides": {

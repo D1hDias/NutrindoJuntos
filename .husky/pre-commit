@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Verificar se .env.local está sendo commitado
+if git diff --cached --name-only | grep -E "\.env\.local$"; then
+  echo "❌ ERRO: Tentativa de commitar .env.local detectada!"
+  echo "⚠️  Arquivos .env.local contêm credenciais sensíveis"
+  echo "💡 Use .env.local.example para templates"
+  exit 1
+fi
+
+# Verificar se há arquivos grandes (>1MB)
+for file in $(git diff --cached --name-only); do
+  if [ -f "$file" ]; then
+    size=$(wc -c <"$file")
+    if [ $size -gt 1048576 ]; then
+      echo "⚠️  AVISO: Arquivo grande detectado: $file ($(($size/1024))KB)"
+      echo "💡 Considere usar Git LFS ou mover para storage externo"
+    fi
+  fi
+done
+
+echo "✅ Pre-commit checks passed!"
