@@ -4,8 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { BookOpen, Clock, Star, Heart, Zap } from 'lucide-react'
-import { useState } from 'react'
+import { BookOpen, Clock, Star, Zap } from 'lucide-react'
 import { Curso, Media } from '@/types/payload'
 import { PaymentButton } from '@/components/courses/PaymentButton'
 
@@ -37,19 +36,6 @@ const getLevelLabel = (level: string) => {
 }
 
 export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
-  const [favorites, setFavorites] = useState<Set<string>>(new Set())
-
-  const toggleFavorite = (courseId: string) => {
-    setFavorites(prev => {
-      const newFavorites = new Set(prev)
-      if (newFavorites.has(courseId)) {
-        newFavorites.delete(courseId)
-      } else {
-        newFavorites.add(courseId)
-      }
-      return newFavorites
-    })
-  }
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -193,7 +179,7 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                   {course.description}
                 </p>
 
-                {/* Rating and Favorite */}
+                {/* Rating */}
                 <div className="mb-4 flex items-center justify-between border-b border-neutral-200 pb-4">
                   <div className="flex items-center gap-2">
                     {course.rating && (
@@ -207,18 +193,6 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                       </>
                     )}
                   </div>
-
-                  <button
-                    onClick={() => toggleFavorite(course.id)}
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all ${
-                      favorites.has(course.id)
-                        ? 'border-primary-500 bg-primary-500 text-white'
-                        : 'border-neutral-300 text-neutral-400 hover:border-primary-500 hover:bg-primary-500 hover:text-white'
-                    }`}
-                    aria-label="Adicionar aos favoritos"
-                  >
-                    <Heart className={`h-5 w-5 ${favorites.has(course.id) ? 'fill-current' : ''}`} />
-                  </button>
                 </div>
 
                 {/* Action Buttons */}

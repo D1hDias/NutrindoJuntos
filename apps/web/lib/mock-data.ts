@@ -468,10 +468,14 @@ export const MOCK_CURSOS: Curso[] = [
     level: 'intermediate',
     duration: '20 horas',
     modules: 7,
-    rating: 4.8,
-    reviews: 142,
-    price: 497,
-    salesCount: 312,
+    rating: 0,
+    reviews: 0,
+    price: 1263.36,
+    installments: {
+      count: 12,
+      value: 105.28
+    },
+    salesCount: 0,
     practicalFocus: true,
     targetAudience: 'Graduandos, recém-formados e profissionais que desejam transicionar de carreira e ter segurança no atendimento clínico',
     paymentLink: 'https://pay.hotmart.com/exemplo-nca-curso',
@@ -481,17 +485,17 @@ export const MOCK_CURSOS: Curso[] = [
     updatedAt: new Date().toISOString(),
   },
   {
-    id: 'mentoria-nj',
-    title: 'Mentoria Nutrindo Juntos (NJ)',
-    slug: 'mentoria-nutrindo-juntos',
-    description: 'Acompanhamento estratégico transformador para nutricionistas que querem assumir controle, clareza e impacto real na própria carreira. Vá além da técnica e torne-se protagonista da sua trajetória.',
-    headline: 'Protagonismo na sua carreira de nutricionista',
+    id: 'nce-1',
+    title: 'NCE - Nutrição Clínica Estratégica',
+    slug: 'nce-nutricao-clinica-estrategica',
+    description: 'Para quem já domina a base clínica e quer ir além: aprofundamento em protocolos avançados, gestão de carreira e protagonismo profissional.',
+    headline: 'A jornada que te coloca como protagonista da própria carreira.',
     featuredImage: {
-      id: 'mentoria-nj-img',
-      url: 'https://placehold.co/800x600/16a34a/ffffff?text=Mentoria+NJ',
-      alt: 'Mentoria Nutrindo Juntos - Protagonismo na carreira',
-      filename: 'mentoria-nj.jpg',
-      mimeType: 'image/jpeg',
+      id: 'nce-img',
+      url: '/images/cursos/IMG_8183.webp',
+      alt: 'NCE - Nutrição Clínica Estratégica',
+      filename: 'IMG_8183.webp',
+      mimeType: 'image/webp',
       filesize: 200000,
       width: 800,
       height: 600,
@@ -502,14 +506,14 @@ export const MOCK_CURSOS: Curso[] = [
       {
         children: [
           {
-            text: 'A Mentoria NJ é uma jornada completa que vai além da técnica: é um acompanhamento estratégico transformador para nutricionistas que querem assumir controle, clareza e impacto real na própria carreira.'
+            text: 'O NCE - Nutrição Clínica Estratégica é um programa avançado para nutricionistas que já possuem base clínica sólida e desejam aprofundar conhecimentos em protocolos complexos, gestão estratégica de carreira e protagonismo profissional.'
           }
         ]
       },
       {
         children: [
           {
-            text: '🎯 O que a Mentoria NJ entrega:',
+            text: '🎯 O que você vai desenvolver:',
             bold: true
           }
         ]
@@ -517,24 +521,73 @@ export const MOCK_CURSOS: Curso[] = [
       {
         children: [
           {
-            text: '✓ Segurança e confiança clínica, para você atender com autonomia e rigor'
+            text: '✓ Protocolos avançados em nutrição clínica'
           }
         ]
       },
       {
         children: [
           {
-            text: '✓ Ferramentas práticas de gestão de carreira e finanças, para tornar seu consultório sustentável'
+            text: '✓ Gestão estratégica de consultório e carreira'
           }
         ]
       },
       {
         children: [
           {
-            text: '✓ Estratégias de captação e fidelização de pacientes, com mentalidade empreendedora'
+            text: '✓ Mentalidade empreendedora e posicionamento profissional'
           }
         ]
       },
+      {
+        children: [
+          {
+            text: '✓ Atendimento integrado e protocolos avançados'
+          }
+        ]
+      }
+    ],
+    instructor: {
+      id: 'instructor-2',
+      name: 'Dra. Mariana Costa',
+      role: 'Nutricionista Especialista em Clínica Avançada',
+      bio: 'Nutricionista com especialização em gestão e empreendedorismo.',
+      order: 2,
+      photo: {
+        id: 'instructor-photo-2',
+        url: 'https://placehold.co/150x150/16a34a/ffffff?text=MC',
+        alt: 'Dra. Mariana Costa',
+        filename: 'mariana-costa.jpg',
+        mimeType: 'image/jpeg',
+        filesize: 50000,
+        width: 150,
+        height: 150,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    },
+    category: 'clinica',
+    level: 'advanced',
+    duration: '40 horas',
+    modules: 12,
+    rating: 0,
+    reviews: 0,
+    price: 2304.84,
+    installments: {
+      count: 12,
+      value: 192.07
+    },
+    salesCount: 0,
+    practicalFocus: true,
+    targetAudience: 'Profissionais que já possuem base clínica e desejam aprofundar em protocolos avançados e gestão estratégica',
+    paymentLink: 'https://pay.hotmart.com/exemplo-nce-curso',
+    isLive: true,
+    status: 'published',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  },
       {
         children: [
           {
@@ -663,610 +716,6 @@ export const MOCK_CURSOS: Curso[] = [
     targetAudience: 'Profissionais que já têm base clínica mas querem ir além, quem busca crescimento real em atendimentos e resultado financeiro, nutricionistas que querem gerenciar sua carreira com estratégia',
     paymentLink: 'https://pay.hotmart.com/mentoria-nutrindo-juntos',
     isLive: true,
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'nutri-executivo',
-    title: 'Nutri Executivo — Empreendedorismo em Nutrição',
-    slug: 'nutri-executivo',
-    description: 'Programa estratégico de empreendedorismo para nutricionistas que querem sair do improviso e construir uma carreira sólida, lucrativa e sustentável, com visão de negócio, posicionamento forte e mentalidade de dono.',
-    headline: 'Trate a Nutrição como carreira e empresa',
-    featuredImage: {
-      id: 'nutri-exec-img',
-      url: 'https://placehold.co/800x600/d97706/ffffff?text=Nutri+Executivo',
-      alt: 'Nutri Executivo - Empreendedorismo em Nutrição',
-      filename: 'nutri-executivo.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 200000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    content: [
-      {
-        children: [
-          {
-            text: 'O Nutri Executivo é um programa estratégico de empreendedorismo para nutricionistas que querem sair do improviso e construir uma carreira sólida, lucrativa e sustentável, com visão de negócio, posicionamento forte e mentalidade de dono.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'Aqui, você aprende a empreender com método, unindo clínica, marketing, vendas, gestão financeira, ética, tecnologia e inteligência emocional — tudo aplicado à realidade do nutricionista.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '🎯 O que você desenvolve:',
-            bold: true
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Mentalidade empreendedora e protagonismo profissional'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Posicionamento, branding e autoridade no mercado'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Marketing simples, ético e que gera pacientes'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Vendas humanizadas e ofertas bem estruturadas'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Gestão de consultório, finanças e organização jurídica'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Uso estratégico de IA e ferramentas digitais'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '🚀 O diferencial:',
-            bold: true
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'Ao final do curso, o aluno constrói um Plano de Negócio Nutri, com estratégia real de atuação, projeção financeira e estrutura pronta para crescer — não é teoria, é execução com direção.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'O Nutri Executivo é para quem decidiu tratar a Nutrição como carreira e empresa, com clareza, segurança e visão de longo prazo.',
-            bold: true
-          }
-        ]
-      }
-    ],
-    instructor: {
-      id: 'instructor-exec',
-      name: 'Nathállia Jordão',
-      role: 'Nutrição materna e infantil',
-      bio: 'Nutricionista com visão empreendedora, especialista em gestão de carreira e negócios na nutrição.',
-      order: 1,
-      photo: {
-        id: 'instructor-photo-exec',
-        url: 'https://placehold.co/150x150/d97706/ffffff?text=NJ',
-        alt: 'Nathállia Jordão',
-        filename: 'nathallia-jordao.jpg',
-        mimeType: 'image/jpeg',
-        filesize: 50000,
-        width: 150,
-        height: 150,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      },
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    category: 'gestao',
-    level: 'intermediate',
-    duration: '10 semanas',
-    modules: 10,
-    rating: 4.9,
-    reviews: 63,
-    price: 697,
-    salesCount: 145,
-    practicalFocus: true,
-    targetAudience: 'Nutricionistas que querem sair do improviso e construir uma carreira sólida com visão de negócio, posicionamento forte e mentalidade de dono',
-    paymentLink: 'https://pay.hotmart.com/nutri-executivo',
-    isLive: true,
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'nce-1',
-    title: 'NCE - Nutrição Clínica Estratégica',
-    slug: 'nce-nutricao-clinica-estrategica',
-    description: 'Para quem já domina a base clínica e quer ir além: aprofundamento em protocolos avançados, gestão de carreira e protagonismo profissional.',
-    headline: 'A jornada que te coloca como protagonista da própria carreira.',
-    featuredImage: {
-      id: 'nce-img',
-      url: '/images/cursos/IMG_8183.webp',
-      alt: 'NCE - Nutrição Clínica Estratégica',
-      filename: 'IMG_8183.webp',
-      mimeType: 'image/webp',
-      filesize: 200000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    content: [
-      {
-        children: [
-          {
-            text: 'O Monte Sua Trilha é um programa de direcionamento estratégico para estudantes e nutricionistas que estão perdidos sobre qual caminho seguir, o que estudar, como se posicionar e qual próximo passo faz sentido na carreira.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'Aqui, você não recebe uma fórmula pronta. Você constrói, com orientação, uma trilha personalizada de desenvolvimento profissional, alinhando perfil, momento de carreira, objetivos financeiros e área de atuação.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '🎯 O que o Monte Sua Trilha entrega:',
-            bold: true
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Clareza sobre onde você está e onde pode chegar'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Identificação do seu perfil profissional e áreas com mais afinidade'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Organização de estudos, cursos e prioridades (sem desperdício de tempo e dinheiro)'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Direcionamento estratégico para os próximos passos da carreira'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Base sólida para evoluir com segurança para a Nutrição Clínica e o Empreendedorismo'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '💡 Ideal para quem:',
-            bold: true
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Está na graduação ou recém-formado'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Sente que "tem muitas opções, mas pouca clareza"'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Quer crescer com estratégia, não no improviso'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Busca segurança antes de investir em cursos maiores'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'O Monte Sua Trilha é o ponto de partida para uma carreira consciente, estratégica e alinhada com quem você é — o primeiro passo antes de acelerar.',
-            bold: true
-          }
-        ]
-      }
-    ],
-    instructor: {
-      id: 'instructor-trilha',
-      name: 'Nathállia Jordão',
-      role: 'Nutrição materna e infantil',
-      bio: 'Nutricionista especialista em direcionamento de carreira e desenvolvimento profissional na nutrição.',
-      order: 1,
-      photo: {
-        id: 'instructor-photo-trilha',
-        url: 'https://placehold.co/150x150/22c55e/ffffff?text=NJ',
-        alt: 'Nathállia Jordão',
-        filename: 'nathallia-jordao-trilha.jpg',
-        mimeType: 'image/jpeg',
-        filesize: 50000,
-        width: 150,
-        height: 150,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      },
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    category: 'clinica',
-    level: 'advanced',
-    duration: '20 horas',
-    modules: 5,
-    rating: 4.9,
-    reviews: 178,
-    price: 2304.84,
-    salesCount: 280,
-    practicalFocus: true,
-    targetAudience: 'Nutricionistas que já dominam a base clínica e querem avançar em protocolos, gestão de carreira e protagonismo profissional',
-    paymentLink: '#',
-    isLive: true,
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'clube-nj',
-    title: 'Assinatura Clube Nutrindo Juntos',
-    slug: 'clube-nutrindo-juntos',
-    description: 'Espaço de suporte e comunidade para estudantes e nutricionistas que querem se manter atualizados, seguros e em constante evolução, sem precisar investir em grandes cursos o tempo todo.',
-    headline: 'Evolução contínua na Nutrição',
-    featuredImage: {
-      id: 'clube-nj-img',
-      url: 'https://placehold.co/800x600/15803d/ffffff?text=Clube+NJ',
-      alt: 'Assinatura Clube Nutrindo Juntos - Evolução contínua',
-      filename: 'clube-nj.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 200000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    content: [
-      {
-        children: [
-          {
-            text: 'O Clube NJ é um espaço de suporte e comunidade, para estudantes e nutricionistas que querem se manter atualizados, seguros e em constante evolução, sem precisar investir em grandes cursos o tempo todo.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'Ela oferece conteúdos práticos, materiais aplicáveis e suporte profissional, pensados para acompanhar o dia a dia da Nutrição Clínica e do mercado, com acesso simples, acessível e estratégico.'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '🎯 O que está incluso:',
-            bold: true
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Aulas bônus sobre temas atuais da Nutrição'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Casos clínicos comentados para treino de raciocínio'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Materiais práticos em PDF para uso em atendimentos'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Scripts básicos de venda e comunicação com pacientes'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✓ Acesso à comunidade NJ e atualizações do mercado'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '💡 Para quem é:',
-            bold: true
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Quem quer aprender continuamente, sem sobrecarga'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Quem busca segurança prática no dia a dia clínico'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Quem quer fazer parte do ecossistema Nutrindo Juntos'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: '✔ Quem deseja evoluir com custo acessível e constância'
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: ''
-          }
-        ]
-      },
-      {
-        children: [
-          {
-            text: 'A Assinatura NJ não substitui cursos ou mentorias — ela sustenta o crescimento, mantém você em movimento e preparada para o próximo nível.',
-            bold: true
-          }
-        ]
-      }
-    ],
-    instructor: {
-      id: 'instructor-clube',
-      name: 'Equipe NUTRINDO JUNTOS',
-      role: 'Curadoria de Conteúdo',
-      bio: 'Equipe dedicada à curadoria de conteúdos práticos e atualizados para a comunidade de nutricionistas.',
-      order: 1,
-      photo: {
-        id: 'instructor-photo-clube',
-        url: 'https://placehold.co/150x150/15803d/ffffff?text=NJ',
-        alt: 'Equipe NUTRINDO JUNTOS',
-        filename: 'equipe-nj-clube.jpg',
-        mimeType: 'image/jpeg',
-        filesize: 50000,
-        width: 150,
-        height: 150,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      },
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    category: 'clinica',
-    level: 'beginner',
-    duration: 'Acesso mensal',
-    modules: 0,
-    rating: 4.9,
-    reviews: 210,
-    price: 49.90,
-    salesCount: 520,
-    practicalFocus: true,
-    targetAudience: 'Estudantes e nutricionistas que querem aprender continuamente com custo acessível, manter segurança prática no dia a dia clínico e fazer parte do ecossistema Nutrindo Juntos',
-    paymentLink: 'https://pay.hotmart.com/clube-nutrindo-juntos',
-    isLive: true,
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'curso-1',
-    title: 'Nutrição Clínica na Prática',
-    slug: 'nutricao-clinica-pratica',
-    description: 'Curso completo sobre atendimento nutricional clínico, da anamnese ao acompanhamento de resultados.',
-    content: [],
-    category: 'clinica',
-    price: 497,
-    salesCount: 78,
-    duration: '40 horas',
-    level: 'intermediate',
-    featuredImage: {
-      id: 'curso-img-1',
-      url: 'https://placehold.co/800x600/22c55e/ffffff?text=Curso+Nutricao+Clinica',
-      alt: 'Curso de Nutrição Clínica',
-      filename: 'curso-nutricao-clinica.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 200000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'curso-2',
-    title: 'Nutrição Esportiva: Da Teoria à Prática',
-    slug: 'nutricao-esportiva-teoria-pratica',
-    description: 'Aprenda a atender atletas e praticantes de atividade física com protocolos baseados em evidências científicas.',
-    content: [],
-    category: 'esportiva',
-    price: 597,
-    salesCount: 54,
-    duration: '50 horas',
-    level: 'advanced',
-    featuredImage: {
-      id: 'curso-img-2',
-      url: 'https://placehold.co/800x600/f59e0b/ffffff?text=Curso+Nutricao+Esportiva',
-      alt: 'Curso de Nutrição Esportiva',
-      filename: 'curso-nutricao-esportiva.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 210000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: 'curso-3',
-    title: 'Gestão de Consultório de Nutrição',
-    slug: 'gestao-consultorio-nutricao',
-    description: 'Tudo que você precisa saber para gerenciar seu consultório com eficiência, atrair pacientes e crescer profissionalmente.',
-    content: [],
-    category: 'gestao',
-    price: 397,
-    salesCount: 42,
-    duration: '30 horas',
-    level: 'beginner',
-    featuredImage: {
-      id: 'curso-img-3',
-      url: 'https://placehold.co/800x600/d97706/ffffff?text=Curso+Gestao',
-      alt: 'Curso de Gestão de Consultório',
-      filename: 'curso-gestao.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 190000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
     status: 'published',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

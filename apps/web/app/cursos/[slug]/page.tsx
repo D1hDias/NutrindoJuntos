@@ -216,7 +216,13 @@ export default async function CursoPage({ params }: CursoPageProps) {
 
               <div className="mt-4 pt-4 border-t">
                 <Button variant="outline" className="w-full" asChild>
-                  <Link href="/contato">Falar com Especialista</Link>
+                  <a
+                    href={`https://wa.me/5521980082458?text=${encodeURIComponent(`Olá! Estou interessado em saber mais sobre o curso ${curso.title}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Falar com a Equipe
+                  </a>
                 </Button>
               </div>
             </div>
