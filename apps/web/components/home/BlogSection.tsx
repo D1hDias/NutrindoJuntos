@@ -1,11 +1,9 @@
 'use client'
 
-import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-import type { Swiper as SwiperType } from 'swiper'
 import { Calendar, ArrowRight } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -23,8 +21,6 @@ interface BlogSectionProps {
 }
 
 export function BlogSection({ posts }: BlogSectionProps) {
-  const swiperRef = useRef<SwiperType | null>(null)
-
   return (
     <section className="py-20 bg-gradient-to-b from-white to-lavender/20">
       <div className="container mx-auto px-4">
@@ -65,7 +61,6 @@ export function BlogSection({ posts }: BlogSectionProps) {
               pauseOnMouseEnter: true
             }}
             loop={true}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
             className="blog-swiper"
           >
             {posts.map((post) => {
@@ -148,35 +143,10 @@ export function BlogSection({ posts }: BlogSectionProps) {
           </Swiper>
         </div>
 
-        {/* Navigation Controls + Pagination + Ver Todos Button - All in one line */}
+        {/* Pagination + Ver Todos Button */}
         <div className="flex items-center justify-center gap-6 mt-8 flex-wrap">
-          {/* Left Arrow */}
-          <button
-            onClick={() => swiperRef.current?.slidePrev()}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all shadow-lg disabled:opacity-35 disabled:cursor-not-allowed"
-            aria-label="Post anterior"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
           {/* Pagination Dots */}
           <div className="blog-pagination-wrapper flex justify-center items-center"></div>
-
-          {/* Right Arrow */}
-          <button
-            onClick={() => swiperRef.current?.slideNext()}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all shadow-lg disabled:opacity-35 disabled:cursor-not-allowed"
-            aria-label="Próximo post"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          {/* Separator - visual divider */}
-          <div className="hidden sm:block w-px h-8 bg-neutral-200"></div>
 
           {/* Ver Todos Link */}
           <Button variant="outline" size="lg" asChild>

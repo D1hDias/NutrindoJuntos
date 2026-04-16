@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getCursoBySlug, getCursos } from '@/lib/payload'
+import { getCursoBySlug, getCursos } from '@/lib/database'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -11,6 +11,8 @@ import { PaymentOptions } from '@/components/courses/PaymentButton'
 import { CourseSchema } from '@/components/seo/CourseSchema'
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { RichTextRenderer } from '@/components/blog/RichTextRenderer'
+import { NCAContent } from '@/components/courses/NCAContent'
+import { NCEContent } from '@/components/courses/NCEContent'
 import type { Curso, Media } from '@/types/payload'
 
 // Função para mapear níveis para labels em português
@@ -185,10 +187,16 @@ export default async function CursoPage({ params }: CursoPageProps) {
             {/* Content */}
             <div>
               <h2 className="mb-4 text-2xl font-bold text-graphite">Sobre o Curso</h2>
-              <RichTextRenderer
-                content={curso.content}
-                className="mb-8"
-              />
+              {curso.slug === 'nca-nutricao-clinica-aplicada' ? (
+                <NCAContent />
+              ) : curso.slug === 'nce-nutricao-clinica-estrategica' ? (
+                <NCEContent />
+              ) : (
+                <RichTextRenderer
+                  content={curso.content}
+                  className="mb-8"
+                />
+              )}
             </div>
           </article>
         </div>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { BookOpen, Clock, Star, Heart, CheckCircle, Zap } from 'lucide-react'
+import { BookOpen, Clock, Star, Heart, Zap } from 'lucide-react'
 import { useState } from 'react'
 import { Curso, Media } from '@/types/payload'
 import { PaymentButton } from '@/components/courses/PaymentButton'
@@ -20,7 +20,8 @@ const getCategoryLabel = (category: string) => {
     esportiva: 'Nutrição Esportiva',
     funcional: 'Nutrição Funcional',
     gestao: 'Gestão de Consultório',
-    marketing: 'Marketing para Nutricionistas'
+    marketing: 'Marketing para Nutricionistas',
+    mentoria: 'Mentoria'
   }
   return labels[category] || category
 }
@@ -63,7 +64,7 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
 
   return (
     <section
-      className="relative block py-[120px]"
+      className="relative block pt-16 pb-16"
       style={{
         background: 'linear-gradient(256.49deg, #FFFBF5 0%, #FAEDFF 100%)',
         zIndex: 1

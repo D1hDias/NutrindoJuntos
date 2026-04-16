@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import * as brevo from '@getbrevo/brevo'
 import { newsletterSchema, isSpamBot } from '@/lib/validations'
 import { checkRateLimit, getClientIP, rateLimiters } from '@/lib/rate-limit-redis'
-import { logger, logSpamAttempt, logIntegrationError, logApiError } from '@/lib/logger'
-import { z } from 'zod'
+import { logSpamAttempt, logIntegrationError, logApiError } from '@/lib/logger'
 
 // Initialize Brevo client
 const apiInstance = new brevo.ContactsApi()

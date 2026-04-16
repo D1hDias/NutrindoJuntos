@@ -78,6 +78,11 @@ logs/
 # Temporary files
 tmp/
 temp/
+**/temp/
+*.jpg
+*.png
+!apps/web/public/**/*.jpg
+!apps/web/public/**/*.png
 
 # Backup files
 *.bak

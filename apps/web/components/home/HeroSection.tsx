@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Lightbulb, Clock, Linkedin, ThumbsUp, Star, Users } from 'lucide-react'
+import { Lightbulb, Clock, ThumbsUp } from 'lucide-react'
 
 export function HeroSection() {
   return (
@@ -31,9 +31,7 @@ export function HeroSection() {
       <div className="absolute right-[15%] top-[25%] animate-float-bob-x opacity-20 lg:opacity-40">
         <Clock className="h-10 w-10 text-primary-500 lg:h-14 lg:w-14" />
       </div>
-      <div className="absolute left-[20%] bottom-[30%] animate-float-bob-y opacity-20 lg:opacity-40">
-        <Linkedin className="h-10 w-10 text-secondary-500 lg:h-14 lg:w-14" />
-      </div>
+
 
       {/* Decorative Shape 4 - float-bob-x (do template) */}
       <div className="absolute right-[8%] top-[35%] w-24 animate-float-bob-x opacity-40 lg:w-32">
@@ -80,8 +78,6 @@ export function HeroSection() {
             {/* Description */}
             <p className="text-lg leading-relaxed text-neutral-600 lg:text-xl">
             Aprenda no seu ritmo, com aulas objetivas, aplicáveis e pensadas para quem está começando — sem enrolação e sem romantizar a prática clínica.
-              <br className="hidden lg:block" />
-              sem enrolação e sem romantizar a prática clínica.
             </p>
 
             {/* Buttons */}

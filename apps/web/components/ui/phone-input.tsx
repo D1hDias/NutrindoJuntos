@@ -4,7 +4,9 @@ import { forwardRef } from 'react'
 import { cn } from '@/lib/utils'
 
 export interface PhoneInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  // Phone input specific props can be added here
+}
 
 const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
   ({ className, onChange, value, ...props }, ref) => {

@@ -7,7 +7,7 @@ import { Target, Eye, Heart } from 'lucide-react'
 
 export function AboutSection() {
   return (
-    <section className="relative block overflow-visible bg-white py-20 lg:py-[120px]" style={{ zIndex: 1 }}>
+    <section className="relative block overflow-visible bg-white py-20 lg:pt-[120px] lg:pb-16" style={{ zIndex: 1 }}>
       {/* Shapes decorativos laterais */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 z-30">
         <Image
@@ -40,10 +40,14 @@ export function AboutSection() {
               <div className="space-y-6">
                 {/* Imagem principal */}
                 <div className="relative overflow-hidden rounded-3xl">
-                  <div className="aspect-[280/350] relative bg-neutral-200">
-                    <p className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-neutral-400">
-                      280x350
-                    </p>
+                  <div className="aspect-[280/350] relative">
+                    <Image
+                      src="/images/about/about-1.png"
+                      alt="Sobre a Nutrindo Juntos"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 280px"
+                    />
                   </div>
                 </div>
 
@@ -51,12 +55,11 @@ export function AboutSection() {
                 <div className="relative bg-white rounded-xl p-5 shadow-lg border border-dashed border-neutral-200">
                   <div className="flex items-baseline gap-1">
                     <h3 className="font-display text-5xl font-bold italic text-gradient bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                      45
+                      MEC
                     </h3>
-                    <span className="text-2xl font-bold text-graphite">+</span>
                   </div>
                   <p className="mt-1 font-serif text-sm font-medium italic text-neutral-600">
-                    Prêmios Conquistados
+                  Certificado
                   </p>
                 </div>
               </div>
@@ -75,15 +78,11 @@ export function AboutSection() {
                       <div>
                         <div className="flex items-baseline gap-1">
                           <h3 className="font-display text-2xl font-semibold text-graphite">
-                            25
+                          Reconhecido
                           </h3>
-                          <span className="text-lg font-semibold">+</span>
-                          <p className="ml-1 font-serif text-base font-semibold capitalize">
-                            Anos
-                          </p>
                         </div>
                         <p className="font-serif text-sm font-semibold lowercase text-graphite">
-                          de experiência
+                        pela câmara municipal de São Paulo
                         </p>
                       </div>
                     </div>
@@ -93,10 +92,14 @@ export function AboutSection() {
                 {/* Segunda imagem */}
                 <div className="relative -ml-12 mr-12">
                   <div className="relative overflow-hidden rounded-3xl">
-                    <div className="aspect-[280/350] relative bg-neutral-200">
-                      <p className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-neutral-400">
-                        280x350
-                      </p>
+                    <div className="aspect-[280/350] relative">
+                      <Image
+                        src="/images/about/about-2.png"
+                        alt="Equipe Nutrindo Juntos"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 280px"
+                      />
                     </div>
                   </div>
                   {/* Shape flutuante */}

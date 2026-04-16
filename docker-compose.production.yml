@@ -1,98 +1,59 @@
 # docker-compose.production.yml - VPS Production Environment
-version: '3.8'
+# Configuração simplificada para Next.js apenas
+
+version: '3.9'
 
 services:
   # Next.js Web Application
   web:
     build:
-      context: .
+      context: ./apps/web
       dockerfile: Dockerfile.production
     container_name: nutrindo-web
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=production
-      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
-      - NEXT_PUBLIC_PAYLOAD_API_URL=${NEXT_PUBLIC_PAYLOAD_API_URL}
-      - BREVO_API_KEY=${BREVO_API_KEY}
-      - BREVO_LIST_NEWSLETTER=${BREVO_LIST_NEWSLETTER}
-      - BREVO_LIST_LEADS_CURSOS=${BREVO_LIST_LEADS_CURSOS}
-      - BREVO_LIST_LEADS_MENTORIA=${BREVO_LIST_LEADS_MENTORIA}
-      - BREVO_LIST_CONTATO=${BREVO_LIST_CONTATO}
-      - CONTACT_EMAIL=${CONTACT_EMAIL}
-      - NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID}
-      - NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN}
-    depends_on:
-      - postgres
-    restart: unless-stopped
-    networks:
-      - nutrindo-network
+      NODE_ENV: production
+      PORT: 3000
+      # Site
+      NEXT_PUBLIC_SITE_URL: https://www.nutrindojuntos.com.br
+      # Brevo API
+      BREVO_API_KEY: ${BREVO_API_KEY}
+      BREVO_LIST_NEWSLETTER: ${BREVO_LIST_NEWSLETTER}
+      BREVO_LIST_LEADS_CURSOS: ${BREVO_LIST_LEADS_CURSOS}
+      BREVO_LIST_LEADS_MENTORIA: ${BREVO_LIST_LEADS_MENTORIA}
+      BREVO_LIST_CONTATO: ${BREVO_LIST_CONTATO}
+      CONTACT_EMAIL: ${CONTACT_EMAIL}
+      # Analytics
+      NEXT_PUBLIC_GA_ID: ${NEXT_PUBLIC_GA_ID}
+      # Sentry
+      NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN}
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+      # Rate Limiting (Upstash Redis)
+      UPSTASH_REDIS_REST_URL: ${UPSTASH_REDIS_REST_URL}
+      UPSTASH_REDIS_REST_TOKEN: ${UPSTASH_REDIS_REST_TOKEN}
+    restart: always
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
-      interval: 30s
-      timeout: 10s
+      interval: 60s
+      timeout: 30s
       retries: 3
-
-  # PostgreSQL Database
-  postgres:
-    image: postgres:15-alpine
-    container_name: nutrindo-db
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./backups:/backups
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-    networks:
-      - nutrindo-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-
-  # Redis (for caching and rate limiting)
-  redis:
-    image: redis:7-alpine
-    container_name: nutrindo-redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    restart: unless-stopped
-    networks:
-      - nutrindo-network
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
-  # Nginx Reverse Proxy
-  nginx:
-    image: nginx:alpine
-    container_name: nutrindo-nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/ssl:/etc/ssl/certs
-      - ./logs:/var/log/nginx
-    depends_on:
-      - web
-    restart: unless-stopped
-    networks:
-      - nutrindo-network
-
-volumes:
-  postgres_data:
-  redis_data:
+      start_period: 40s
+    labels:
+      # Traefik labels para reverse proxy e SSL
+      - "traefik.enable=true"
+      - "traefik.http.routers.nutrindo.rule=Host(`www.nutrindojuntos.com.br`) || Host(`nutrindojuntos.com.br`)"
+      - "traefik.http.routers.nutrindo.entrypoints=websecure"
+      - "traefik.http.routers.nutrindo.tls.certresolver=letsencrypt"
+      - "traefik.http.services.nutrindo.loadbalancer.server.port=3000"
+      # Security headers
+      - "traefik.http.middlewares.security-headers.headers.framedeny=true"
+      - "traefik.http.middlewares.security-headers.headers.sslredirect=true"
+      - "traefik.http.middlewares.security-headers.headers.browserxssfilter=true"
+      - "traefik.http.middlewares.security-headers.headers.contenttypenosniff=true"
+      - "traefik.http.routers.nutrindo.middlewares=security-headers"
 
 networks:
-  nutrindo-network:
-    driver: bridge
+  default:
+    external: true
+    name: traefik-iq4v

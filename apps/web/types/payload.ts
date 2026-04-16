@@ -75,13 +75,14 @@ export interface Curso {
   headline?: string
   content: SlateNode[] | any // Rich text content (Slate format)
   featuredImage?: Media | string
-  category: 'clinica' | 'esportiva' | 'funcional' | 'gestao' | 'marketing'
+  category: 'clinica' | 'esportiva' | 'funcional' | 'gestao' | 'marketing' | 'mentoria'
   level: 'beginner' | 'intermediate' | 'advanced'
   duration: string
   modules?: number
   rating?: number
   reviews?: number
   price: number
+  salesCount?: number
   startDate?: string
   practicalFocus?: boolean
   targetAudience?: string

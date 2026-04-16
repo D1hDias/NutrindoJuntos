@@ -74,7 +74,7 @@ export function WhyChooseUsSection() {
   }, [hasAnimated])
 
   return (
-    <section ref={sectionRef} className="relative block overflow-visible bg-white py-[120px]" style={{ zIndex: 1 }}>
+    <section ref={sectionRef} className="relative block overflow-visible bg-white pt-16 pb-[120px]" style={{ zIndex: 1 }}>
       {/* Shapes decorativos laterais */}
       <div className="absolute left-0 top-[117px] z-30 animate-float-bob-x">
         <Image
@@ -102,22 +102,28 @@ export function WhyChooseUsSection() {
             <div className="relative">
               {/* Imagem Principal */}
               <div className="relative overflow-hidden rounded-[40px] group">
-                <div className="aspect-[4/3] relative bg-neutral-200">
-                  <p className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-neutral-300">
-                    NJ
-                  </p>
+                <div className="aspect-[4/3] relative">
+                  <Image
+                    src="/images/about/why-choose-main.png"
+                    alt="Por que escolher a Nutrindo Juntos"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                  />
                 </div>
-                {/* Overlay no hover */}
-                <div className="absolute inset-0 bg-graphite opacity-0 transition-opacity duration-500 group-hover:opacity-0" />
               </div>
 
               {/* Imagem Secundária - Circular */}
               <div className="absolute -bottom-[177px] -right-[145px] z-10 hidden lg:block">
                 <div className="overflow-hidden rounded-full border-4 border-white">
-                  <div className="relative h-[300px] w-[300px] bg-neutral-200">
-                    <p className="absolute inset-0 flex items-center justify-center text-5xl font-bold text-neutral-300">
-                      NJ
-                    </p>
+                  <div className="relative h-[300px] w-[300px]">
+                    <Image
+                      src="/images/about/why-choose-circle.png"
+                      alt="Nutrindo Juntos"
+                      fill
+                      className="object-cover"
+                      sizes="300px"
+                    />
                   </div>
                 </div>
               </div>
@@ -265,7 +271,7 @@ export function WhyChooseUsSection() {
                 className="bg-primary-500 hover:bg-primary-600 font-semibold"
                 asChild
               >
-                <Link href="/sobre">
+                <Link href="/metodologia">
                   <span className="mr-2">→</span>
                   Conhecer nossa metodologia
                 </Link>
@@ -296,9 +302,9 @@ export function WhyChooseUsSection() {
                 <div className="text-white">
                   <div className="flex items-baseline gap-1 font-serif italic">
                     <span className="text-2xl font-bold">{count}</span>
-                    <span className="text-xl font-bold">+</span>
+                    <span className="text-xl font-bold">%</span>
                   </div>
-                  <p className="text-xs font-medium">Instrutores Profissionais</p>
+                  <p className="text-xs font-medium">Feito por Nutricionistas</p>
                 </div>
               </div>
             </div>

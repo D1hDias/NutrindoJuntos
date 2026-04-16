@@ -405,7 +405,7 @@ O MVP será considerado **bem-sucedido** se, após 6 meses:
 
 **Demografia:**
 - **Idade:** 25 anos
-- **Localização:** São Paulo, SP
+- **Localização:** Rio de Janeiro, RJ
 - **Formação:** Nutricionista (CRN ativo, formado há 6 meses)
 - **Renda:** R$ 2.000-3.000/mês (freelas + trabalho temporário)
 - **Dispositivos:** Smartphone + notebook

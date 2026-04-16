@@ -1,0 +1,26 @@
+# Dockerfile.dev - Desenvolvimento com hot reload
+FROM node:20-alpine AS base
+
+# Instalar dependências do sistema
+RUN apk add --no-cache libc6-compat curl
+
+WORKDIR /app
+
+# Instalar pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Copiar package files
+COPY package*.json pnpm-lock.yaml* ./
+COPY ../../pnpm-workspace.yaml /workspace/
+
+# Instalar dependências
+RUN pnpm install --frozen-lockfile
+
+# Copiar código fonte
+COPY . .
+
+# Expor porta
+EXPOSE 3000
+
+# Comando para desenvolvimento com hot reload
+CMD ["pnpm", "dev"]

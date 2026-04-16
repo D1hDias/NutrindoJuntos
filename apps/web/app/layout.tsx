@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { HeaderWithScroll } from '@/components/layout/HeaderWithScroll'
 import { Footer } from '@/components/layout/Footer'
 import { Toaster } from '@/components/ui/toaster'
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import { OrganizationSchema } from '@/components/seo/OrganizationSchema'
 
 // NUTRINDO JUNTOS Brand Fonts (from Manual da Marca)
@@ -120,6 +121,7 @@ export default function RootLayout({
           </footer>
         </div>
         <Toaster />
+        <WhatsAppButton />
       </body>
     </html>
   )

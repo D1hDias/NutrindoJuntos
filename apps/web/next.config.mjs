@@ -13,12 +13,12 @@ const productionConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cms.nutrindojuntos.com.br',
+        hostname: 'placehold.co',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'lh3.googleusercontent.com',
         pathname: '/**',
       },
     ],
@@ -92,7 +92,7 @@ const productionConfig = {
   // Generate ETags
   generateEtags: true,
 
-  // Production webpack config
+  // Webpack config
   webpack: (config, { dev, isServer }) => {
     // Resolve canvas for server-side rendering
     config.resolve.alias.canvas = false
@@ -117,6 +117,15 @@ const productionConfig = {
       }
     }
     
+    // WSL2: habilitar polling para detectar mudanças em /mnt/
+    if (dev) {
+      config.watchOptions = {
+        poll: 3000,
+        aggregateTimeout: 1500,
+        ignored: ['**/node_modules/**', '**/.next/**', '**/.git/**', '**/public/**'],
+      }
+    }
+
     // Production optimizations
     if (!dev) {
       // Temporarily disable code splitting to avoid "self is not defined" in vendors.js
@@ -125,14 +134,13 @@ const productionConfig = {
         splitChunks: false,
       }
     }
-    
+
     return config
   },
 
   // Environment variables
   env: {
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://nutrindojuntos.com.br',
-    NEXT_PUBLIC_PAYLOAD_API_URL: process.env.NEXT_PUBLIC_PAYLOAD_API_URL || 'https://cms.nutrindojuntos.com.br/api',
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.nutrindojuntos.com.br',
   },
 
   // Production experimental features

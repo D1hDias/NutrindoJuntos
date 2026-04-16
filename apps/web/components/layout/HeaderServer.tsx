@@ -30,7 +30,7 @@ export function HeaderServer() {
                 className="flex items-center gap-2 transition-colors hover:text-primary-300"
               >
                 <Phone className="h-4 w-4" />
-                <span>(11) 99999-9999</span>
+                <span>(21) 98008-2458</span>
               </Link>
             </div>
 
@@ -87,13 +87,13 @@ export function HeaderServer() {
             >
               Cursos
             </Link>
-            <Link 
-              href="#blog"
+            <Link
+              href="#equipe"
               data-scroll="true"
-              data-section="blog"
+              data-section="equipe"
               className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
             >
-              Blog
+              Equipe
             </Link>
             <Link 
               href="#contato"

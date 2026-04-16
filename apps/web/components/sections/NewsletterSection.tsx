@@ -50,12 +50,12 @@ export function NewsletterSection({
   }
 
   return (
-    <section className="newsletter-one relative block pb-[120px] z-1">
+    <section className="newsletter-one relative block pb-16 z-1">
       <div className="container mx-auto px-4">
         <div className="newsletter-one__inner relative block rounded-[40px] text-center py-10 px-10 md:py-[60px] md:px-10 overflow-hidden z-1"
-             style={{ background: 'linear-gradient(90deg, #FF4330 0%, #FF7163 100%)' }}>
+             style={{ background: 'linear-gradient(90deg, #4A4A4A 0%, #6B6B6B 50%, #8C8C8C 100%)' }}>
           {/* Background Shape - Optimized with Next.js Image */}
-          <div className="newsletter-one__bg-shape absolute inset-0 z-0">
+          <div className="newsletter-one__bg-shape absolute inset-0 z-0" style={{ filter: 'grayscale(1) brightness(1.3) opacity(0.5)' }}>
             <Image
               src="/images/shapes/newsletter-one-bg-shape.webp"
               alt=""
@@ -69,7 +69,7 @@ export function NewsletterSection({
           </div>
 
           {/* Decorative Shape 1 - Bottom Left */}
-          <div className="newsletter-one__shape-1 absolute left-0 bottom-0 z-0 float-bob-y">
+          <div className="newsletter-one__shape-1 absolute left-0 bottom-0 z-0 float-bob-y" style={{ filter: 'grayscale(1) brightness(1.3) opacity(0.5)' }}>
             <Image
               src="/images/shapes/newsletter-one-shape-1.webp"
               alt=""
@@ -80,23 +80,12 @@ export function NewsletterSection({
           </div>
 
           {/* Decorative Shape 2 - Bottom Right */}
-          <div className="newsletter-one__shape-2 absolute right-[50px] bottom-[55px] z-0 img-bounce">
+          <div className="newsletter-one__shape-2 absolute right-[50px] bottom-[55px] z-0 img-bounce" style={{ filter: 'grayscale(1) brightness(1.3) opacity(0.5)' }}>
             <Image
               src="/images/shapes/newsletter-one-shape-2.webp"
               alt=""
               width={100}
               height={100}
-              className="w-auto"
-            />
-          </div>
-
-          {/* Decorative Image - Bottom Left with Animation */}
-          <div className="newsletter-one__img absolute left-0 bottom-0 z-0 animate-left-right">
-            <Image
-              src="/images/resources/newsletter-one-img-1.webp"
-              alt=""
-              width={200}
-              height={200}
               className="w-auto"
             />
           </div>

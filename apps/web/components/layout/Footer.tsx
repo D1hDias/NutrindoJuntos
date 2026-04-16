@@ -100,14 +100,6 @@ export function Footer() {
               </p>
             </div>
 
-            {/* Contact Button */}
-            <Button
-              size="lg"
-              asChild
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-500"
-            >
-              <Link href="/contato">Entre em Contato</Link>
-            </Button>
           </div>
         </div>
       </div>
@@ -144,7 +136,7 @@ export function Footer() {
                   <div>
                     <p className="text-base font-medium text-white mb-1">Localização:</p>
                     <p className="text-base text-[#9DA6B5] leading-[26px]">
-                      São Paulo, SP<br />Brasil
+                      Rio de Janeiro, RJ<br />Brasil
                     </p>
                   </div>
                 </li>
@@ -160,7 +152,7 @@ export function Footer() {
                       href="tel:+5511999999999"
                       className="text-base text-[#9DA6B5] leading-[26px] hover:text-white transition-all duration-500"
                     >
-                      +55 (11) 99999-9999
+                      +55 (21) 98008-2458
                     </a>
                   </div>
                 </li>

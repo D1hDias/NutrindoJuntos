@@ -1,29 +1,20 @@
 import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
-import { CourseCard } from '@/components/cards/CourseCard'
 import { CallToAction } from '@/components/sections/CallToAction'
-import { getCursos } from '@/lib/payload'
-import type { Curso, Media } from '@/types/payload'
-
-// Convert English levels to Portuguese for display
-const convertLevel = (level: 'beginner' | 'intermediate' | 'advanced'): 'Iniciante' | 'Intermediário' | 'Avançado' => {
-  const levelMap = {
-    beginner: 'Iniciante' as const,
-    intermediate: 'Intermediário' as const,
-    advanced: 'Avançado' as const,
-  }
-  return levelMap[level] || 'Iniciante'
-}
+import { CourseCatalog } from '@/components/courses/CourseCatalog'
+import { getCursos } from '@/lib/database'
+import type { Curso } from '@/types/payload'
 
 export const metadata: Metadata = {
-  title: 'Cursos',
-  description: 'Cursos de nutrição para estudantes e profissionais em início de carreira.',
+  title: 'Todos os Cursos',
+  description:
+    'Explore todos os cursos, mentorias e programas da NUTRINDO JUNTOS. Nutrição clínica, empreendedorismo, direcionamento de carreira e muito mais.',
 }
 
 export default async function CursosPage() {
-  // Fetch real courses from CMS
   const { docs: cursos } = await getCursos({ status: 'published' })
   const typedCursos = (cursos || []) as Curso[]
+
   return (
     <main className="container mx-auto px-4 py-16">
       <Breadcrumbs
@@ -33,44 +24,17 @@ export default async function CursosPage() {
         ]}
       />
 
-      <div className="mb-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-primary-600 md:text-5xl">
-          Cursos
+      <div className="mb-10 text-center">
+        <h1 className="mb-3 text-4xl font-bold tracking-tight text-neutral-900 md:text-5xl">
+          Nossos Cursos e Programas
         </h1>
-        <p className="text-lg text-muted-foreground md:text-xl">
-          Aprenda nutrição com especialistas de forma prática e acessível
+        <p className="mx-auto max-w-2xl text-lg text-neutral-500">
+          Do primeiro passo à excelência profissional — encontre o programa ideal para o seu
+          momento de carreira
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {typedCursos.length > 0 ? (
-          typedCursos.map((curso: Curso) => {
-            const featuredImage = typeof curso.featuredImage === 'object'
-              ? (curso.featuredImage as Media)?.url
-              : undefined
-
-            return (
-              <CourseCard
-                key={curso.id}
-                title={curso.title}
-                description={curso.description}
-                slug={curso.slug}
-                thumbnail={featuredImage}
-                level={convertLevel(curso.level)}
-                duration={curso.duration}
-                price={curso.price}
-                isComingSoon={curso.status === 'coming_soon'}
-              />
-            )
-          })
-        ) : (
-          <div className="col-span-full rounded-lg border p-12 text-center">
-            <p className="text-lg text-muted-foreground">
-              Nenhum curso publicado ainda. Crie seu primeiro curso no CMS!
-            </p>
-          </div>
-        )}
-      </div>
+      <CourseCatalog courses={typedCursos} />
 
       <div className="mt-16">
         <CallToAction
