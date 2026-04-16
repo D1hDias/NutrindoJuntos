@@ -6,7 +6,6 @@ import { getCursoBySlug, getCursos } from '@/lib/database'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { LeadForm } from '@/components/forms/LeadForm'
 import { PaymentOptions } from '@/components/courses/PaymentButton'
 import { CourseSchema } from '@/components/seo/CourseSchema'
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
@@ -269,25 +268,6 @@ export default async function CursoPage({ params }: CursoPageProps) {
             </div>
           </div>
         </aside>
-      </div>
-
-      {/* Interest Form */}
-      <div className="mt-16">
-        <div className="rounded-2xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 md:p-12">
-          <div className="mx-auto max-w-2xl">
-            <div className="mb-8 text-center">
-              <h2 className="mb-4 text-3xl font-bold text-primary-900">
-                Tenho Interesse Neste Curso
-              </h2>
-              <p className="text-lg text-primary-700">
-                Preencha o formulário abaixo e entraremos em contato com mais informações sobre o curso, datas disponíveis e valores.
-              </p>
-            </div>
-            <div className="rounded-xl bg-white p-6 shadow-md md:p-8">
-              <LeadForm type="cursos" cursoSlug={curso.slug} cursoTitle={curso.title} />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Back Button */}
