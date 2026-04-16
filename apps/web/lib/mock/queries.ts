@@ -69,7 +69,7 @@ export async function getCursos(params?: {
  * Buscar curso por slug
  */
 export async function getCursoBySlug(slug: string): Promise<any | null> {
-  const { MOCK_CURSOS } = await import('./mock-data')
+  const { MOCK_CURSOS } = await import('../mock-data')
   const curso = MOCK_CURSOS.find(c => c.slug === slug)
   return curso || null
 }
@@ -78,7 +78,7 @@ export async function getCursoBySlug(slug: string): Promise<any | null> {
  * Buscar cursos em destaque
  */
 export async function getFeaturedCursos(limit: number = 3): Promise<MockResponse<any>> {
-  const { MOCK_CURSOS } = await import('./mock-data')
+  const { MOCK_CURSOS } = await import('../mock-data')
   const publishedCursos = MOCK_CURSOS
     .filter(curso => curso.status === 'published')
     .sort((a, b) => (b.salesCount || 0) - (a.salesCount || 0))
@@ -106,7 +106,7 @@ export async function getPosts(params?: {
   status?: string
   category?: string
 }): Promise<MockResponse<any>> {
-  const { MOCK_POSTS } = await import('./mock-data')
+  const { MOCK_POSTS } = await import('../mock-data')
   
   // Aplicar filtros
   let filteredPosts = MOCK_POSTS
@@ -132,7 +132,7 @@ export async function getPosts(params?: {
  * Buscar post por slug
  */
 export async function getPostBySlug(slug: string): Promise<any | null> {
-  const { MOCK_POSTS } = await import('./mock-data')
+  const { MOCK_POSTS } = await import('../mock-data')
   const post = MOCK_POSTS.find(p => p.slug === slug)
   return post || null
 }
@@ -141,7 +141,7 @@ export async function getPostBySlug(slug: string): Promise<any | null> {
  * Buscar posts em destaque
  */
 export async function getFeaturedPosts(limit: number = 3): Promise<MockResponse<any>> {
-  const { MOCK_POSTS } = await import('./mock-data')
+  const { MOCK_POSTS } = await import('../mock-data')
   const publishedPosts = MOCK_POSTS.filter(post => post.status === 'published')
   
   return {
@@ -162,7 +162,7 @@ export async function getFeaturedPosts(limit: number = 3): Promise<MockResponse<
  * Buscar categorias
  */
 export async function getCategorias(): Promise<MockResponse<any>> {
-  const { MOCK_CATEGORIAS } = await import('./mock-data')
+  const { MOCK_CATEGORIAS } = await import('../mock-data')
   
   return {
     docs: MOCK_CATEGORIAS,
