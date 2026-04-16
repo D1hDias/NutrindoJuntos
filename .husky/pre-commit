@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # Verificar se .env.local está sendo commitado
 if git diff --cached --name-only | grep -E "\.env\.local$"; then
   echo "❌ ERRO: Tentativa de commitar .env.local detectada!"
