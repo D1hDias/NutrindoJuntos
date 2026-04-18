@@ -1,5 +1,5 @@
-import { getEquipe as getEquipeFromMock } from '../mock/queries'
-import type { TeamMember } from '@/types/payload'
+import type { Membro } from '@/types'
+import { getEquipe as getEquipeFromMock } from '../mock-data'
 
 /**
  * Fetch all team members
@@ -14,6 +14,6 @@ export async function getTeamMembers() {
  */
 export async function getTeamMemberById(id: string) {
   const response = await getEquipeFromMock()
-  const member = response.docs.find((m: TeamMember) => m.id === id)
+  const member = response.docs.find((m: Membro) => m.id === id)
   return member || null
 }

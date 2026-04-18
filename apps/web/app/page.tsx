@@ -14,7 +14,7 @@ import { SlidingTextSection } from '@/components/sections/SlidingTextSection'
 import { getFeaturedCursos } from '@/lib/database'
 // import { getGoogleReviews } from '@/lib/google-reviews'
 import { getTestimonialImages, getTestimonialVideos } from '@/lib/testimonials'
-import { Curso } from '@/types/payload'
+import { Curso } from '@/types'
 
 export default async function Home() {
   // Fetch courses and testimonials

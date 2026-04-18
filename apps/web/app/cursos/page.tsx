@@ -3,7 +3,7 @@ import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { CallToAction } from '@/components/sections/CallToAction'
 import { CourseCatalog } from '@/components/courses/CourseCatalog'
 import { getCursos } from '@/lib/database'
-import type { Curso } from '@/types/payload'
+import type { Curso } from '@/types'
 
 export const metadata: Metadata = {
   title: 'Todos os Cursos',

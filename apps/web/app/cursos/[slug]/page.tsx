@@ -12,14 +12,19 @@ import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { RichTextRenderer } from '@/components/blog/RichTextRenderer'
 import { NCAContent } from '@/components/courses/NCAContent'
 import { NCEContent } from '@/components/courses/NCEContent'
-import type { Curso, Media } from '@/types/payload'
+import type { Curso, Media } from '@/types'
 
 // Função para mapear níveis para labels em português
-const getLevelLabel = (level: string) => {
+const getLevelLabel = (level?: string) => {
+  if (!level) return 'Nível não especificado'
+
   const labels: Record<string, string> = {
     beginner: 'Iniciante',
     intermediate: 'Intermediário',
-    advanced: 'Avançado'
+    advanced: 'Avançado',
+    iniciante: 'Iniciante',
+    intermediario: 'Intermediário',
+    avancado: 'Avançado'
   }
   return labels[level] || level
 }
@@ -47,17 +52,17 @@ export async function generateMetadata({ params }: CursoPageProps): Promise<Meta
     : undefined
 
   const cursoUrl = `/cursos/${curso.slug}`
-  const imageUrl = featuredImage?.url || '/og-image.jpg'
+  const imageUrl: string = featuredImage?.url || '/og-image.jpg'
 
   return {
     title: curso.title,
-    description: curso.description,
-    keywords: ['curso de nutrição', curso.level, 'educação nutricional', 'NUTRINDO JUNTOS'],
+    description: curso.description || '',
+    keywords: ['curso de nutrição', curso.level || '', 'educação nutricional', 'NUTRINDO JUNTOS'].filter(Boolean),
     openGraph: {
       type: 'website',
       url: cursoUrl,
       title: curso.title,
-      description: curso.description,
+      description: curso.description || '',
       images: [
         {
           url: imageUrl,
@@ -103,10 +108,10 @@ export default async function CursoPage({ params }: CursoPageProps) {
       {/* SEO Schema.org markup */}
       <CourseSchema
         name={curso.title}
-        description={curso.description}
+        description={curso.description || ''}
         provider="NUTRINDO JUNTOS"
         url={cursoUrl}
-        imageUrl={featuredImage?.url}
+        imageUrl={featuredImage?.url || '/og-image.jpg'}
         price={curso.price}
         priceCurrency="BRL"
       />
@@ -123,7 +128,7 @@ export default async function CursoPage({ params }: CursoPageProps) {
             <header className="mb-8">
               <div className="mb-4 flex flex-wrap items-center gap-2 text-sm">
                 <Badge variant="outline" className="text-primary-700 border-primary-200">
-                  {getLevelLabel(curso.level)}
+                  {getLevelLabel(curso.level || '')}
                 </Badge>
                 {curso.practicalFocus && (
                   <Badge className="bg-amber-500 text-white">
@@ -209,7 +214,10 @@ export default async function CursoPage({ params }: CursoPageProps) {
                 slug: curso.slug,
                 title: curso.title,
                 price: curso.price,
-                installments: curso.installments,
+                installments: curso.installments && typeof curso.installments === 'number' ? {
+                  count: curso.installments,
+                  value: Math.round((curso.price / curso.installments) * 100) / 100
+                } : undefined,
                 paymentLink: curso.paymentLink,
                 isLive: curso.isLive
               }} />

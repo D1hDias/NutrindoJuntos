@@ -1,5 +1,5 @@
-import { getCursos as getCursosFromMock, getCursoBySlug as getCursoBySlugFromMock, getFeaturedCursos as getFeaturedCursosFromMock } from '../mock/queries'
-import type { Curso } from '@/types/payload'
+import type { Curso } from '@/types'
+import { getCursos as getCursosFromMock, getCursoBySlug as getCursoBySlugFromMock, getFeaturedCursos as getFeaturedCursosFromMock } from '../mock-data'
 
 /**
  * Fetch all published courses

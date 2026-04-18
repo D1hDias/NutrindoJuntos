@@ -38,7 +38,7 @@ export async function getCursos(params?: {
   category?: string
 }): Promise<PaginatedResponse<any>> {
   if (shouldUseMockData()) {
-    const { getCursos: getMockCursos } = await import('./mock/queries')
+    const { getCursos: getMockCursos } = await import('./mock-data')
     return getMockCursos(params)
   } else {
     const { getCursos: getSupabaseCursos } = await import('./supabase/queries')
@@ -48,7 +48,7 @@ export async function getCursos(params?: {
 
 export async function getCursoBySlug(slug: string): Promise<any | null> {
   if (shouldUseMockData()) {
-    const { getCursoBySlug: getMockCurso } = await import('./mock/queries')
+    const { getCursoBySlug: getMockCurso } = await import('./mock-data')
     return getMockCurso(slug)
   } else {
     const { getCursoBySlug: getSupabaseCurso } = await import('./supabase/queries')
@@ -60,7 +60,7 @@ export async function getFeaturedCursos(
   limit: number = 3
 ): Promise<PaginatedResponse<any>> {
   if (shouldUseMockData()) {
-    const { getFeaturedCursos: getMockFeatured } = await import('./mock/queries')
+    const { getFeaturedCursos: getMockFeatured } = await import('./mock-data')
     return getMockFeatured(limit)
   } else {
     const { getFeaturedCursos: getSupabaseFeatured } = await import('./supabase/queries')
@@ -79,7 +79,7 @@ export async function getPosts(params?: {
   category?: string
 }): Promise<PaginatedResponse<any>> {
   if (shouldUseMockData()) {
-    const { getPosts: getMockPosts } = await import('./mock/queries')
+    const { getPosts: getMockPosts } = await import('./mock-data')
     return getMockPosts(params)
   } else {
     const { getPosts: getSupabasePosts } = await import('./supabase/queries')
@@ -89,7 +89,7 @@ export async function getPosts(params?: {
 
 export async function getPostBySlug(slug: string): Promise<any | null> {
   if (shouldUseMockData()) {
-    const { getPostBySlug: getMockPost } = await import('./mock/queries')
+    const { getPostBySlug: getMockPost } = await import('./mock-data')
     return getMockPost(slug)
   } else {
     const { getPostBySlug: getSupabasePost } = await import('./supabase/queries')
@@ -101,7 +101,7 @@ export async function getFeaturedPosts(
   limit: number = 3
 ): Promise<PaginatedResponse<any>> {
   if (shouldUseMockData()) {
-    const { getFeaturedPosts: getMockFeatured } = await import('./mock/queries')
+    const { getFeaturedPosts: getMockFeatured } = await import('./mock-data')
     return getMockFeatured(limit)
   } else {
     const { getFeaturedPosts: getSupabaseFeatured } = await import('./supabase/queries')
@@ -115,7 +115,7 @@ export async function getFeaturedPosts(
 
 export async function getCategorias(): Promise<PaginatedResponse<any>> {
   if (shouldUseMockData()) {
-    const { getCategorias: getMockCategorias } = await import('./mock/queries')
+    const { getCategorias: getMockCategorias } = await import('./mock-data')
     return getMockCategorias()
   } else {
     const { getCategorias: getSupabaseCategorias } = await import('./supabase/queries')
@@ -127,7 +127,7 @@ export async function getCategoriaBySlug(
   slug: string
 ): Promise<any | null> {
   if (shouldUseMockData()) {
-    const { getCategoriaBySlug: getMockCategoria } = await import('./mock/queries')
+    const { getCategoriaBySlug: getMockCategoria } = await import('./mock-data')
     return getMockCategoria(slug)
   } else {
     const { getCategoriaBySlug: getSupabaseCategoria } = await import('./supabase/queries')
@@ -141,7 +141,7 @@ export async function getCategoriaBySlug(
 
 export async function getEquipe(): Promise<PaginatedResponse<any>> {
   if (shouldUseMockData()) {
-    const { getEquipe: getMockEquipe } = await import('./mock/queries')
+    const { getEquipe: getMockEquipe } = await import('./mock-data')
     return getMockEquipe()
   } else {
     const { getEquipe: getSupabaseEquipe } = await import('./supabase/queries')

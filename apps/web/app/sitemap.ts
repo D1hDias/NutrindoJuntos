@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { getPosts } from '@/lib/api/posts'
 import { getCategorias } from '@/lib/api/categorias'
 import { getCursos } from '@/lib/api/cursos'
+import type { Post, Curso, Categoria } from '@/types'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
@@ -54,17 +55,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Dynamic blog posts
-    const postsResponse = await getPosts(100, 1) // Get up to 100 posts
-    const posts: MetadataRoute.Sitemap = postsResponse.docs.map((post) => ({
+    const postsResponse = await getPosts(100, 1)
+    const posts: MetadataRoute.Sitemap = postsResponse.docs.map((post: Post) => ({
       url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(),
+      lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
     }))
 
     // Dynamic blog categories
     const categoriasResponse = await getCategorias()
-    const categorias: MetadataRoute.Sitemap = categoriasResponse.docs.map((categoria) => ({
+    const categorias: MetadataRoute.Sitemap = categoriasResponse.docs.map((categoria: Categoria) => ({
       url: `${baseUrl}/blog/categoria/${categoria.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -73,9 +74,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Dynamic courses
     const cursosResponse = await getCursos()
-    const cursos: MetadataRoute.Sitemap = cursosResponse.docs.map((curso) => ({
+    const cursos: MetadataRoute.Sitemap = cursosResponse.docs.map((curso: Curso) => ({
       url: `${baseUrl}/cursos/${curso.slug}`,
-      lastModified: curso.updatedAt ? new Date(curso.updatedAt) : new Date(),
+      lastModified: curso.createdAt ? new Date(curso.createdAt) : new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     }))

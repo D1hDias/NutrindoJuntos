@@ -7,7 +7,7 @@ import { CallToAction } from '@/components/sections/CallToAction'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { X, Filter } from 'lucide-react'
-import type { Post, Media, Categoria } from '@/types/payload'
+import type { Post, Media, Categoria } from '@/types'
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -199,7 +199,7 @@ export default function BlogPage() {
               posts.map((post: Post) => {
                 const featuredImage = typeof post.featuredImage === 'object'
                   ? (post.featuredImage as Media)?.url
-                  : undefined
+                  : post.featuredImage
                 const category = typeof post.categoria === 'object'
                   ? (post.categoria as Categoria)?.name
                   : undefined
@@ -208,11 +208,11 @@ export default function BlogPage() {
                   <PostCard
                     key={post.id}
                     title={post.title}
-                    excerpt={post.excerpt}
+                    excerpt={post.excerpt || ''}
                     slug={post.slug}
-                    publishedAt={post.publishedAt}
-                    featuredImage={featuredImage}
-                    category={category}
+                    publishedAt={post.publishedAt || ''}
+                    featuredImage={featuredImage || ''}
+                    category={category || ''}
                   />
                 )
               })

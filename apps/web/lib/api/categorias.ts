@@ -1,5 +1,5 @@
-import { getCategorias as getCategoriasFromMock, getPosts as getPostsFromMock } from '../mock/queries'
-import type { Categoria } from '@/types/payload'
+import type { Categoria } from '@/types'
+import { getCategorias as getCategoriasFromMock, getPosts as getPostsFromMock } from '../mock-data'
 
 export interface CategoriasResponse {
   docs: Categoria[]

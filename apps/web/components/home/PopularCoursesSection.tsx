@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { BookOpen, Clock, Star, Zap } from 'lucide-react'
-import { Curso, Media } from '@/types/payload'
+import { Curso, Media } from '@/types'
 import { PaymentButton } from '@/components/courses/PaymentButton'
 
 interface PopularCoursesSectionProps {
@@ -91,7 +91,6 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
         {/* Courses Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => {
-            const featuredImage = course.featuredImage as Media
             return (
             <div
               key={course.id}
@@ -99,17 +98,17 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
             >
               {/* Course Image */}
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
-                {featuredImage?.url ? (
+                {course.featuredImage ? (
                   <Image
-                    src={featuredImage.url}
-                    alt={featuredImage.alt || course.title}
+                    src={course.featuredImage}
+                    alt={course.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
                     <p className="text-6xl font-bold text-primary-400">
-                      {getCategoryLabel(course.category).charAt(0)}
+                      {course.category?.name ? course.category.name.charAt(0) : 'N'}
                     </p>
                   </div>
                 )}
@@ -143,7 +142,7 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                     variant="secondary"
                     className="font-serif italic text-primary-500 bg-primary-50 border-primary-200"
                   >
-                    {getCategoryLabel(course.category)}
+                    {course.category?.name || 'Categoria'}
                   </Badge>
 
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
@@ -188,7 +187,7 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                           {renderStars(course.rating)}
                         </div>
                         <span className="text-sm text-neutral-600">
-                          {course.reviews || 0} Avaliações
+                          {course.reviewCount || 0} Avaliações
                         </span>
                       </>
                     )}

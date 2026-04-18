@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { formatDate } from '@/lib/utils'
-import type { Post, Author } from '@/types/payload'
+import type { Post, Author } from '@/types'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -75,11 +75,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                     {post.featuredImage && (
                       <div className="relative aspect-video w-full overflow-hidden group">
                         <Image
-                          src={
-                            typeof post.featuredImage === 'string'
-                              ? post.featuredImage
-                              : post.featuredImage.url
-                          }
+                          src={post.featuredImage || '/images/blog/default.jpg'}
                           alt={post.title}
                           fill
                           className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -95,7 +91,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
                       <div className="flex items-center gap-4 mb-3 text-sm text-neutral-600">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
-                          <span>{formatDate(post.publishedAt || post.createdAt)}</span>
+                          <span>{formatDate(post.publishedAt || '')}</span>
                         </div>
                         {post.categoria && typeof post.categoria === 'object' && (
                           <Badge variant="secondary">{post.categoria.name}</Badge>
@@ -125,7 +121,10 @@ export function BlogSection({ posts }: BlogSectionProps) {
                         {author && (
                           <div className="flex items-center gap-2">
                             <Avatar className="h-10 w-10">
-                              <AvatarImage src={author.avatar} alt={author.name} />
+                              <AvatarImage
+                                src={author.avatar && typeof author.avatar === 'object' ? author.avatar.url : author.avatar}
+                                alt={author.name}
+                              />
                               <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
                             </Avatar>
                             <div className="text-sm hidden sm:block">

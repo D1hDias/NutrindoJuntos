@@ -15,14 +15,14 @@ import {
   X,
   TrendingUp,
 } from 'lucide-react'
-import type { Curso, Media } from '@/types/payload'
+import type { Curso, Media } from '@/types'
 
 interface CourseCatalogProps {
   courses: Curso[]
 }
 
 type SortOption = 'best-sellers' | 'price-asc' | 'price-desc' | 'newest' | 'rating'
-type LevelFilter = 'all' | 'beginner' | 'intermediate' | 'advanced'
+type LevelFilter = 'all' | 'iniciante' | 'intermediario' | 'avancado'
 type CategoryFilter = string
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -38,6 +38,9 @@ const LEVEL_LABELS: Record<string, string> = {
   beginner: 'Iniciante',
   intermediate: 'Intermediário',
   advanced: 'Avançado',
+  iniciante: 'Iniciante',
+  intermediario: 'Intermediário',
+  avancado: 'Avançado',
 }
 
 const SORT_LABELS: Record<SortOption, string> = {
@@ -56,7 +59,11 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
 
   // Extract unique categories from courses
   const categories = useMemo(() => {
-    const cats = new Set(courses.map((c) => c.category))
+    const cats = new Set(
+      courses
+        .map((c) => c.category?.slug)
+        .filter((slug): slug is string => Boolean(slug))
+    )
     return Array.from(cats)
   }, [courses])
 
@@ -70,8 +77,8 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
       result = result.filter(
         (c) =>
           c.title.toLowerCase().includes(q) ||
-          c.description.toLowerCase().includes(q) ||
-          (c.headline && c.headline.toLowerCase().includes(q))
+          c.description?.toLowerCase().includes(q) ||
+          c.headline?.toLowerCase().includes(q)
       )
     }
 
@@ -82,7 +89,7 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
 
     // Category filter
     if (categoryFilter !== 'all') {
-      result = result.filter((c) => c.category === categoryFilter)
+      result = result.filter((c) => c.category?.slug === categoryFilter)
     }
 
     // Sort
@@ -97,7 +104,11 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
         result.sort((a, b) => b.price - a.price)
         break
       case 'newest':
-        result.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        result.sort((a, b) => {
+          const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0
+          const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0
+          return dateB - dateA
+        })
         break
       case 'rating':
         result.sort((a, b) => (b.rating || 0) - (a.rating || 0))
@@ -205,10 +216,10 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
           >
             Todas as Categorias
           </button>
-          {categories.map((cat) => (
+          {categories.map((cat) => cat && (
             <button
               key={cat}
-              onClick={() => setCategoryFilter(cat)}
+              onClick={() => setCategoryFilter(cat as string)}
               className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
                 categoryFilter === cat
                   ? 'bg-primary-500 text-white'
@@ -307,10 +318,10 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
                   {/* Meta */}
                   <div className="mb-2 flex flex-wrap items-center gap-2">
                     <Badge variant="secondary" className="text-xs bg-primary-50 text-primary-600">
-                      {LEVEL_LABELS[course.level] || course.level}
+                      {LEVEL_LABELS[course.level || ''] || course.level}
                     </Badge>
                     <Badge variant="outline" className="text-xs">
-                      {CATEGORY_LABELS[course.category] || course.category}
+                      {course.category?.slug ? (CATEGORY_LABELS[course.category.slug] || course.category.name) : ''}
                     </Badge>
                   </div>
 

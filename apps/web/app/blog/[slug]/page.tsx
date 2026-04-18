@@ -12,7 +12,7 @@ import { ArticleSchema } from '@/components/seo/ArticleSchema'
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { RichTextRenderer } from '@/components/blog/RichTextRenderer'
 import { calculateReadingTime } from '@/lib/reading-time'
-import type { Post, Media, Categoria } from '@/types/payload'
+import type { Post, Media, Categoria } from '@/types'
 
 interface PostPageProps {
   params: Promise<{
@@ -52,7 +52,6 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
       title: post.title,
       description: post.excerpt,
       publishedTime: post.publishedAt,
-      modifiedTime: post.updatedAt,
       authors: ['NUTRINDO JUNTOS'],
       tags: category?.name ? [category.name] : undefined,
       images: [
@@ -111,9 +110,9 @@ export default async function PostPage({ params }: PostPageProps) {
       {/* SEO Schema.org markup */}
       <ArticleSchema
         title={post.title}
-        description={post.excerpt}
-        publishedAt={post.publishedAt}
-        updatedAt={post.updatedAt}
+        description={post.excerpt || ''}
+        publishedAt={post.publishedAt || ''}
+        updatedAt={post.publishedAt || ''}
         authorName="NUTRINDO JUNTOS"
         imageUrl={featuredImage?.url}
         category={category?.name}
@@ -136,12 +135,12 @@ export default async function PostPage({ params }: PostPageProps) {
                 <span>•</span>
               </>
             )}
-            <time dateTime={post.publishedAt}>
-              {new Date(post.publishedAt).toLocaleDateString('pt-BR', {
+            <time dateTime={post.publishedAt || ''}>
+              {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('pt-BR', {
                 day: '2-digit',
                 month: 'long',
                 year: 'numeric',
-              })}
+              }) : ''}
             </time>
             <span>•</span>
             <ReadingTime minutes={readingTime} />
@@ -204,7 +203,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {relatedPosts.map((relatedPost: Post) => {
               const relatedFeaturedImage = typeof relatedPost.featuredImage === 'object'
                 ? (relatedPost.featuredImage as Media)?.url
-                : undefined
+                : relatedPost.featuredImage
               const relatedCategory = typeof relatedPost.categoria === 'object'
                 ? (relatedPost.categoria as Categoria)?.name
                 : undefined
@@ -213,11 +212,11 @@ export default async function PostPage({ params }: PostPageProps) {
                 <PostCard
                   key={relatedPost.id}
                   title={relatedPost.title}
-                  excerpt={relatedPost.excerpt}
+                  excerpt={relatedPost.excerpt || ''}
                   slug={relatedPost.slug}
-                  publishedAt={relatedPost.publishedAt}
-                  featuredImage={relatedFeaturedImage}
-                  category={relatedCategory}
+                  publishedAt={relatedPost.publishedAt || ''}
+                  featuredImage={relatedFeaturedImage || ''}
+                  category={relatedCategory || ''}
                 />
               )
             })}

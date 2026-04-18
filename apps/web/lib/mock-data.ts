@@ -1,4 +1,4 @@
-import type { Post, Categoria, Curso, Author, TeamMember } from '@/types/payload'
+import type { Post, Categoria, Curso, Author, Membro, TeamMember } from '@/types'
 
 /**
  * Mock data for testing purposes
@@ -11,33 +11,25 @@ export const MOCK_CATEGORIAS: Categoria[] = [
     id: 'cat-1',
     name: 'Nutrição Clínica',
     slug: 'nutricao-clinica',
-    description: 'Conteúdos sobre nutrição clínica e atendimento de pacientes',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    description: 'Conteúdos sobre nutrição clínica e atendimento de pacientes'
   },
   {
     id: 'cat-2',
     name: 'Nutrição Esportiva',
     slug: 'nutricao-esportiva',
-    description: 'Tudo sobre nutrição para atletas e praticantes de atividade física',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    description: 'Tudo sobre nutrição para atletas e praticantes de atividade física'
   },
   {
     id: 'cat-3',
     name: 'Nutrição Funcional',
     slug: 'nutricao-funcional',
-    description: 'Abordagem funcional e integrativa da nutrição',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    description: 'Abordagem funcional e integrativa da nutrição'
   },
   {
     id: 'cat-4',
     name: 'Gestão de Consultório',
     slug: 'gestao-consultorio',
-    description: 'Dicas para gerenciar seu consultório de nutrição',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    description: 'Dicas para gerenciar seu consultório de nutrição'
   },
 ]
 
@@ -57,28 +49,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-1',
-      url: 'https://placehold.co/800x600/22c55e/ffffff?text=Nutricao+Clinica',
-      alt: 'Nutricionista atendendo paciente',
-      filename: 'nutricionist-patient.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 150000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/22c55e/ffffff?text=Nutricao+Clinica',
     categoria: MOCK_CATEGORIAS[3], // Gestão de Consultório
     author: {
+      id: 'author-1',
       name: 'Ana Paula Silva',
-      role: 'Nutricionista Esportiva',
       avatar: '/images/blog/authors/author-1.webp'
     },
     publishedAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-2',
@@ -95,28 +74,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-2',
-      url: 'https://placehold.co/800x600/f59e0b/ffffff?text=Nutricao+Esportiva',
-      alt: 'Atleta se exercitando',
-      filename: 'athlete-training.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 180000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/f59e0b/ffffff?text=Nutricao+Esportiva',
     categoria: MOCK_CATEGORIAS[1], // Nutrição Esportiva
     author: {
+      id: 'author-2',
       name: 'Mariana Costa',
-      role: 'Nutricionista Clínica',
       avatar: '/images/blog/authors/author-2.webp'
     },
     publishedAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-3',
@@ -133,28 +99,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-3',
-      url: 'https://placehold.co/800x600/16a34a/ffffff?text=Anamnese+Nutricional',
-      alt: 'Nutricionista fazendo anotações',
-      filename: 'nutritionist-notes.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 160000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/16a34a/ffffff?text=Anamnese+Nutricional',
     categoria: MOCK_CATEGORIAS[0], // Nutrição Clínica
     author: {
+      id: 'author-3',
       name: 'Carlos Eduardo Santos',
-      role: 'Nutricionista Funcional',
       avatar: '/images/blog/authors/author-3.webp'
     },
     publishedAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-4',
@@ -171,28 +124,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-4',
-      url: 'https://placehold.co/800x600/15803d/ffffff?text=Nutricao+Funcional',
-      alt: 'Alimentos funcionais',
-      filename: 'functional-foods.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 170000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/15803d/ffffff?text=Nutricao+Funcional',
     categoria: MOCK_CATEGORIAS[2], // Nutrição Funcional
     author: {
+      id: 'author-4',
       name: 'Carlos Eduardo Santos',
-      role: 'Nutricionista Funcional',
       avatar: '/images/blog/authors/author-3.webp'
     },
     publishedAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(), // 10 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-5',
@@ -209,28 +149,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-5',
-      url: 'https://placehold.co/800x600/d97706/ffffff?text=Marketing+Digital',
-      alt: 'Marketing digital',
-      filename: 'digital-marketing.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 155000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/d97706/ffffff?text=Marketing+Digital',
     categoria: MOCK_CATEGORIAS[3], // Gestão de Consultório
     author: {
+      id: 'author-5',
       name: 'Ana Paula Silva',
-      role: 'Nutricionista Esportiva',
       avatar: '/images/blog/authors/author-1.webp'
     },
     publishedAt: new Date(Date.now() - 12 * 24 * 60 * 60 * 1000).toISOString(), // 12 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-6',
@@ -247,28 +174,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-6',
-      url: 'https://placehold.co/800x600/f59e0b/ffffff?text=Suplementacao',
-      alt: 'Suplementos esportivos',
-      filename: 'supplements.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 165000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/f59e0b/ffffff?text=Suplementacao',
     categoria: MOCK_CATEGORIAS[1], // Nutrição Esportiva
     author: {
+      id: 'author-6',
       name: 'Mariana Costa',
-      role: 'Nutricionista Clínica',
       avatar: '/images/blog/authors/author-2.webp'
     },
     publishedAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(), // 14 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-7',
@@ -285,28 +199,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-7',
-      url: 'https://placehold.co/800x600/16a34a/ffffff?text=Diabetes',
-      alt: 'Medição de glicose',
-      filename: 'diabetes-care.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 140000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/16a34a/ffffff?text=Diabetes',
     categoria: MOCK_CATEGORIAS[0], // Nutrição Clínica
     author: {
+      id: 'author-7',
       name: 'Carlos Eduardo Santos',
-      role: 'Nutricionista Funcional',
       avatar: '/images/blog/authors/author-3.webp'
     },
     publishedAt: new Date(Date.now() - 16 * 24 * 60 * 60 * 1000).toISOString(), // 16 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-8',
@@ -323,28 +224,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-8',
-      url: 'https://placehold.co/800x600/15803d/ffffff?text=Microbiota',
-      alt: 'Saúde intestinal',
-      filename: 'gut-health.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 175000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/15803d/ffffff?text=Microbiota',
     categoria: MOCK_CATEGORIAS[2], // Nutrição Funcional
     author: {
+      id: 'author-8',
       name: 'Ana Paula Silva',
-      role: 'Nutricionista Esportiva',
       avatar: '/images/blog/authors/author-1.webp'
     },
     publishedAt: new Date(Date.now() - 18 * 24 * 60 * 60 * 1000).toISOString(), // 18 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
   {
     id: 'post-9',
@@ -361,28 +249,15 @@ export const MOCK_POSTS: Post[] = [
         ]
       }
     },
-    featuredImage: {
-      id: 'img-9',
-      url: 'https://placehold.co/800x600/d97706/ffffff?text=Precificacao',
-      alt: 'Planejamento financeiro',
-      filename: 'pricing.jpg',
-      mimeType: 'image/jpeg',
-      filesize: 145000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: 'https://placehold.co/800x600/d97706/ffffff?text=Precificacao',
     categoria: MOCK_CATEGORIAS[3], // Gestão de Consultório
     author: {
+      id: 'author-9',
       name: 'Mariana Costa',
-      role: 'Nutricionista Clínica',
       avatar: '/images/blog/authors/author-2.webp'
     },
     publishedAt: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString(), // 20 dias atrás
-    status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    status: 'published'
   },
 ]
 
@@ -393,18 +268,7 @@ export const MOCK_CURSOS: Curso[] = [
     slug: 'nca-nutricao-clinica-aplicada',
     description: 'Curso intensivo e 100% prático de Nutrição Clínica para quem quer dominar o básico muito bem feito, com fundamentos sólidos e aplicáveis no dia a dia da clínica.',
     headline: 'A prática que transforma. A clínica que dá resultado.',
-    featuredImage: {
-      id: 'nca-img',
-      url: '/images/cursos/IMG_8181.webp',
-      alt: 'NCA - Nutrição Clínica Aplicada',
-      filename: 'IMG_8181.webp',
-      mimeType: 'image/webp',
-      filesize: 200000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: '/images/cursos/IMG_8181.webp',
     content: [
       {
         children: [
@@ -446,43 +310,24 @@ export const MOCK_CURSOS: Curso[] = [
     instructor: {
       id: 'instructor-1',
       name: 'Dra. Ana Paula Silva',
-      role: 'Nutricionista Clínica Especialista',
       bio: 'Nutricionista com mais de 10 anos de experiência em atendimento clínico.',
-      order: 1,
-      photo: {
-        id: 'instructor-photo-1',
-        url: 'https://placehold.co/150x150/22c55e/ffffff?text=APS',
-        alt: 'Dra. Ana Paula Silva',
-        filename: 'ana-paula.jpg',
-        mimeType: 'image/jpeg',
-        filesize: 50000,
-        width: 150,
-        height: 150,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      },
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+      avatar: 'https://placehold.co/150x150/22c55e/ffffff?text=APS',
     },
-    category: 'clinica',
-    level: 'intermediate',
+    category: { id: 'cat-clinica', name: 'Nutrição Clínica', slug: 'clinica' },
+    level: 'intermediario',
     duration: '20 horas',
-    modules: 7,
+    modules: [],
     rating: 0,
-    reviews: 0,
     price: 1263.36,
-    installments: {
-      count: 12,
-      value: 105.28
-    },
+    installments: 12,
     salesCount: 0,
-    practicalFocus: true,
-    targetAudience: 'Graduandos, recém-formados e profissionais que desejam transicionar de carreira e ter segurança no atendimento clínico',
+    practicalFocus: 'Abordagem prática com foco em aplicação clínica real',
+    targetAudience: ['Graduandos', 'Recém-formados', 'Profissionais em transição de carreira'],
+    whatYouWillLearn: ['Fundamentos da nutrição clínica', 'Estratégias de prescrição personalizada', 'Gestão de consultório'],
+    requirements: ['Graduação em Nutrição (em curso ou concluída)', 'Interesse em atendimento clínico'],
     paymentLink: 'https://pay.hotmart.com/exemplo-nca-curso',
     isLive: true,
     status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
   },
   {
     id: 'nce-1',
@@ -490,18 +335,7 @@ export const MOCK_CURSOS: Curso[] = [
     slug: 'nce-nutricao-clinica-estrategica',
     description: 'Para quem já domina a base clínica e quer ir além: aprofundamento em protocolos avançados, gestão de carreira e protagonismo profissional.',
     headline: 'A jornada que te coloca como protagonista da própria carreira.',
-    featuredImage: {
-      id: 'nce-img',
-      url: '/images/cursos/IMG_8183.webp',
-      alt: 'NCE - Nutrição Clínica Estratégica',
-      filename: 'IMG_8183.webp',
-      mimeType: 'image/webp',
-      filesize: 200000,
-      width: 800,
-      height: 600,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    },
+    featuredImage: '/images/cursos/IMG_8183.webp',
     content: [
       {
         children: [
@@ -550,153 +384,79 @@ export const MOCK_CURSOS: Curso[] = [
     instructor: {
       id: 'instructor-2',
       name: 'Dra. Mariana Costa',
-      role: 'Nutricionista Especialista em Clínica Avançada',
       bio: 'Nutricionista com especialização em gestão e empreendedorismo.',
-      order: 2,
-      photo: {
-        id: 'instructor-photo-2',
-        url: 'https://placehold.co/150x150/16a34a/ffffff?text=MC',
-        alt: 'Dra. Mariana Costa',
-        filename: 'mariana-costa.jpg',
-        mimeType: 'image/jpeg',
-        filesize: 50000,
-        width: 150,
-        height: 150,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      },
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+      avatar: 'https://placehold.co/150x150/16a34a/ffffff?text=MC',
     },
-    category: 'clinica',
-    level: 'advanced',
+    category: {
+      id: 'cat-clinica',
+      name: 'Nutrição Clínica',
+      slug: 'clinica'
+    },
+    level: 'avancado',
     duration: '40 horas',
-    modules: 12,
+    modules: [],
     rating: 0,
-    reviews: 0,
     price: 2304.84,
-    installments: {
-      count: 12,
-      value: 192.07
-    },
+    installments: 12,
     salesCount: 0,
-    practicalFocus: true,
-    targetAudience: 'Profissionais que já possuem base clínica e desejam aprofundar em protocolos avançados e gestão estratégica',
+    practicalFocus: 'Abordagem prática com foco em aplicação clínica avançada',
+    targetAudience: ['Profissionais que já possuem base clínica', 'Nutricionistas que desejam aprofundar em protocolos avançados', 'Profissionais interessados em gestão estratégica'],
+    whatYouWillLearn: ['Protocolos avançados em nutrição clínica', 'Gestão estratégica de consultório', 'Protagonismo profissional'],
+    requirements: ['Base clínica sólida', 'Experiência prévia em atendimento'],
     paymentLink: 'https://pay.hotmart.com/exemplo-nce-curso',
     isLive: true,
     status: 'published',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
   },
 ]
 
-export const MOCK_EQUIPE: TeamMember[] = [
+export const MOCK_EQUIPE: Membro[] = [
   {
     id: '1',
     name: 'Ana Paula Silva',
     role: 'Nutricionista Clínica',
-    bio: 'Especialista em nutrição clínica com mais de 10 anos de experiência. Apaixonada por ensinar e compartilhar conhecimento.',
-    credentials: 'CRN 12345',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/anapaula',
-    },
-    order: 1,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    bio: 'Especialista em nutrição clínica com mais de 10 anos de experiência. Apaixonada por ensinar e compartilhar conhecimento.'
   },
   {
     id: '2',
     name: 'Carlos Eduardo Santos',
-    role: 'Nutricionista Esportivo',
-    bio: 'Especialista em nutrição esportiva, atende atletas de alto rendimento e amadores que buscam melhor performance.',
-    credentials: 'CRN 23456',
-    socialLinks: {
-      instagram: 'https://instagram.com/carloseduardo',
-    },
-    order: 2,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    role: 'Nutricionista Esportiva',
+    bio: 'Especialista em nutrição esportiva, atende atletas de alto rendimento e amadores que buscam melhor performance.'
   },
   {
     id: '3',
     name: 'Mariana Oliveira',
     role: 'Nutricionista Materno-Infantil',
-    bio: 'Dedicada à nutrição materno-infantil, ajudando mães e crianças a desenvolverem hábitos alimentares saudáveis.',
-    credentials: 'CRN 34567',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/marianaoliveira',
-      instagram: 'https://instagram.com/mariana.nutri',
-    },
-    order: 3,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    bio: 'Dedicada à nutrição materno-infantil, ajudando mães e crianças a desenvolverem hábitos alimentares saudáveis.'
   },
   {
     id: '4',
     name: 'Rafael Costa',
     role: 'Nutricionista Funcional',
-    bio: 'Especialista em nutrição funcional e medicina integrativa, focado em tratamentos personalizados e preventivos.',
-    credentials: 'CRN 45678',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/rafaelcosta',
-    },
-    order: 4,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    bio: 'Especialista em nutrição funcional e medicina integrativa, focado em tratamentos personalizados e preventivos.'
   },
   {
     id: '5',
     name: 'Juliana Mendes',
     role: 'Nutricionista Comportamental',
-    bio: 'Trabalha com a relação emocional com a comida, ajudando pessoas a desenvolverem uma alimentação consciente.',
-    credentials: 'CRN 56789',
-    socialLinks: {
-      instagram: 'https://instagram.com/juliana.comportamental',
-      website: 'https://julianamendes.com.br',
-    },
-    order: 5,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    bio: 'Trabalha com a relação emocional com a comida, ajudando pessoas a desenvolverem uma alimentação consciente.'
   },
   {
     id: '6',
     name: 'Pedro Henrique Lima',
-    role: 'Nutricionista Vegano',
-    bio: 'Especialista em nutrição plant-based, auxilia na transição para uma alimentação vegana equilibrada e saudável.',
-    credentials: 'CRN 67890',
-    socialLinks: {
-      instagram: 'https://instagram.com/pedro.vegano',
-    },
-    order: 6,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    role: 'Nutricionista Plant-Based',
+    bio: 'Especialista em nutrição plant-based, auxilia na transição para uma alimentação vegana equilibrada e saudável.'
   },
   {
     id: '7',
     name: 'Beatriz Almeida',
     role: 'Nutricionista Estética',
-    bio: 'Focada em nutrição estética e longevidade, promove saúde e beleza de dentro para fora.',
-    credentials: 'CRN 78901',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/beatrizalmeida',
-      instagram: 'https://instagram.com/bia.nutriestetica',
-    },
-    order: 7,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    bio: 'Focada em nutrição estética e longevidade, promove saúde e beleza de dentro para fora.'
   },
   {
     id: '8',
     name: 'Lucas Ferreira',
     role: 'Nutricionista Oncológico',
-    bio: 'Especializado em nutrição oncológica, auxilia pacientes em tratamento do câncer com abordagem humanizada.',
-    credentials: 'CRN 89012',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/lucasferreira',
-    },
-    order: 8,
-    createdAt: '2024-01-01T00:00:00.000Z',
-    updatedAt: '2024-01-01T00:00:00.000Z',
+    bio: 'Especializado em nutrição oncológica, auxilia pacientes em tratamento do câncer com abordagem humanizada.'
   },
 ]
 
@@ -706,4 +466,144 @@ export const MOCK_EQUIPE: TeamMember[] = [
  */
 export const shouldUseMockData = () => {
   return process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true'
+}
+
+// ============================================
+// QUERY FUNCTIONS
+// ============================================
+
+export async function getPosts(params?: {
+  limit?: number
+  page?: number
+  status?: string
+  category?: string
+}): Promise<{ docs: Post[]; totalDocs: number; limit: number; totalPages: number; page: number; pagingCounter: number; hasPrevPage: boolean; hasNextPage: boolean; prevPage: number | null; nextPage: number | null }> {
+  const limit = params?.limit || 10
+  const page = params?.page || 1
+  const startIndex = (page - 1) * limit
+  const endIndex = startIndex + limit
+
+  let filtered = MOCK_POSTS.filter(p => p.status === 'published')
+
+  if (params?.category) {
+    filtered = filtered.filter(p => p.categoria?.slug === params.category)
+  }
+
+  const paginated = filtered.slice(startIndex, endIndex)
+
+  return {
+    docs: paginated,
+    totalDocs: filtered.length,
+    limit,
+    totalPages: Math.ceil(filtered.length / limit),
+    page,
+    pagingCounter: startIndex + 1,
+    hasPrevPage: page > 1,
+    hasNextPage: endIndex < filtered.length,
+    prevPage: page > 1 ? page - 1 : null,
+    nextPage: endIndex < filtered.length ? page + 1 : null,
+  }
+}
+
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  return MOCK_POSTS.find(p => p.slug === slug && p.status === 'published') || null
+}
+
+export async function getFeaturedPosts(limit: number = 3) {
+  const featured = MOCK_POSTS.filter(p => p.status === 'published').slice(0, limit)
+  return {
+    docs: featured,
+    totalDocs: featured.length,
+    limit,
+    totalPages: 1,
+    page: 1,
+    pagingCounter: 1,
+    hasPrevPage: false,
+    hasNextPage: false,
+    prevPage: null,
+    nextPage: null,
+  }
+}
+
+export async function getCursos(params?: {
+  limit?: number
+  page?: number
+  status?: string
+  category?: string
+}): Promise<{ docs: Curso[]; totalDocs: number; limit: number; totalPages: number; page: number; pagingCounter: number; hasPrevPage: boolean; hasNextPage: boolean; prevPage: number | null; nextPage: number | null }> {
+  const limit = params?.limit || 10
+  const page = params?.page || 1
+  const startIndex = (page - 1) * limit
+  const endIndex = startIndex + limit
+
+  let filtered = MOCK_CURSOS.filter(c => c.status === 'published')
+
+  const paginated = filtered.slice(startIndex, endIndex)
+
+  return {
+    docs: paginated,
+    totalDocs: filtered.length,
+    limit,
+    totalPages: Math.ceil(filtered.length / limit),
+    page,
+    pagingCounter: startIndex + 1,
+    hasPrevPage: page > 1,
+    hasNextPage: endIndex < filtered.length,
+    prevPage: page > 1 ? page - 1 : null,
+    nextPage: endIndex < filtered.length ? page + 1 : null,
+  }
+}
+
+export async function getCursoBySlug(slug: string): Promise<Curso | null> {
+  return MOCK_CURSOS.find(c => c.slug === slug && c.status === 'published') || null
+}
+
+export async function getFeaturedCursos(limit: number = 3) {
+  const featured = MOCK_CURSOS.filter(c => c.status === 'published').slice(0, limit)
+  return {
+    docs: featured,
+    totalDocs: featured.length,
+    limit,
+    totalPages: 1,
+    page: 1,
+    pagingCounter: 1,
+    hasPrevPage: false,
+    hasNextPage: false,
+    prevPage: null,
+    nextPage: null,
+  }
+}
+
+export async function getCategorias() {
+  return {
+    docs: MOCK_CATEGORIAS,
+    totalDocs: MOCK_CATEGORIAS.length,
+    limit: MOCK_CATEGORIAS.length,
+    totalPages: 1,
+    page: 1,
+    pagingCounter: 1,
+    hasPrevPage: false,
+    hasNextPage: false,
+    prevPage: null,
+    nextPage: null,
+  }
+}
+
+export async function getCategoriaBySlug(slug: string): Promise<Categoria | null> {
+  return MOCK_CATEGORIAS.find(c => c.slug === slug) || null
+}
+
+export async function getEquipe() {
+  return {
+    docs: MOCK_EQUIPE,
+    totalDocs: MOCK_EQUIPE.length,
+    limit: MOCK_EQUIPE.length,
+    totalPages: 1,
+    page: 1,
+    pagingCounter: 1,
+    hasPrevPage: false,
+    hasNextPage: false,
+    prevPage: null,
+    nextPage: null,
+  }
 }

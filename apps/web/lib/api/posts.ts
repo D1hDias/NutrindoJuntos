@@ -1,4 +1,4 @@
-import { getPosts as getPostsFromMock, getPostBySlug as getPostBySlugFromMock } from '../mock/queries'
+import { getPosts as getPostsFromMock, getPostBySlug as getPostBySlugFromMock } from '../mock-data'
 
 /**
  * Fetch all published posts
