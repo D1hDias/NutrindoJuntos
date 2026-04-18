@@ -103,6 +103,19 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        {/* CRITICAL: Define 'self' before any webpack chunks load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof self === 'undefined') {
+                self = window;
+              }
+              if (typeof globalThis !== 'undefined' && typeof globalThis.self === 'undefined') {
+                globalThis.self = globalThis;
+              }
+            `,
+          }}
+        />
         <OrganizationSchema />
       </head>
       <body

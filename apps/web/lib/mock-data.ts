@@ -1,4 +1,4 @@
-import type { Post, Categoria, Curso, Author } from '@/types/payload'
+import type { Post, Categoria, Curso, Author, TeamMember } from '@/types/payload'
 
 /**
  * Mock data for testing purposes
@@ -587,6 +587,116 @@ export const MOCK_CURSOS: Curso[] = [
     status: 'published',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
+  },
+]
+
+export const MOCK_EQUIPE: TeamMember[] = [
+  {
+    id: '1',
+    name: 'Ana Paula Silva',
+    role: 'Nutricionista Clínica',
+    bio: 'Especialista em nutrição clínica com mais de 10 anos de experiência. Apaixonada por ensinar e compartilhar conhecimento.',
+    credentials: 'CRN 12345',
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/anapaula',
+    },
+    order: 1,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '2',
+    name: 'Carlos Eduardo Santos',
+    role: 'Nutricionista Esportivo',
+    bio: 'Especialista em nutrição esportiva, atende atletas de alto rendimento e amadores que buscam melhor performance.',
+    credentials: 'CRN 23456',
+    socialLinks: {
+      instagram: 'https://instagram.com/carloseduardo',
+    },
+    order: 2,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '3',
+    name: 'Mariana Oliveira',
+    role: 'Nutricionista Materno-Infantil',
+    bio: 'Dedicada à nutrição materno-infantil, ajudando mães e crianças a desenvolverem hábitos alimentares saudáveis.',
+    credentials: 'CRN 34567',
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/marianaoliveira',
+      instagram: 'https://instagram.com/mariana.nutri',
+    },
+    order: 3,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '4',
+    name: 'Rafael Costa',
+    role: 'Nutricionista Funcional',
+    bio: 'Especialista em nutrição funcional e medicina integrativa, focado em tratamentos personalizados e preventivos.',
+    credentials: 'CRN 45678',
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/rafaelcosta',
+    },
+    order: 4,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '5',
+    name: 'Juliana Mendes',
+    role: 'Nutricionista Comportamental',
+    bio: 'Trabalha com a relação emocional com a comida, ajudando pessoas a desenvolverem uma alimentação consciente.',
+    credentials: 'CRN 56789',
+    socialLinks: {
+      instagram: 'https://instagram.com/juliana.comportamental',
+      website: 'https://julianamendes.com.br',
+    },
+    order: 5,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '6',
+    name: 'Pedro Henrique Lima',
+    role: 'Nutricionista Vegano',
+    bio: 'Especialista em nutrição plant-based, auxilia na transição para uma alimentação vegana equilibrada e saudável.',
+    credentials: 'CRN 67890',
+    socialLinks: {
+      instagram: 'https://instagram.com/pedro.vegano',
+    },
+    order: 6,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '7',
+    name: 'Beatriz Almeida',
+    role: 'Nutricionista Estética',
+    bio: 'Focada em nutrição estética e longevidade, promove saúde e beleza de dentro para fora.',
+    credentials: 'CRN 78901',
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/beatrizalmeida',
+      instagram: 'https://instagram.com/bia.nutriestetica',
+    },
+    order: 7,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
+  },
+  {
+    id: '8',
+    name: 'Lucas Ferreira',
+    role: 'Nutricionista Oncológico',
+    bio: 'Especializado em nutrição oncológica, auxilia pacientes em tratamento do câncer com abordagem humanizada.',
+    credentials: 'CRN 89012',
+    socialLinks: {
+      linkedin: 'https://linkedin.com/in/lucasferreira',
+    },
+    order: 8,
+    createdAt: '2024-01-01T00:00:00.000Z',
+    updatedAt: '2024-01-01T00:00:00.000Z',
   },
 ]
 

@@ -11,7 +11,7 @@ import type { PaginatedResponse } from './supabase/queries'
 /**
  * Verifica se deve usar mock data
  */
-function useMockData(): boolean {
+function shouldUseMockData(): boolean {
   // Se variável explícita estiver definida, usar ela
   if (process.env.NEXT_PUBLIC_USE_MOCK_DATA !== undefined) {
     return process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true'
@@ -37,7 +37,7 @@ export async function getCursos(params?: {
   status?: string
   category?: string
 }): Promise<PaginatedResponse<any>> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getCursos: getMockCursos } = await import('./mock/queries')
     return getMockCursos(params)
   } else {
@@ -47,7 +47,7 @@ export async function getCursos(params?: {
 }
 
 export async function getCursoBySlug(slug: string): Promise<any | null> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getCursoBySlug: getMockCurso } = await import('./mock/queries')
     return getMockCurso(slug)
   } else {
@@ -59,7 +59,7 @@ export async function getCursoBySlug(slug: string): Promise<any | null> {
 export async function getFeaturedCursos(
   limit: number = 3
 ): Promise<PaginatedResponse<any>> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getFeaturedCursos: getMockFeatured } = await import('./mock/queries')
     return getMockFeatured(limit)
   } else {
@@ -78,7 +78,7 @@ export async function getPosts(params?: {
   status?: string
   category?: string
 }): Promise<PaginatedResponse<any>> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getPosts: getMockPosts } = await import('./mock/queries')
     return getMockPosts(params)
   } else {
@@ -88,7 +88,7 @@ export async function getPosts(params?: {
 }
 
 export async function getPostBySlug(slug: string): Promise<any | null> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getPostBySlug: getMockPost } = await import('./mock/queries')
     return getMockPost(slug)
   } else {
@@ -100,7 +100,7 @@ export async function getPostBySlug(slug: string): Promise<any | null> {
 export async function getFeaturedPosts(
   limit: number = 3
 ): Promise<PaginatedResponse<any>> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getFeaturedPosts: getMockFeatured } = await import('./mock/queries')
     return getMockFeatured(limit)
   } else {
@@ -114,7 +114,7 @@ export async function getFeaturedPosts(
 // ============================================
 
 export async function getCategorias(): Promise<PaginatedResponse<any>> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getCategorias: getMockCategorias } = await import('./mock/queries')
     return getMockCategorias()
   } else {
@@ -126,7 +126,7 @@ export async function getCategorias(): Promise<PaginatedResponse<any>> {
 export async function getCategoriaBySlug(
   slug: string
 ): Promise<any | null> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getCategoriaBySlug: getMockCategoria } = await import('./mock/queries')
     return getMockCategoria(slug)
   } else {
@@ -140,7 +140,7 @@ export async function getCategoriaBySlug(
 // ============================================
 
 export async function getEquipe(): Promise<PaginatedResponse<any>> {
-  if (useMockData()) {
+  if (shouldUseMockData()) {
     const { getEquipe: getMockEquipe } = await import('./mock/queries')
     return getMockEquipe()
   } else {
@@ -162,6 +162,6 @@ export type DatabaseResponse<T> = PaginatedResponse<T>
 if (typeof window === 'undefined') {
   // Server-side log
   console.log(
-    `📊 Database Mode: ${useMockData() ? 'MOCK DATA' : 'SUPABASE'}`
+    `📊 Database Mode: ${shouldUseMockData() ? 'MOCK DATA' : 'SUPABASE'}`
   )
 }

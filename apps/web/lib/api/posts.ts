@@ -1,5 +1,4 @@
-import { getPosts as getPostsFromPayload, getPostBySlug as getPostBySlugFromPayload } from '../payload'
-import { MOCK_POSTS } from '../mock-data'
+import { getPosts as getPostsFromMock, getPostBySlug as getPostBySlugFromMock } from '../mock/queries'
 
 /**
  * Fetch all published posts
@@ -9,7 +8,7 @@ export async function getPosts(
   page: number = 1,
   categorySlug?: string
 ) {
-  return getPostsFromPayload({
+  return getPostsFromMock({
     limit,
     page,
     status: 'published',
@@ -21,7 +20,7 @@ export async function getPosts(
  * Fetch a single post by slug
  */
 export async function getPostBySlug(slug: string) {
-  return getPostBySlugFromPayload(slug)
+  return getPostBySlugFromMock(slug)
 }
 
 /**

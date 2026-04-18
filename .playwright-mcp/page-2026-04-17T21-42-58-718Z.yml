@@ -1,0 +1,721 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "contato@nutrindojuntos.com.br" [ref=e9] [cursor=pointer]:
+            - /url: mailto:contato@nutrindojuntos.com.br
+            - img [ref=e10]
+            - text: contato@nutrindojuntos.com.br
+          - link "(21) 98008-2458" [ref=e13] [cursor=pointer]:
+            - /url: tel:+5511999999999
+            - img [ref=e14]
+            - text: (21) 98008-2458
+        - generic [ref=e16]: 🎓 Transforme sua carreira em nutrição conosco
+        - generic [ref=e17]:
+          - text: "Siga-nos:"
+          - generic [ref=e18]: Instagram | LinkedIn
+      - generic [ref=e20]:
+        - link "NUTRINDO JUNTOS - Página Inicial" [ref=e22] [cursor=pointer]:
+          - /url: /
+          - img "NUTRINDO JUNTOS - Educação em Nutrição" [ref=e24]
+        - navigation [ref=e25]:
+          - link "Início" [ref=e26] [cursor=pointer]:
+            - /url: "#top"
+          - link "Sobre Nós" [ref=e27] [cursor=pointer]:
+            - /url: "#sobre-nos"
+          - link "Cursos" [ref=e28] [cursor=pointer]:
+            - /url: "#cursos"
+          - link "Equipe" [ref=e29] [cursor=pointer]:
+            - /url: "#equipe"
+          - link "Contato" [ref=e30] [cursor=pointer]:
+            - /url: "#contato"
+        - link "Ver Cursos" [ref=e32] [cursor=pointer]:
+          - /url: /cursos
+        - button "Menu☰" [ref=e34] [cursor=pointer]
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - img [ref=e39]
+        - img [ref=e42]
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - heading "Da graduação à prática clínica segurança que você precisa." [level=1] [ref=e51]:
+              - text: Da graduação à
+              - text: prática clínica
+              - text: segurança que você precisa.
+            - paragraph [ref=e52]: Aprenda no seu ritmo, com aulas objetivas, aplicáveis e pensadas para quem está começando — sem enrolação e sem romantizar a prática clínica.
+            - generic [ref=e53]:
+              - link "→Saiba mais" [ref=e54] [cursor=pointer]:
+                - /url: /cursos
+              - generic [ref=e55]:
+                - link "Conteúdo de Qualidade" [ref=e56] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e57]
+                  - text: Conteúdo de Qualidade
+                - link "Preço Acessível" [ref=e59] [cursor=pointer]:
+                  - /url: /cursos
+                  - img [ref=e60]
+                  - text: Preço Acessível
+          - generic [ref=e63]:
+            - img "Nutricionista profissional - Nutrindo Juntos" [ref=e69]
+            - generic [ref=e70]:
+              - generic [ref=e73]:
+                - generic [ref=e75]: "1"
+                - generic [ref=e77]: "2"
+                - generic [ref=e79]: "3"
+                - generic [ref=e81]: "4"
+              - generic [ref=e82]:
+                - paragraph [ref=e83]: 2000+
+                - paragraph [ref=e84]: Alunos Capacitados
+      - generic [ref=e85]:
+        - generic [ref=e87]:
+          - generic [ref=e88]: ✦ Suporte FullCertificação do MEC✦ Aulas ao VivoMentorias em Grupo✦ Suporte FullCertificação do MEC✦ Aulas ao VivoMentorias em Grupo
+          - generic [ref=e89]: ✦ Suporte FullCertificação do MEC✦ Aulas ao VivoMentorias em Grupo✦ Suporte FullCertificação do MEC✦ Aulas ao VivoMentorias em Grupo
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]: Categoria
+            - heading "Escolha por onde começar sua jornada na Nutrição ." [level=2] [ref=e98]:
+              - text: Escolha por onde começar sua jornada na
+              - generic [ref=e99]:
+                - text: Nutrição
+                - img [ref=e100]
+              - text: .
+            - generic [ref=e101]:
+              - link "01 Curso NCA 1 Curso" [ref=e102] [cursor=pointer]:
+                - /url: /cursos/nca
+                - generic [ref=e103]:
+                  - text: "01"
+                  - img [ref=e105]
+                  - generic [ref=e108]:
+                    - heading "Curso NCA" [level=3] [ref=e109]
+                    - paragraph [ref=e110]: 1 Curso
+                  - img [ref=e112]
+              - link "02 Mentoria NJ 1 Curso" [ref=e115] [cursor=pointer]:
+                - /url: /mentoria
+                - generic [ref=e116]:
+                  - text: "02"
+                  - img [ref=e118]
+                  - generic [ref=e121]:
+                    - heading "Mentoria NJ" [level=3] [ref=e122]
+                    - paragraph [ref=e123]: 1 Curso
+                  - img [ref=e125]
+              - link "03 Nutri executivo 1 Curso" [ref=e128] [cursor=pointer]:
+                - /url: /cursos/nutri-executivo
+                - generic [ref=e129]:
+                  - text: "03"
+                  - img [ref=e131]
+                  - generic [ref=e137]:
+                    - heading "Nutri executivo" [level=3] [ref=e138]
+                    - paragraph [ref=e139]: 1 Curso
+                  - img [ref=e141]
+              - link "04 Curso NCE 1 Curso" [ref=e144] [cursor=pointer]:
+                - /url: /cursos/nce-nutricao-clinica-estrategica
+                - generic [ref=e145]:
+                  - text: "04"
+                  - img [ref=e147]
+                  - generic [ref=e150]:
+                    - heading "Curso NCE" [level=3] [ref=e151]
+                    - paragraph [ref=e152]: 1 Curso
+                  - img [ref=e154]
+              - link "05 Assinatura 1 Curso" [ref=e157] [cursor=pointer]:
+                - /url: /cursos
+                - generic [ref=e158]:
+                  - text: "05"
+                  - img [ref=e160]
+                  - generic [ref=e163]:
+                    - heading "Assinatura" [level=3] [ref=e164]
+                    - paragraph [ref=e165]: 1 Curso
+                  - img [ref=e167]
+              - link "06 Eventos 1 Curso" [ref=e170] [cursor=pointer]:
+                - /url: /cursos
+                - generic [ref=e171]:
+                  - text: "06"
+                  - img [ref=e173]
+                  - generic [ref=e176]:
+                    - heading "Eventos" [level=3] [ref=e177]
+                    - paragraph [ref=e178]: 1 Curso
+                  - img [ref=e180]
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - heading "GPS de Carreira" [level=3] [ref=e187]
+              - paragraph [ref=e188]: Está em dúvida por onde começar? Nosso GPS te ajuda a identificar o caminho mais coerente com o seu momento profissional — com orientação clara e sem achismo.
+              - generic [ref=e189]:
+                - generic [ref=e190]:
+                  - generic [ref=e191]: "5"
+                  - text: Apenas 5 perguntas rápidas
+                - generic [ref=e192]:
+                  - generic [ref=e193]: ✦
+                  - text: Resultado personalizado na hora
+            - button "Começar o Quiz" [ref=e194] [cursor=pointer]:
+              - text: Começar o Quiz
+              - img [ref=e195]
+      - generic [ref=e202]:
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - img "Sobre a Nutrindo Juntos" [ref=e206]
+            - generic [ref=e207]:
+              - heading "MEC" [level=3] [ref=e209]
+              - paragraph [ref=e210]: Certificado
+          - generic [ref=e211]:
+            - generic [ref=e214]:
+              - img [ref=e217]
+              - generic [ref=e221]:
+                - heading "Reconhecido" [level=3] [ref=e223]
+                - paragraph [ref=e224]: pela câmara municipal de São Paulo
+            - img "Equipe Nutrindo Juntos" [ref=e226]
+        - generic [ref=e228]:
+          - generic [ref=e229]: Sobre Nós
+          - 'heading "Nossa história: educação queguia não confunde" [level=2] [ref=e231]':
+            - text: "Nossa história: educação que"
+            - generic [ref=e232]:
+              - text: guia
+              - img [ref=e233]
+            - text: não confunde
+          - paragraph [ref=e234]: "A Nutrindo Juntos nasceu para resolver uma lacuna real da formação em Nutrição: o excesso de teoria sem direção prática. Unimos ciência, prática clínica e visão de carreira para guiar nutricionistas desde os primeiros passos até a consolidação profissional."
+          - paragraph [ref=e235]: Atuamos em parceria com instituições e projetos educacionais reconhecidos, como a Faculdade VP, ampliando o impacto e a qualidade da formação oferecida aos nutricionistas.
+          - generic [ref=e236]:
+            - generic [ref=e237]:
+              - generic [ref=e238]:
+                - img [ref=e241]
+                - heading "Nossa Missão:" [level=3] [ref=e245]
+              - paragraph [ref=e246]: Fornecer soluções inovadoras de educação digital em nutrição que capacitem estudantes e nutricionistas, promovendo uma cultura de aprendizado contínuo e crescimento profissional.
+            - generic [ref=e247]:
+              - generic [ref=e248]:
+                - img [ref=e251]
+                - heading "Nossa Visão" [level=3] [ref=e254]
+              - paragraph [ref=e255]: Ser a plataforma de referência em educação nutricional no Brasil, reconhecida pela excelência do conteúdo, pela inovação pedagógica e pelo impacto positivo na formação de profissionais de nutrição.
+            - generic [ref=e256]:
+              - generic [ref=e257]:
+                - img [ref=e260]
+                - heading "Nossos Valores" [level=3] [ref=e262]
+              - paragraph [ref=e263]: Educação personalizada e de qualidade / Ética, responsabilidade e compromisso / Protagonismo profissional / Prática com fundamento científico / Evolução contínua.
+          - generic [ref=e264]:
+            - link "→Saiba Mais" [ref=e265] [cursor=pointer]:
+              - /url: /sobre
+            - heading "Aulas Ao Vivo" [level=3] [ref=e267]
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - generic [ref=e272]: Nossos Cursos
+          - 'heading "Mais do que Educação: Uma Jornada de Excelência" [level=2] [ref=e273]':
+            - text: "Mais do que Educação: Uma Jornada de"
+            - generic [ref=e274]:
+              - text: Excelência
+              - img [ref=e275]
+        - generic [ref=e276]:
+          - generic [ref=e277]:
+            - generic [ref=e278]:
+              - img "NCA - Nutrição Clínica Aplicada" [ref=e279]
+              - generic [ref=e281]:
+                - img [ref=e282]
+                - text: 100% Prático
+              - generic [ref=e285]: R$ 1263
+            - generic [ref=e286]:
+              - generic [ref=e287]:
+                - generic [ref=e288]: Nutrição Clínica
+                - generic [ref=e289]:
+                  - generic [ref=e290]:
+                    - img [ref=e291]
+                    - generic [ref=e294]: 7 Módulos
+                  - generic [ref=e295]:
+                    - img [ref=e296]
+                    - text: 20 horas
+              - heading "NCA - Nutrição Clínica Aplicada" [level=3] [ref=e299]:
+                - link "NCA - Nutrição Clínica Aplicada" [ref=e300] [cursor=pointer]:
+                  - /url: /cursos/nca-nutricao-clinica-aplicada
+              - paragraph [ref=e301]: "\"A prática que transforma. A clínica que dá resultado.\""
+              - paragraph [ref=e302]: Curso intensivo e 100% prático de Nutrição Clínica para quem quer dominar o básico muito bem feito, com fundamentos sólidos e aplicáveis no dia a dia da clínica.
+              - generic [ref=e304]: "0"
+              - generic [ref=e305]:
+                - button "Quero me Inscrever" [ref=e306] [cursor=pointer]:
+                  - img [ref=e307]
+                  - text: Quero me Inscrever
+                  - img [ref=e309]
+                - link "Ver Detalhes do Curso" [ref=e313] [cursor=pointer]:
+                  - /url: /cursos/nca-nutricao-clinica-aplicada
+          - generic [ref=e314]:
+            - generic [ref=e315]:
+              - img "NCE - Nutrição Clínica Estratégica" [ref=e316]
+              - generic [ref=e318]:
+                - img [ref=e319]
+                - text: 100% Prático
+              - generic [ref=e322]: R$ 2305
+            - generic [ref=e323]:
+              - generic [ref=e324]:
+                - generic [ref=e325]: Nutrição Clínica
+                - generic [ref=e326]:
+                  - generic [ref=e327]:
+                    - img [ref=e328]
+                    - generic [ref=e331]: 12 Módulos
+                  - generic [ref=e332]:
+                    - img [ref=e333]
+                    - text: 40 horas
+              - heading "NCE - Nutrição Clínica Estratégica" [level=3] [ref=e336]:
+                - link "NCE - Nutrição Clínica Estratégica" [ref=e337] [cursor=pointer]:
+                  - /url: /cursos/nce-nutricao-clinica-estrategica
+              - paragraph [ref=e338]: "\"A jornada que te coloca como protagonista da própria carreira.\""
+              - paragraph [ref=e339]: "Para quem já domina a base clínica e quer ir além: aprofundamento em protocolos avançados, gestão de carreira e protagonismo profissional."
+              - generic [ref=e341]: "0"
+              - generic [ref=e342]:
+                - button "Quero me Inscrever" [ref=e343] [cursor=pointer]:
+                  - img [ref=e344]
+                  - text: Quero me Inscrever
+                  - img [ref=e346]
+                - link "Ver Detalhes do Curso" [ref=e350] [cursor=pointer]:
+                  - /url: /cursos/nce-nutricao-clinica-estrategica
+        - link "Ver Todos os Cursos→" [ref=e352] [cursor=pointer]:
+          - /url: /cursos
+      - generic [ref=e357]:
+        - generic [ref=e359]:
+          - img "Por que escolher a Nutrindo Juntos" [ref=e360]
+          - img "Nutrindo Juntos" [ref=e361]
+        - generic [ref=e367]:
+          - generic [ref=e368]: Por Que Nos Escolher
+          - heading "Confiança construída com método, clareza e resultado" [level=2] [ref=e370]:
+            - text: Confiança construída com método, clareza e
+            - generic [ref=e371]:
+              - text: resultado
+              - img [ref=e372]
+          - paragraph [ref=e373]: Tudo foi pensado e estruturado para quem busca mais do que cursos soltos. Aqui, cada formação faz parte de uma jornada estruturada, compilada dos melhores conteúdos, que respeita o momento profissional do nutricionista e oferece direção clara para evoluir com segurança.
+          - generic [ref=e374]:
+            - generic [ref=e379]:
+              - heading "Aprenda no seu ritmo" [level=3] [ref=e380]
+              - paragraph [ref=e381]: Acesse aulas e materiais quando e onde quiser, respeitando sua rotina e seu tempo de aprendizado.
+            - generic [ref=e386]:
+              - heading "Apoio quando você precisa" [level=3] [ref=e387]
+              - paragraph [ref=e388]: Nossa equipe está disponível para orientar, tirar dúvidas e acompanhar sua evolução ao longo da jornada.
+            - generic [ref=e393]:
+              - heading "Ciência aplicada à prática" [level=3] [ref=e394]
+              - paragraph [ref=e395]: Conteúdos baseados em evidências, experiência clínica e aplicação real — sem achismo e sem romantização.
+            - generic [ref=e400]:
+              - heading "Formação que agrega valor" [level=3] [ref=e401]
+              - paragraph [ref=e402]: Certificados que fortalecem seu currículo e refletem aprendizado consistente e aplicável.
+          - generic [ref=e403]:
+            - link "→Conhecer nossa metodologia" [ref=e404] [cursor=pointer]:
+              - /url: /metodologia
+            - generic [ref=e405]:
+              - generic [ref=e406]:
+                - paragraph [ref=e408]: "1"
+                - paragraph [ref=e410]: "2"
+                - paragraph [ref=e412]: "3"
+              - generic [ref=e413]:
+                - generic [ref=e414]: 0%
+                - paragraph [ref=e415]: Feito por Nutricionistas
+      - generic [ref=e416]:
+        - button "Reproduzir vídeo" [ref=e422] [cursor=pointer]:
+          - img [ref=e424]
+        - list [ref=e428]:
+          - listitem [ref=e429]:
+            - generic [ref=e430]:
+              - generic [ref=e431]:
+                - heading "0" [level=3] [ref=e432]
+                - text: k
+              - paragraph [ref=e433]: Alunos Capacitados
+          - listitem [ref=e434]:
+            - generic [ref=e435]:
+              - generic [ref=e436]:
+                - heading "0" [level=3] [ref=e437]
+                - text: +
+              - paragraph [ref=e438]: Cursos Gravados
+          - listitem [ref=e439]:
+            - generic [ref=e440]:
+              - generic [ref=e441]:
+                - heading "0" [level=3] [ref=e442]
+                - text: M
+              - paragraph [ref=e443]: Taxa de Satisfação
+      - generic [ref=e450]:
+        - generic [ref=e451]:
+          - generic [ref=e452]: Nossa Equipe
+          - heading "Especialistas que unem prática, ciência e ensino" [level=2] [ref=e453]:
+            - generic [ref=e454]:
+              - text: Especialistas
+              - img [ref=e455]
+            - text: que unem prática, ciência e ensino
+          - paragraph [ref=e456]: Nossa equipe é formada por nutricionistas e especialistas que atuam na prática clínica, no ensino e na formação profissional — conectando teoria, aplicação e realidade de mercado.
+        - generic [ref=e457]:
+          - generic [ref=e458]:
+            - generic [ref=e459]:
+              - generic [ref=e461]:
+                - img "Nathállia Jordão" [ref=e462]
+                - generic [ref=e463]:
+                  - generic [ref=e466]:
+                    - generic:
+                      - link:
+                        - /url: "#"
+                        - img
+                    - button "Ver Instagram" [ref=e467] [cursor=pointer]:
+                      - img [ref=e468]
+                  - heading "Nathállia Jordão" [level=3] [ref=e469]
+                  - paragraph [ref=e470]: Nutrição materna e infantil
+              - generic [ref=e472]:
+                - img "Ludmila Andrade" [ref=e473]
+                - generic [ref=e474]:
+                  - generic [ref=e477]:
+                    - generic:
+                      - link:
+                        - /url: "#"
+                        - img
+                    - button "Ver Instagram" [ref=e478] [cursor=pointer]:
+                      - img [ref=e479]
+                  - heading "Ludmila Andrade" [level=3] [ref=e480]
+                  - paragraph [ref=e481]: Nutrição em saúde da mulher e lipedema
+              - generic [ref=e483]:
+                - img "Jéssika Vieira" [ref=e484]
+                - generic [ref=e485]:
+                  - generic [ref=e488]:
+                    - generic:
+                      - link:
+                        - /url: "#"
+                        - img
+                    - button "Ver Instagram" [ref=e489] [cursor=pointer]:
+                      - img [ref=e490]
+                  - heading "Jéssika Vieira" [level=3] [ref=e491]
+                  - paragraph [ref=e492]: Nutrição em emagrecimento e obesidade
+            - generic [ref=e493]:
+              - generic [ref=e495]:
+                - img "Márcio Cardoso" [ref=e496]
+                - generic [ref=e497]:
+                  - generic [ref=e500]:
+                    - generic:
+                      - link:
+                        - /url: "#"
+                        - img
+                    - button "Ver Instagram" [ref=e501] [cursor=pointer]:
+                      - img [ref=e502]
+                  - heading "Márcio Cardoso" [level=3] [ref=e503]
+                  - paragraph [ref=e504]: Gestão financeira
+              - generic [ref=e506]:
+                - img "Nayane Raggio" [ref=e507]
+                - generic [ref=e508]:
+                  - generic [ref=e511]:
+                    - generic:
+                      - link:
+                        - /url: "#"
+                        - img
+                    - button "Ver Instagram" [ref=e512] [cursor=pointer]:
+                      - img [ref=e513]
+                  - heading "Nayane Raggio" [level=3] [ref=e514]
+                  - paragraph [ref=e515]: Nutrição esportiva e Recomposição corporal
+              - generic [ref=e517]:
+                - img "Diego Dias" [ref=e518]
+                - generic [ref=e519]:
+                  - generic [ref=e522]:
+                    - generic:
+                      - link:
+                        - /url: "#"
+                        - img
+                    - button "Ver Instagram" [ref=e523] [cursor=pointer]:
+                      - img [ref=e524]
+                  - heading "Diego Dias" [level=3] [ref=e525]
+                  - paragraph [ref=e526]: Gestão de tecnologias
+          - generic [ref=e527]:
+            - button "Ir para grupo 1"
+            - button "Ir para grupo 2"
+      - generic [ref=e530]:
+        - heading "Continue sua jornada com a Nutrindo Juntos" [level=2] [ref=e533]
+        - paragraph [ref=e534]: Receba conteúdos práticos, reflexões de carreira, novidades e convites especiais — no seu tempo, sem excesso e sem ruído.
+        - form "Formulário de inscrição na newsletter" [ref=e535]:
+          - generic [ref=e536]:
+            - textbox "Email" [ref=e537]:
+              - /placeholder: Digite seu melhor e-mail
+            - button "→Quero continuar aprendendo" [disabled] [ref=e538]
+            - textbox [ref=e539]
+          - paragraph [ref=e540]: Sem spam. Só conteúdo que faz sentido para quem está construindo carreira.
+      - generic [ref=e543]:
+        - generic [ref=e544]:
+          - generic [ref=e545]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e546]
+            - text: ✦
+          - generic [ref=e547]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e548]
+            - text: ✦
+          - generic [ref=e549]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e550]
+            - text: ✦
+          - generic [ref=e551]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e552]
+            - text: ✦
+          - generic [ref=e553]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e554]
+            - text: ✦
+          - generic [ref=e555]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e556]
+            - text: ✦
+        - generic [ref=e557]:
+          - generic [ref=e558]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e559]
+            - text: ✦
+          - generic [ref=e560]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e561]
+            - text: ✦
+          - generic [ref=e562]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e563]
+            - text: ✦
+          - generic [ref=e564]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e565]
+            - text: ✦
+          - generic [ref=e566]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e567]
+            - text: ✦
+          - generic [ref=e568]:
+            - heading "DEPOIMENTOS" [level=2] [ref=e569]
+            - text: ✦
+      - generic [ref=e571]:
+        - generic [ref=e572]:
+          - generic [ref=e573]: Depoimentos Reais
+          - heading "Histórias de Transformação" [level=2] [ref=e574]
+          - paragraph [ref=e575]: Conversas reais de alunos que transformaram suas carreiras com a Nutrindo Juntos. Prints autênticos que mostram nosso compromisso com cada estudante.
+        - generic [ref=e576]:
+          - generic [ref=e578]:
+            - generic [ref=e580]:
+              - img "Depoimento real de cliente 1" [ref=e581]
+              - img [ref=e584]
+            - generic [ref=e587]:
+              - img "Depoimento real de cliente 2" [ref=e588]
+              - img [ref=e591]
+            - generic [ref=e594]:
+              - img "Depoimento real de cliente 3" [ref=e595]
+              - img [ref=e598]
+            - generic [ref=e601]:
+              - img "Depoimento real de cliente 4" [ref=e602]
+              - img [ref=e605]
+            - generic [ref=e608]:
+              - img "Depoimento real de cliente 5" [ref=e609]
+              - img [ref=e612]
+            - generic [ref=e615]:
+              - img "Depoimento real de cliente 6" [ref=e616]
+              - img [ref=e619]
+            - generic [ref=e622]:
+              - img "Depoimento real de cliente 7" [ref=e623]
+              - img [ref=e626]
+            - generic [ref=e629]:
+              - img "Depoimento real de cliente 8" [ref=e630]
+              - img [ref=e633]
+            - generic [ref=e636]:
+              - img "Depoimento real de cliente 9" [ref=e637]
+              - img [ref=e640]
+            - generic [ref=e643]:
+              - img "Depoimento real de cliente 10" [ref=e644]
+              - img [ref=e647]
+            - generic [ref=e650]:
+              - img "Depoimento real de cliente 11" [ref=e651]
+              - img [ref=e654]
+            - generic [ref=e657]:
+              - img "Depoimento real de cliente 12" [ref=e658]
+              - img [ref=e661]
+            - generic [ref=e664]:
+              - img "Depoimento real de cliente 13" [ref=e665]
+              - img [ref=e668]
+            - generic [ref=e671]:
+              - img "Depoimento real de cliente 14" [ref=e672]
+              - img [ref=e675]
+            - generic [ref=e678]:
+              - img "Depoimento real de cliente 15" [ref=e679]
+              - img [ref=e682]
+            - generic [ref=e685]:
+              - img "Depoimento real de cliente 16" [ref=e686]
+              - img [ref=e689]
+            - generic [ref=e692]:
+              - img "Depoimento real de cliente 17" [ref=e693]
+              - img [ref=e696]
+            - generic [ref=e699]:
+              - img "Depoimento real de cliente 18" [ref=e700]
+              - img [ref=e703]
+            - generic [ref=e706]:
+              - img "Depoimento real de cliente 19" [ref=e707]
+              - img [ref=e710]
+            - generic [ref=e713]:
+              - img "Depoimento real de cliente 20" [ref=e714]
+              - img [ref=e717]
+            - generic [ref=e720]:
+              - img "Depoimento real de cliente 21" [ref=e721]
+              - img [ref=e724]
+            - generic [ref=e727]:
+              - img "Depoimento real de cliente 22" [ref=e728]
+              - img [ref=e731]
+            - generic [ref=e734]:
+              - img "Depoimento real de cliente 23" [ref=e735]
+              - img [ref=e738]
+            - generic [ref=e741]:
+              - img "Depoimento real de cliente 24" [ref=e742]
+              - img [ref=e745]
+            - generic [ref=e748]:
+              - img "Depoimento real de cliente 25" [ref=e749]
+              - img [ref=e752]
+            - generic [ref=e755]:
+              - img "Depoimento real de cliente 26" [ref=e756]
+              - img [ref=e759]
+            - generic [ref=e762]:
+              - img "Depoimento real de cliente 27" [ref=e763]
+              - img [ref=e766]
+            - generic [ref=e769]:
+              - img "Depoimento real de cliente 28" [ref=e770]
+              - img [ref=e773]
+            - generic [ref=e776]:
+              - img "Depoimento real de cliente 29" [ref=e777]
+              - img [ref=e780]
+            - generic [ref=e783]:
+              - img "Depoimento real de cliente 30" [ref=e784]
+              - img [ref=e787]
+            - generic [ref=e790]:
+              - img "Depoimento real de cliente 31" [ref=e791]
+              - img [ref=e794]
+            - generic [ref=e797]:
+              - img "Depoimento real de cliente 32" [ref=e798]
+              - img [ref=e801]
+            - generic [ref=e804]:
+              - img "Depoimento real de cliente 33" [ref=e805]
+              - img [ref=e808]
+            - generic [ref=e811]:
+              - img "Depoimento real de cliente 34" [ref=e812]
+              - img [ref=e815]
+            - generic [ref=e818]:
+              - img "Depoimento real de cliente 35" [ref=e819]
+              - img [ref=e822]
+            - generic [ref=e825]:
+              - img "Depoimento real de cliente 36" [ref=e826]
+              - img [ref=e829]
+            - generic [ref=e832]:
+              - img "Depoimento real de cliente 37" [ref=e833]
+              - img [ref=e836]
+            - generic [ref=e839]:
+              - img "Depoimento real de cliente 38" [ref=e840]
+              - img [ref=e843]
+            - generic [ref=e846]:
+              - img "Depoimento real de cliente 39" [ref=e847]
+              - img [ref=e850]
+            - generic [ref=e853]:
+              - img "Depoimento real de cliente 40" [ref=e854]
+              - img [ref=e857]
+            - generic [ref=e860]:
+              - img "Depoimento real de cliente 41" [ref=e861]
+              - img [ref=e864]
+            - generic [ref=e867]:
+              - img "Depoimento real de cliente 42" [ref=e868]
+              - img [ref=e871]
+            - generic [ref=e874]:
+              - img "Depoimento real de cliente 43" [ref=e875]
+              - img [ref=e878]
+            - generic [ref=e881]:
+              - img "Depoimento real de cliente 44" [ref=e882]
+              - img [ref=e885]
+            - generic [ref=e888]:
+              - img "Depoimento real de cliente 45" [ref=e889]
+              - img [ref=e892]
+            - generic [ref=e895]:
+              - img "Depoimento real de cliente 46" [ref=e896]
+              - img [ref=e899]
+          - generic [ref=e923]:
+            - button [disabled] [ref=e924]:
+              - img [ref=e925]
+            - button [ref=e927] [cursor=pointer]:
+              - img [ref=e928]
+        - generic [ref=e930]:
+          - paragraph [ref=e931]: Quer fazer parte dessas histórias de sucesso?
+          - link "Conheça Nossos Cursos" [ref=e932] [cursor=pointer]:
+            - /url: "#cursos"
+    - contentinfo [ref=e933]:
+      - contentinfo [ref=e934]:
+        - generic [ref=e938]:
+          - link "NUTRINDO JUNTOS" [ref=e939] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e940]: NUTRINDO JUNTOS
+          - paragraph [ref=e941]: Guiando nutricionistas da graduação à prática profissional, com formação aplicada, ciência e direção de carreira.
+        - generic [ref=e944]:
+          - generic [ref=e945]:
+            - list [ref=e946]:
+              - listitem [ref=e947]:
+                - img [ref=e949]
+                - generic [ref=e952]:
+                  - paragraph [ref=e953]: "Email:"
+                  - link "contato@nutrindojuntos.com.br" [ref=e954] [cursor=pointer]:
+                    - /url: mailto:contato@nutrindojuntos.com.br
+              - listitem [ref=e955]:
+                - img [ref=e957]
+                - generic [ref=e960]:
+                  - paragraph [ref=e961]: "Localização:"
+                  - paragraph [ref=e962]:
+                    - text: Rio de Janeiro, RJ
+                    - text: Brasil
+              - listitem [ref=e963]:
+                - img [ref=e965]
+                - generic [ref=e967]:
+                  - paragraph [ref=e968]: "Telefone:"
+                  - link "+55 (21) 98008-2458" [ref=e969] [cursor=pointer]:
+                    - /url: tel:+5511999999999
+              - listitem [ref=e970]:
+                - img [ref=e972]
+                - generic [ref=e975]:
+                  - paragraph [ref=e976]: "Atendimento:"
+                  - paragraph [ref=e977]:
+                    - text: Segunda - Sexta
+                    - text: 09:00 - 18:00
+            - generic [ref=e978]:
+              - heading "Siga-nos:" [level=4] [ref=e979]
+              - generic [ref=e980]:
+                - link "Instagram" [ref=e981] [cursor=pointer]:
+                  - /url: https://instagram.com/nutrindojuntos
+                  - img [ref=e982]
+                - link "Facebook" [ref=e985] [cursor=pointer]:
+                  - /url: https://facebook.com/nutrindojuntos
+                  - img [ref=e986]
+                - link "LinkedIn" [ref=e988] [cursor=pointer]:
+                  - /url: https://linkedin.com/company/nutrindojuntos
+                  - img [ref=e989]
+                - link "YouTube" [ref=e993] [cursor=pointer]:
+                  - /url: https://youtube.com/@nutrindojuntos
+                  - img [ref=e994]
+          - generic [ref=e997]:
+            - generic [ref=e998]:
+              - generic [ref=e999]:
+                - heading "Links Rápidos" [level=4] [ref=e1000]
+                - list [ref=e1001]:
+                  - listitem [ref=e1002]:
+                    - link "Home" [ref=e1003] [cursor=pointer]:
+                      - /url: /
+                  - listitem [ref=e1004]:
+                    - link "Sobre Nós" [ref=e1005] [cursor=pointer]:
+                      - /url: /sobre
+                  - listitem [ref=e1006]:
+                    - link "Cursos" [ref=e1007] [cursor=pointer]:
+                      - /url: /cursos
+                  - listitem [ref=e1008]:
+                    - link "Blog" [ref=e1009] [cursor=pointer]:
+                      - /url: /blog
+                  - listitem [ref=e1010]:
+                    - link "Contato" [ref=e1011] [cursor=pointer]:
+                      - /url: /contato
+              - generic [ref=e1012]:
+                - heading "Links Úteis" [level=4] [ref=e1013]
+                - list [ref=e1014]:
+                  - listitem [ref=e1015]:
+                    - link "Mentoria" [ref=e1016] [cursor=pointer]:
+                      - /url: /mentoria
+                  - listitem [ref=e1017]:
+                    - link "Nossa Equipe" [ref=e1018] [cursor=pointer]:
+                      - /url: /equipe
+                  - listitem [ref=e1019]:
+                    - link "Política de Privacidade" [ref=e1020] [cursor=pointer]:
+                      - /url: /privacidade
+                  - listitem [ref=e1021]:
+                    - link "Termos de Uso" [ref=e1022] [cursor=pointer]:
+                      - /url: /termos
+            - generic [ref=e1023]:
+              - heading "Newsletter" [level=4] [ref=e1024]
+              - generic [ref=e1025]:
+                - generic [ref=e1026]:
+                  - textbox "seu@email.com" [ref=e1027]
+                  - button "Assinar" [ref=e1028] [cursor=pointer]:
+                    - img [ref=e1029]
+                    - text: Assinar
+                - paragraph [ref=e1031]: Receba conteúdos exclusivos sobre nutrição diretamente no seu email.
+        - paragraph [ref=e1035]:
+          - text: Copyright © 2026
+          - link "NUTRINDO JUNTOS" [ref=e1036] [cursor=pointer]:
+            - /url: /
+          - text: . Todos os direitos reservados.
+  - region "Notifications (F8)":
+    - list
+  - link "Fale conosco pelo WhatsApp" [ref=e1037] [cursor=pointer]:
+    - /url: https://wa.me/5521980082458
+    - img [ref=e1038]
+  - alert [ref=e1040]

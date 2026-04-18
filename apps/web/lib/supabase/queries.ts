@@ -98,7 +98,7 @@ export async function getCursos(params?: {
       .single()
 
     if (categoria) {
-      query = query.eq('categoria_id', categoria.id)
+      query = query.eq('categoria_id', (categoria as { id: string }).id)
     }
   }
 
@@ -197,7 +197,7 @@ export async function getPosts(params?: {
       .single()
 
     if (categoria) {
-      query = query.eq('categoria_id', categoria.id)
+      query = query.eq('categoria_id', (categoria as { id: string }).id)
     }
   }
 
@@ -235,7 +235,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 
   // Incrementar views
   if (data) {
-    await supabase.rpc('increment_post_views', { post_id: data.id })
+    await supabase.rpc('increment_post_views', { post_id: (data as any).id } as any)
   }
 
   return data

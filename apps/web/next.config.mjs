@@ -5,6 +5,8 @@ const productionConfig = {
   
   // Image optimization
   images: {
+    // Desabilitar otimização para standalone deployment
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -22,9 +24,6 @@ const productionConfig = {
         pathname: '/**',
       },
     ],
-    // Production image optimization
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 31536000, // 1 year
     // Allow SVG for placeholder images
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
@@ -96,27 +95,22 @@ const productionConfig = {
   webpack: (config, { dev, isServer }) => {
     // Resolve canvas for server-side rendering
     config.resolve.alias.canvas = false
-    
-    // Ensure server-side compatibility
-    if (isServer) {
-      config.resolve.alias.canvas = false
-      
-      // Inject polyfills at the beginning of every server bundle
-      const originalEntry = config.entry
-      config.entry = async () => {
-        const entries = await originalEntry()
-        
-        // Inject polyfills into all server entries
-        Object.keys(entries).forEach(entryName => {
-          if (Array.isArray(entries[entryName])) {
-            entries[entryName].unshift('./polyfills.js')
-          }
-        })
-        
-        return entries
-      }
+
+    // CRITICAL: Inject polyfills in BOTH server and client bundles
+    const originalEntry = config.entry
+    config.entry = async () => {
+      const entries = await originalEntry()
+
+      // Inject polyfills into all entries (server AND client)
+      Object.keys(entries).forEach(entryName => {
+        if (Array.isArray(entries[entryName])) {
+          entries[entryName].unshift('./polyfills.js')
+        }
+      })
+
+      return entries
     }
-    
+
     // WSL2: habilitar polling para detectar mudanças em /mnt/
     if (dev) {
       config.watchOptions = {
@@ -128,7 +122,7 @@ const productionConfig = {
 
     // Production optimizations
     if (!dev) {
-      // Temporarily disable code splitting to avoid "self is not defined" in vendors.js
+      // CRITICAL: Must disable code splitting to prevent "self is not defined" error
       config.optimization = {
         ...config.optimization,
         splitChunks: false,

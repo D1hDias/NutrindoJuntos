@@ -1,30 +1,19 @@
-import { fetchFromPayload } from '../payload'
+import { getEquipe as getEquipeFromMock } from '../mock/queries'
 import type { TeamMember } from '@/types/payload'
 
 /**
  * Fetch all team members
  */
 export async function getTeamMembers() {
-  try {
-    const response = await fetchFromPayload<TeamMember>(
-      '/equipe?sort=order&limit=100'
-    )
-    return response.docs
-  } catch (error) {
-    console.error('Error fetching team members:', error)
-    return []
-  }
+  const response = await getEquipeFromMock()
+  return response.docs
 }
 
 /**
  * Fetch a single team member by ID
  */
 export async function getTeamMemberById(id: string) {
-  try {
-    const response = await fetchFromPayload<TeamMember>(`/equipe/${id}`)
-    return response.docs[0] || null
-  } catch (error) {
-    console.error('Error fetching team member:', error)
-    return null
-  }
+  const response = await getEquipeFromMock()
+  const member = response.docs.find((m: TeamMember) => m.id === id)
+  return member || null
 }

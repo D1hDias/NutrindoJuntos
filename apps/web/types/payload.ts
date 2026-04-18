@@ -82,6 +82,10 @@ export interface Curso {
   rating?: number
   reviews?: number
   price: number
+  installments?: {
+    count: number
+    value: number
+  }
   salesCount?: number
   startDate?: string
   practicalFocus?: boolean

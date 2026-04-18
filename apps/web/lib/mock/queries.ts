@@ -116,9 +116,14 @@ export async function getPosts(params?: {
   }
   
   if (params?.category) {
-    filteredPosts = filteredPosts.filter(post => 
-      post.categoria && post.categoria.slug === params.category
-    )
+    filteredPosts = filteredPosts.filter(post => {
+      if (!post.categoria) return false
+      // Type guard: check if categoria is an object with slug property
+      if (typeof post.categoria === 'object' && 'slug' in post.categoria) {
+        return post.categoria.slug === params.category
+      }
+      return false
+    })
   }
   
   return createPaginatedResponse(
