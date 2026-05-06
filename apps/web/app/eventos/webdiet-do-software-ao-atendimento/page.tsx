@@ -5,7 +5,8 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { WebdietContent } from '@/components/eventos/WebdietContent'
-import { MapPin, Clock, CreditCard, Zap } from 'lucide-react'
+import { WebdietSidebar } from '@/components/eventos/WebdietSidebar'
+import { MapPin, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'WEBDIET – Do Software ao Atendimento | Imersão Presencial | Nutrindo Juntos',
@@ -86,67 +87,7 @@ export default function WebdietPage() {
 
         {/* Sidebar */}
         <aside className="lg:col-span-1">
-          <div className="sticky top-24 space-y-6">
-            {/* Card de Inscrição */}
-            <div className="rounded-xl border bg-card p-6 shadow-sm">
-              <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-neutral-500">
-                Lote 1 — Vagas Antecipadas
-              </p>
-
-              <div className="mb-1 flex items-baseline gap-2">
-                <span className="font-display text-4xl font-bold text-primary-600">
-                  5x R$ 24,96
-                </span>
-              </div>
-              <p className="mb-4 text-sm text-neutral-500">sem juros no cartão</p>
-
-              <div className="mb-6 flex items-center gap-2 rounded-lg bg-primary-50 px-3 py-2 text-sm font-medium text-primary-700">
-                <Zap className="h-4 w-4" />
-                Pix com desconto disponível
-              </div>
-
-              <Button size="lg" className="w-full font-semibold" asChild>
-                <a
-                  href="https://wa.me/5521980082458?text=Ol%C3%A1%21+Tenho+interesse+na+Imers%C3%A3o+WEBDIET+%E2%80%93+Do+Software+ao+Atendimento.+Poderia+me+enviar+mais+informa%C3%A7%C3%B5es%3F"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Garantir Minha Vaga
-                </a>
-              </Button>
-
-              <div className="mt-4 pt-4 border-t">
-                <Button variant="outline" className="w-full" asChild>
-                  <a
-                    href="https://wa.me/5521980082458?text=Ol%C3%A1%21+Tenho+d%C3%BAvidas+sobre+a+Imers%C3%A3o+WEBDIET."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Falar com a Equipe
-                  </a>
-                </Button>
-              </div>
-            </div>
-
-            {/* Card de Detalhes */}
-            <div className="rounded-xl border bg-card p-6 shadow-sm">
-              <h3 className="mb-4 font-semibold">O que está incluso:</h3>
-              <div className="space-y-3 text-sm">
-                {[
-                  'Imersão completa (8h de conteúdo)',
-                  'Coffee break',
-                  'Certificado de participação',
-                  'Acesso ao material do dia',
-                  'Suporte da equipe Nutrindo Juntos',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CreditCard className="h-4 w-4 shrink-0 text-primary-500" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <WebdietSidebar />
         </aside>
       </div>
 
