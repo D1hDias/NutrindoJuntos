@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Poppins, Outfit } from 'next/font/google'
 import './globals.css'
+import './prose.css'
 import { cn } from '@/lib/utils'
 import { HeaderWithScroll } from '@/components/layout/HeaderWithScroll'
 import { Footer } from '@/components/layout/Footer'
