@@ -100,7 +100,7 @@ export const productSchema = z.object({
   id: z.string(),
   name: z.string(),
   description: z.string(),
-  type: z.enum(['course', 'mentoring', 'ebook', 'subscription']),
+  type: z.enum(['course', 'mentoring', 'immersion', 'ebook', 'subscription']),
   price: z.number().positive('Preço deve ser positivo'),
   image: z.string().optional(),
 })

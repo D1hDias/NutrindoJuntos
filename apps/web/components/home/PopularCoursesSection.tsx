@@ -123,13 +123,6 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                   </div>
                 )}
 
-                {/* Price Badge */}
-                <div className="absolute top-3 right-3">
-                  <Badge className="bg-white/90 text-primary-600 font-bold shadow-lg">
-                    {course.price === 0 ? 'Gratuito' : `R$ ${course.price.toFixed(0)}`}
-                  </Badge>
-                </div>
-
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-graphite/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>

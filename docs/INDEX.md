@@ -43,6 +43,15 @@
 | **[TRADUCAO_CMS.md](TRADUCAO_CMS.md)** | Tradução do CMS para português | ✅ Completo |
 | **[RICH_TEXT_IMPLEMENTATION.md](RICH_TEXT_IMPLEMENTATION.md)** | Editor de texto rico | ✅ Implementado |
 
+## 🔒 Segurança & Resposta a Incidentes
+
+| Documento | Descrição | Status |
+|-----------|-----------|--------|
+| **[SEGURANCA_RESPOSTA_INCIDENTES.md](SEGURANCA_RESPOSTA_INCIDENTES.md)** | ⭐ Guia completo de resposta a incidentes | ✅ Essencial |
+| **[SCRIPTS_SEGURANCA.md](SCRIPTS_SEGURANCA.md)** | Guia de uso dos scripts de monitoramento | ✅ Prático |
+| **[FAQ_HOSTINGER.md](FAQ_HOSTINGER.md)** | Respostas para perguntas da Hostinger | ✅ Útil |
+| **[INCIDENTE_SEGURANCA_2026-04-19.md](INCIDENTE_SEGURANCA_2026-04-19.md)** | Relatório: Cryptojacker via Docker | ✅ Documentado |
+
 ## 🤖 MCPs & IA
 
 | Documento | Descrição | Status |
@@ -98,6 +107,11 @@
 1. **[MCP_BEST_PRACTICES.md](MCP_BEST_PRACTICES.md)** - ⭐ **Principal**
 2. **[AUTENTICACAO_GEMINI_MCP.md](AUTENTICACAO_GEMINI_MCP.md)** - Setup Gemini
 3. **[SUCESSO_INTEGRACAO_FIGMA_MCP.md](SUCESSO_INTEGRACAO_FIGMA_MCP.md)** - Cases
+
+### Para Segurança & Resposta a Incidentes
+1. **[SEGURANCA_RESPOSTA_INCIDENTES.md](SEGURANCA_RESPOSTA_INCIDENTES.md)** - ⭐ **Guia completo de resposta**
+2. **[INCIDENTE_SEGURANCA_2026-04-19.md](INCIDENTE_SEGURANCA_2026-04-19.md)** - Case: Cryptojacker
+3. **[DEPLOYMENT.md](DEPLOYMENT.md)** - Hardening em produção
 
 ---
 

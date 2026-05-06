@@ -3,16 +3,23 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { ArrowUpRight, Apple, Palette, TrendingUp, FileText, ChevronRight, RotateCcw } from 'lucide-react'
+import { ArrowUpRight, Apple, Palette, TrendingUp, FileText, ChevronRight, RotateCcw, BookOpen, Calendar, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-const categories = [
+type CategoryItem =
+  | { id: string; title: string; courseCount: number; icon: React.ElementType; href: string; children?: never }
+  | { id: string; title: string; courseCount: number; icon: React.ElementType; href?: never; children: { label: string; href: string }[] }
+
+const categories: CategoryItem[] = [
   {
     id: '01',
-    title: 'Curso NCA',
-    courseCount: 1,
-    icon: Apple,
-    href: '/cursos/nca',
+    title: 'Cursos',
+    courseCount: 2,
+    icon: BookOpen,
+    children: [
+      { label: 'Curso NCA – Nutrição Clínica Aplicada', href: '/cursos/nca-nutricao-clinica-aplicada' },
+      { label: 'Curso NCE – Nutrição Clínica Estratégica', href: '/cursos/nce-nutricao-clinica-estrategica' },
+    ],
   },
   {
     id: '02',
@@ -30,28 +37,25 @@ const categories = [
   },
   {
     id: '04',
-    title: 'Curso NCE',
-    courseCount: 1,
-    icon: FileText,
-    href: '/cursos/nce-nutricao-clinica-estrategica',
-  },
-  {
-    id: '05',
     title: 'Assinatura',
     courseCount: 1,
     icon: Apple,
     href: '/cursos',
   },
   {
-    id: '06',
-    title: 'Eventos',
+    id: '05',
+    title: 'Eventos / Imersões',
     courseCount: 1,
-    icon: TrendingUp,
-    href: '/cursos',
+    icon: Calendar,
+    children: [
+      { label: 'WEBDIET – Do Software ao Atendimento', href: '/eventos/webdiet-do-software-ao-atendimento' },
+    ],
   },
 ]
 
 export function CategorySection() {
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null)
+
   return (
     <section className="relative block bg-[#6d4d88] pb-0 pt-0" style={{ counterReset: 'count', zIndex: 1 }}>
       {/* Marquee Top - Faixa Rolante - COLADO NO TOPO */}
@@ -178,39 +182,68 @@ export function CategorySection() {
             <div className="space-y-0">
               {categories.map((category) => {
                 const Icon = category.icon
+                const isAccordion = !!category.children
+                const isOpen = openAccordion === category.id
+
+                const rowContent = (
+                  <div className="flex items-center gap-4">
+                    <span className="font-display text-xl font-bold text-white/50 transition-colors group-hover:text-primary-500 lg:text-2xl">
+                      {category.id}
+                    </span>
+                    <div className="hidden h-10 w-10 items-center justify-center rounded-xl bg-primary-500 opacity-0 transition-all duration-300 group-hover:flex group-hover:opacity-100 lg:flex">
+                      <Icon className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-semibold text-white transition-colors group-hover:text-graphite lg:text-2xl">
+                        {category.title}
+                      </h3>
+                      <p className="font-serif text-sm text-white/70 transition-colors group-hover:text-neutral-600 lg:text-base">
+                        {category.courseCount} Curso{category.courseCount > 1 ? 's' : ''}
+                      </p>
+                    </div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/50 transition-all duration-300 group-hover:border-primary-500 group-hover:bg-primary-500">
+                      {isAccordion
+                        ? <ChevronDown className={`h-4 w-4 text-white transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                        : <ArrowUpRight className="h-4 w-4 text-white transition-transform group-hover:rotate-45" />
+                      }
+                    </div>
+                  </div>
+                )
+
+                if (isAccordion) {
+                  return (
+                    <div key={category.id} className="border-b border-dashed border-white/30 last:border-b-0">
+                      <button
+                        onClick={() => setOpenAccordion(isOpen ? null : category.id)}
+                        className="group relative w-full px-4 py-4 text-left transition-all duration-300 hover:bg-white"
+                      >
+                        {rowContent}
+                      </button>
+                      {isOpen && (
+                        <div className="bg-white/10 px-4 pb-3">
+                          {category.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="flex items-center gap-3 rounded-lg px-4 py-3 text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+                            >
+                              <ChevronRight className="h-4 w-4 shrink-0 text-primary-400" />
+                              <span className="font-serif text-sm font-medium">{child.label}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )
+                }
+
                 return (
                   <Link
                     key={category.id}
                     href={category.href}
                     className="group relative block border-b border-dashed border-white/30 py-4 px-4 transition-all duration-300 last:border-b-0 hover:bg-white"
                   >
-                    {/* Conteúdo do Item */}
-                    <div className="flex items-center gap-4">
-                      {/* Número */}
-                      <span className="font-display text-xl font-bold text-white/50 transition-colors group-hover:text-primary-500 lg:text-2xl">
-                        {category.id}
-                      </span>
-
-                      {/* Ícone - Aparece no hover */}
-                      <div className="hidden h-10 w-10 items-center justify-center rounded-xl bg-primary-500 opacity-0 transition-all duration-300 group-hover:flex group-hover:opacity-100 lg:flex">
-                        <Icon className="h-5 w-5 text-white" />
-                      </div>
-
-                      {/* Texto */}
-                      <div className="flex-1">
-                        <h3 className="font-display text-xl font-semibold text-white transition-colors group-hover:text-graphite lg:text-2xl">
-                          {category.title}
-                        </h3>
-                        <p className="font-serif text-sm text-white/70 transition-colors group-hover:text-neutral-600 lg:text-base">
-                          {category.courseCount} Curso{category.courseCount > 1 ? 's' : ''}
-                        </p>
-                      </div>
-
-                      {/* Seta - Aparece no hover */}
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/50 transition-all duration-300 group-hover:border-primary-500 group-hover:bg-primary-500">
-                        <ArrowUpRight className="h-4 w-4 text-white transition-transform group-hover:rotate-45" />
-                      </div>
-                    </div>
+                    {rowContent}
                   </Link>
                 )
               })}

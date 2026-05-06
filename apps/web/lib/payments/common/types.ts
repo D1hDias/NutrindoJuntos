@@ -15,7 +15,7 @@ export type PaymentStatus =
   | 'refunded'
   | 'failed'
 
-export type ProductType = 'course' | 'mentoring' | 'ebook' | 'subscription'
+export type ProductType = 'course' | 'mentoring' | 'immersion' | 'ebook' | 'subscription'
 
 /**
  * Cliente/Comprador
