@@ -74,10 +74,6 @@ export default function WebdietPage() {
                 "Do domínio da ferramenta à prática clínica — em um único dia."
               </h2>
 
-              <p className="text-xl text-muted-foreground">
-                Uma imersão presencial com certificado, desenvolvida em parceria com a Webdiet,
-                para nutricionistas que querem atender com mais segurança e eficiência.
-              </p>
             </header>
 
             {/* Corpo */}
