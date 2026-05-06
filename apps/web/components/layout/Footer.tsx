@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, MapPin, Phone, Clock, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react'
+import { Mail, MapPin, Phone, Clock, Instagram, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
@@ -176,10 +176,7 @@ export function Footer() {
                 <h4 className="text-xl font-medium text-white mb-7">Siga-nos:</h4>
                 <div className="flex gap-[10px]">
                   {[
-                    { href: 'https://instagram.com/nutrindojuntos', icon: Instagram, label: 'Instagram' },
-                    { href: 'https://facebook.com/nutrindojuntos', icon: Facebook, label: 'Facebook' },
-                    { href: 'https://linkedin.com/company/nutrindojuntos', icon: Linkedin, label: 'LinkedIn' },
-                    { href: 'https://youtube.com/@nutrindojuntos', icon: Youtube, label: 'YouTube' },
+                    { href: 'https://www.instagram.com.br/nutrindo.juntos', icon: Instagram, label: 'Instagram' },
                   ].map(({ href, icon: Icon, label }) => (
                     <a
                       key={label}
