@@ -4,51 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect, useCallback } from 'react'
 import { Instagram, Plus, X } from 'lucide-react'
-
-const teamMembers = [
-  {
-    id: 1,
-    name: 'Nathállia Jordão',
-    role: 'Nutrição materna e infantil',
-    image: '/images/team/nathalia.png',
-    instagram: '#'
-  },
-  {
-    id: 2,
-    name: 'Ludmila Andrade',
-    role: 'Nutrição em saúde da mulher e lipedema',
-    image: '/images/team/ludmila.png',
-    instagram: '#'
-  },
-  {
-    id: 3,
-    name: 'Jéssika Vieira',
-    role: 'Nutrição em emagrecimento e obesidade',
-    image: '/images/team/jessica.png',
-    instagram: '#'
-  },
-  {
-    id: 4,
-    name: 'Márcio Cardoso',
-    role: 'Gestão financeira',
-    image: '/images/team/marcio.png',
-    instagram: '#'
-  },
-  {
-    id: 5,
-    name: 'Nayane Raggio',
-    role: 'Nutrição esportiva e Recomposição corporal',
-    image: '/images/team/nayane.png',
-    instagram: '#'
-  },
-  {
-    id: 6,
-    name: 'Diego Dias',
-    role: 'Gestão de tecnologias',
-    image: '/images/team/diego.png',
-    instagram: '#'
-  }
-]
+import { teamMembers } from '@/lib/data/team'
 
 const AUTOPLAY_INTERVAL = 5000 // 5 segundos
 

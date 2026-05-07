@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
+import { TeamGrid } from '@/components/sobre/TeamGrid'
 
 export const metadata: Metadata = {
-  title: 'Sobre',
-  description: 'Conheça a missão, visão e equipe do NUTRINDO JUNTOS.',
+  title: 'Sobre | Nutrindo Juntos',
+  description: 'Conheça a missão, visão e a equipe de especialistas do NUTRINDO JUNTOS.',
 }
 
 export default function SobrePage() {
   return (
     <main className="container mx-auto px-4 py-16">
+      {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-primary-600 md:text-5xl">
           Sobre Nós
@@ -34,19 +36,27 @@ export default function SobrePage() {
             à prática profissional de forma humanizada e acessível.
           </p>
         </section>
-
-        <section>
-          <h2 className="mb-4 text-2xl font-semibold">Equipe</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* Team members will be loaded here from CMS */}
-            <div className="rounded-lg border p-6">
-              <p className="text-muted-foreground">
-                🚧 Em breve: Membros da equipe serão carregados do CMS
-              </p>
-            </div>
-          </div>
-        </section>
       </div>
+
+      {/* Equipe */}
+      <section className="mt-16" id="equipe">
+        <div className="mb-10 text-center">
+          <div className="mb-3 inline-flex items-center gap-2">
+            <div className="h-3 w-3 rounded-full bg-primary-500" />
+            <span className="font-serif text-lg font-semibold text-primary-500">Nossa Equipe</span>
+          </div>
+          <h2 className="font-display text-3xl font-bold text-graphite md:text-4xl">
+            Especialistas que unem{' '}
+            <span className="text-primary-600">prática, ciência e ensino</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-neutral-500">
+            Nutricionistas e especialistas que atuam na clínica, no ensino e na formação
+            profissional — conectando teoria, aplicação e realidade de mercado.
+          </p>
+        </div>
+
+        <TeamGrid />
+      </section>
     </main>
   )
 }
