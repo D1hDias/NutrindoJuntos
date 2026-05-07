@@ -8,13 +8,6 @@ const PILARES = [
   { emoji: '📈', label: 'Evolução' },
 ]
 
-const BENEFICIOS = [
-  'Conteúdos práticos e atualizações',
-  'Materiais de apoio e artigos científicos',
-  'Aulões ao vivo mensais com vagas limitadas',
-  'Oportunidades e condições especiais',
-  'Sorteios e experiências exclusivas',
-]
 
 export function NewsletterSection() {
   return (
@@ -87,20 +80,6 @@ export function NewsletterSection() {
             ))}
           </div>
 
-          {/* Descrição */}
-          <p className="relative z-10 mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-white/85">
-            Um espaço exclusivo para estudantes e profissionais da saúde que querem ir além da faculdade.
-          </p>
-
-          {/* Benefícios */}
-          <ul className="relative z-10 mx-auto mb-10 max-w-xl space-y-2 text-left">
-            {BENEFICIOS.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-white/90 text-sm md:text-base">
-                <span className="mt-0.5 shrink-0 text-green-400">✔️</span>
-                {item}
-              </li>
-            ))}
-          </ul>
 
           {/* CTA */}
           <div className="relative z-10">
