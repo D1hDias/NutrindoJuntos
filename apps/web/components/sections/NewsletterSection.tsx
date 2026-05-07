@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const WHATSAPP_LIGA = 'https://wa.me/5521980082458?text=Ol%C3%A1%21+Quero+entrar+na+comunidade+LIGA+Nutrindo+Juntos%21'
+const WHATSAPP_LIGA = 'https://chat.whatsapp.com/H07kt2LZ2oR3bVE8YqfQZF'
 
 const PILARES = [
   { emoji: '🎓', label: 'Conhecimento' },
