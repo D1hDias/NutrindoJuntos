@@ -109,10 +109,14 @@ temp/
 **/public/workbox-*.js.map
 **/public/worker-*.js.map
 
-# Playwright
+# Playwright — screenshots e artefatos (nunca commitar)
 test-results/
 playwright-report/
 playwright/.cache/
+.playwright-mcp/*.png
+.playwright-mcp/*.jpg
+.playwright-mcp/*.jpeg
+.playwright-mcp/*.webp
 
 # Storybook
 storybook-static/
