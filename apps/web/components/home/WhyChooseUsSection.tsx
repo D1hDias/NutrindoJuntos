@@ -165,15 +165,6 @@ export function WhyChooseUsSection() {
                   className="w-auto"
                 />
               </div>
-              <div className="absolute -top-[20px] left-[40px] animate-bounce-slow">
-                <Image
-                  src="/images/shapes/why-choose-one-shape-5.webp"
-                  alt=""
-                  width={100}
-                  height={100}
-                  className="w-auto"
-                />
-              </div>
             </div>
           </div>
 
