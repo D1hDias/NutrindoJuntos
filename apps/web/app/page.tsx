@@ -57,10 +57,7 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <NewsletterSection
-        title="Continue sua jornada com a Nutrindo Juntos"
-        description="Receba conteúdos práticos, reflexões de carreira, novidades e convites especiais — no seu tempo, sem excesso e sem ruído."
-      />
+      <NewsletterSection />
 
       {/* Sliding Text Section - Faixa Deslizante */}
       <SlidingTextSection />

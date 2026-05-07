@@ -218,10 +218,7 @@ export default async function EquipePage() {
       </section>
 
       {/* Newsletter Section */}
-      <NewsletterSection
-        title="Fique por Dentro: Newsletter NUTRINDO JUNTOS"
-        description="Conteúdos exclusivos sobre nutrição, lançamentos de cursos e dicas da nossa equipe de especialistas."
-      />
+      <NewsletterSection />
 
       {/* CTA Section */}
       <section className="bg-green-600 py-16 text-white">
