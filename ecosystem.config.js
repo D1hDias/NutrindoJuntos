@@ -22,8 +22,7 @@ module.exports = {
     // Variáveis de ambiente
     env_production: {
       NODE_ENV: 'production',
-      PORT: 3000,
-      // Next.js standalone precisa destes paths
+      PORT: 3003,
       HOSTNAME: '0.0.0.0',
     },
 
