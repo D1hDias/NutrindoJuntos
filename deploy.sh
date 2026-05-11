@@ -30,6 +30,9 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 
 cd "$APP_DIR" || error "Diretório $APP_DIR não encontrado."
 
+# Garantir que o Git aceita este diretório independente do dono
+git config --global --add safe.directory "$APP_DIR"
+
 # 1. Pull do GitHub
 info "📥 Baixando atualizações do GitHub..."
 git pull origin main
