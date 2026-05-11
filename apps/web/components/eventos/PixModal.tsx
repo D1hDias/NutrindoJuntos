@@ -52,7 +52,7 @@ export function PixModal({ isOpen, onClose }: PixModalProps) {
           {/* Valor */}
           <div className="rounded-xl bg-primary-50 py-4 text-center">
             <p className="text-sm font-medium text-primary-700">Valor com desconto PIX</p>
-            <p className="mt-1 font-display text-4xl font-bold text-primary-600">R$ 120,00</p>
+            <p className="mt-1 font-display text-4xl font-bold text-primary-600">R$ 180,00</p>
             <p className="mt-1 text-xs text-primary-500">à vista — desconto exclusivo</p>
           </div>
 

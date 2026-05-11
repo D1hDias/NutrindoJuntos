@@ -22,12 +22,12 @@ export function WebdietSidebar() {
         {/* Card de Inscrição */}
         <div className="rounded-xl border bg-card p-6 shadow-sm">
           <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-neutral-500">
-            Lote 1 — Vagas Antecipadas
+            Lote 2 — AINDA DÁ TEMPO
           </p>
 
           <div className="mb-1 flex items-baseline gap-2">
             <span className="font-display text-4xl font-bold text-primary-600">
-              5x R$ 24,96
+              5x R$ 37,39
             </span>
           </div>
           <p className="mb-4 text-sm text-neutral-500">sem juros no cartão</p>
