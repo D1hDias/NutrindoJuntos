@@ -50,17 +50,14 @@ export function Logo({
   const logoHeight = height || dimensions.height
 
   const logoImage = (
-    <div style={{ maxHeight: '80px', width: 'auto', height: 'auto', display: 'inline-block' }}>
-      <Image
-        src={logoSrc}
-        alt="NUTRINDO JUNTOS - Educação em Nutrição"
-        width={logoWidth}
-        height={logoHeight}
-        priority={priority}
-        className={className}
-        style={{ maxHeight: '80px', width: 'auto', height: 'auto', objectFit: 'contain' }}
-      />
-    </div>
+    <Image
+      src={logoSrc}
+      alt="NUTRINDO JUNTOS - Educação em Nutrição"
+      width={logoWidth}
+      height={logoHeight}
+      priority={priority}
+      className={className}
+    />
   )
 
   if (href) {

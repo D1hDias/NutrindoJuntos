@@ -42,7 +42,7 @@ export function WebdietSidebar() {
 
           <Button size="lg" className="w-full font-semibold" asChild>
             <a
-              href="https://www.asaas.com/c/qcpoodhw3kuvedth"
+              href="https://www.asaas.com/c/8nyvb03r9ty3qxvq"
               target="_blank"
               rel="noopener noreferrer"
             >

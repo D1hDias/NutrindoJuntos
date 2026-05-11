@@ -16,7 +16,7 @@ export function HeaderServer() {
       >
         <div className="container mx-auto px-8">
           <div className="flex h-12 items-center justify-between text-sm">
-            {/* Contact Info */}
+            {/* Contact Info — desktop only */}
             <div className="hidden items-center gap-6 md:flex">
               <Link
                 href="mailto:contato@nutrindojuntos.com.br"
@@ -34,15 +34,15 @@ export function HeaderServer() {
               </Link>
             </div>
 
-            {/* Promo Text - Centro */}
+            {/* Promo Text — desktop only */}
             <div className="hidden flex-1 justify-center md:flex">
               <span className="text-center">
                 🎓 Transforme sua carreira em nutrição conosco
               </span>
             </div>
 
-            {/* Social Links ou CTA */}
-            <div className="hidden items-center gap-4 md:flex">
+            {/* Social Links — visível em todos os tamanhos */}
+            <div className="flex w-full items-center justify-center gap-2 md:w-auto md:justify-end">
               <span className="text-xs opacity-90">Siga-nos:</span>
               <a
                 href="https://www.instagram.com.br/nutrindo.juntos"
@@ -66,7 +66,7 @@ export function HeaderServer() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-7 w-auto sm:h-8 lg:h-9" />
           </div>
 
           {/* Navigation - Com scroll suave para seções da home */}

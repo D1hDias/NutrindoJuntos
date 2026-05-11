@@ -322,7 +322,7 @@ export const MOCK_CURSOS: Curso[] = [
     installments: 12,
     salesCount: 0,
     practicalFocus: 'Abordagem prática com foco em aplicação clínica real',
-    targetAudience: ['Graduandos', 'Recém-formados', 'Profissionais em transição de carreira'],
+    targetAudience: ['Graduandos ', 'Recém-formados ', 'Profissionais em transição de carreira'],
     whatYouWillLearn: ['Fundamentos da nutrição clínica', 'Estratégias de prescrição personalizada', 'Gestão de consultório'],
     requirements: ['Graduação em Nutrição (em curso ou concluída)', 'Interesse em atendimento clínico'],
     paymentLink: 'https://pay.hotmart.com/exemplo-nca-curso',
@@ -536,7 +536,7 @@ export async function getCursos(params?: {
   const startIndex = (page - 1) * limit
   const endIndex = startIndex + limit
 
-  let filtered = MOCK_CURSOS.filter(c => c.status === 'published')
+  const filtered = MOCK_CURSOS.filter(c => c.status === 'published')
 
   const paginated = filtered.slice(startIndex, endIndex)
 

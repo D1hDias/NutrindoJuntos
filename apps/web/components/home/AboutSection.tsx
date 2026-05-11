@@ -59,7 +59,7 @@ export function AboutSection() {
                     </h3>
                   </div>
                   <p className="mt-1 font-serif text-sm font-medium italic text-neutral-600">
-                  Certificado
+                    Certificado
                   </p>
                 </div>
               </div>
@@ -78,11 +78,11 @@ export function AboutSection() {
                       <div>
                         <div className="flex items-baseline gap-1">
                           <h3 className="font-display text-2xl font-semibold text-graphite">
-                          Reconhecido
+                            Reconhecido
                           </h3>
                         </div>
                         <p className="font-serif text-sm font-semibold lowercase text-graphite">
-                        pela câmara municipal de São Paulo
+                          pela câmara municipal de São Paulo
                         </p>
                       </div>
                     </div>
@@ -130,9 +130,9 @@ export function AboutSection() {
             {/* Título */}
             <div className="relative">
               <h2 className="font-display text-4xl font-bold leading-tight text-graphite lg:text-5xl">
-              Nossa história: educação que
-              <span className="relative inline-block">
-                guia
+                Nossa história: educação que
+                <span className="relative inline-block">
+                  guia
                   {/* Linha decorativa sob "Inovação" */}
                   <svg
                     className="absolute -bottom-2 left-0 w-full"
@@ -148,20 +148,20 @@ export function AboutSection() {
                     />
                   </svg>
                 </span> não confunde{' '}
-                
+
               </h2>
             </div>
 
             {/* Texto descritivo */}
             <p className="text-lg leading-relaxed text-neutral-600">
-            A Nutrindo Juntos nasceu para resolver uma lacuna real da formação em Nutrição: 
-            o excesso de teoria sem direção prática. Unimos ciência, prática clínica e visão de carreira 
-            para guiar nutricionistas desde os primeiros passos até a consolidação profissional.
+              A Nutrindo Juntos nasceu para resolver uma lacuna real da formação em Nutrição:
+              o excesso de teoria sem direção prática. Unimos ciência, prática clínica e visão de carreira
+              para guiar nutricionistas desde os primeiros passos até a consolidação profissional.
             </p>
 
             <p className="text-lg leading-relaxed text-neutral-600">
-            Atuamos em parceria com instituições e projetos educacionais reconhecidos, como a 
-            Faculdade VP, ampliando o impacto e a qualidade da formação oferecida aos nutricionistas.
+              Atuamos em parceria com instituições e projetos educacionais reconhecidos, como a
+              Faculdade VP, ampliando o impacto e a qualidade da formação oferecida aos nutricionistas.
             </p>
 
             {/* Missão e Visão */}
@@ -217,7 +217,7 @@ export function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-base leading-relaxed text-neutral-600 pl-15">
-                  Educação personalizada e de qualidade / Ética, responsabilidade e compromisso / 
+                  Educação personalizada e de qualidade / Ética, responsabilidade e compromisso /
                   Protagonismo profissional / Prática com fundamento científico / Evolução contínua.
                 </p>
               </div>

@@ -15,9 +15,9 @@ module.exports = {
     script: 'apps/web/.next/standalone/apps/web/server.js',
     cwd: '/var/www/nutrindojuntos',
 
-    // Instâncias
-    instances: 2, // 2 instâncias para VPS básico
-    exec_mode: 'cluster',
+    // Instâncias — 1 processo é suficiente para VPS com 2 vCPUs
+    instances: 1,
+    exec_mode: 'fork',
 
     // Variáveis de ambiente
     env_production: {
@@ -30,7 +30,7 @@ module.exports = {
     // Auto-restart
     autorestart: true,
     watch: false,
-    max_memory_restart: '500M', // Restart se usar >500MB
+    max_memory_restart: '400M', // Restart se usar >400MB
 
     // Logs
     error_file: '/var/www/nutrindojuntos/logs/pm2-error.log',

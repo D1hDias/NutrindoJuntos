@@ -7,8 +7,8 @@ import { ArrowUpRight, Apple, Palette, TrendingUp, FileText, ChevronRight, Rotat
 import { Button } from '@/components/ui/button'
 
 type CategoryItem =
-  | { id: string; title: string; courseCount: number; icon: React.ElementType; href: string; children?: never }
-  | { id: string; title: string; courseCount: number; icon: React.ElementType; href?: never; children: { label: string; href: string }[] }
+  | { id: string; title: string; courseCount: number; icon: React.ElementType; href: string; disabled?: boolean; children?: never }
+  | { id: string; title: string; courseCount: number; icon: React.ElementType; href?: never; disabled?: never; children: { label: string; href: string }[] }
 
 const categories: CategoryItem[] = [
   {
@@ -24,23 +24,26 @@ const categories: CategoryItem[] = [
   {
     id: '02',
     title: 'Mentoria NJ',
-    courseCount: 1,
+    courseCount: 0,
     icon: TrendingUp,
-    href: '/mentoria',
+    href: '#',
+    disabled: true,
   },
   {
     id: '03',
     title: 'Nutri executivo',
-    courseCount: 1,
+    courseCount: 0,
     icon: Palette,
-    href: '/cursos/nutri-executivo',
+    href: '#',
+    disabled: true,
   },
   {
     id: '04',
     title: 'Assinatura',
-    courseCount: 1,
+    courseCount: 0,
     icon: Apple,
-    href: '/cursos',
+    href: '#',
+    disabled: true,
   },
   {
     id: '05',
@@ -158,7 +161,7 @@ export function CategorySection() {
             {/* Título */}
             <div className="relative">
               <h2 className="font-display text-4xl font-bold uppercase leading-tight text-white lg:text-5xl">
-              Escolha por onde começar sua jornada na{' '}
+                Escolha por onde começar sua jornada na{' '}
                 <span className="relative inline-block">
                   Nutrição
                   {/* Linha decorativa sob "Cursos" */}
@@ -184,31 +187,52 @@ export function CategorySection() {
                 const Icon = category.icon
                 const isAccordion = !!category.children
                 const isOpen = openAccordion === category.id
+                const isDisabled = 'disabled' in category && category.disabled === true
 
                 const rowContent = (
                   <div className="flex items-center gap-4">
-                    <span className="font-display text-xl font-bold text-white/50 transition-colors group-hover:text-primary-500 lg:text-2xl">
+                    <span className={`font-display text-xl font-bold lg:text-2xl ${isDisabled ? 'text-white/30' : 'text-white/50 transition-colors group-hover:text-primary-500'}`}>
                       {category.id}
                     </span>
-                    <div className="hidden h-10 w-10 items-center justify-center rounded-xl bg-primary-500 opacity-0 transition-all duration-300 group-hover:flex group-hover:opacity-100 lg:flex">
+                    <div className={`hidden h-10 w-10 items-center justify-center rounded-xl bg-primary-500 opacity-0 transition-all duration-300 lg:flex ${!isDisabled ? 'group-hover:flex group-hover:opacity-100' : ''}`}>
                       <Icon className="h-5 w-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display text-xl font-semibold text-white transition-colors group-hover:text-graphite lg:text-2xl">
-                        {category.title}
-                      </h3>
-                      <p className="font-serif text-sm text-white/70 transition-colors group-hover:text-neutral-600 lg:text-base">
+                      <div className="flex items-center gap-2">
+                        <h3 className={`font-display text-xl font-semibold lg:text-2xl ${isDisabled ? 'text-white/40' : 'text-white transition-colors group-hover:text-graphite'}`}>
+                          {category.title}
+                        </h3>
+                        {isDisabled && (
+                          <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+                            Em breve
+                          </span>
+                        )}
+                      </div>
+                      <p className={`font-serif text-sm lg:text-base ${isDisabled ? 'text-white/30' : 'text-white/70 transition-colors group-hover:text-neutral-600'}`}>
                         {category.courseCount} Curso{category.courseCount > 1 ? 's' : ''}
                       </p>
                     </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/50 transition-all duration-300 group-hover:border-primary-500 group-hover:bg-primary-500">
-                      {isAccordion
-                        ? <ChevronDown className={`h-4 w-4 text-white transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-                        : <ArrowUpRight className="h-4 w-4 text-white transition-transform group-hover:rotate-45" />
-                      }
-                    </div>
+                    {!isDisabled && (
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/50 transition-all duration-300 group-hover:border-primary-500 group-hover:bg-primary-500">
+                        {isAccordion
+                          ? <ChevronDown className={`h-4 w-4 text-white transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                          : <ArrowUpRight className="h-4 w-4 text-white transition-transform group-hover:rotate-45" />
+                        }
+                      </div>
+                    )}
                   </div>
                 )
+
+                if (isDisabled) {
+                  return (
+                    <div
+                      key={category.id}
+                      className="cursor-not-allowed border-b border-dashed border-white/20 px-4 py-4 last:border-b-0"
+                    >
+                      {rowContent}
+                    </div>
+                  )
+                }
 
                 if (isAccordion) {
                   return (

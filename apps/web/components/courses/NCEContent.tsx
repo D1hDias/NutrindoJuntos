@@ -262,7 +262,7 @@ export function NCEContent() {
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-12">
           <div className="flex items-center gap-3">
             <Clock className="h-6 w-6 text-amber-300" />
-            <span className="text-lg font-semibold">20 horas de conteúdo total</span>
+            <span className="text-lg font-semibold">40 horas de conteúdo total</span>
           </div>
           <div className="flex items-center gap-3">
             <GraduationCap className="h-6 w-6 text-amber-300" />
