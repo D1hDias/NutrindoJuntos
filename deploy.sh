@@ -46,10 +46,12 @@ info "🏗️  Fazendo build do Next.js..."
 pnpm --filter web build
 
 # 4. Copiar arquivos estáticos para o standalone
-#    (necessário para o Next.js standalone funcionar corretamente)
+#    (rm -rf antes de cp -r evita aninhamento duplo se o destino já existir)
 info "📁 Copiando arquivos estáticos para o standalone..."
-cp -r apps/web/public apps/web/.next/standalone/apps/web/public 2>/dev/null || true
-cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/static 2>/dev/null || true
+rm -rf apps/web/.next/standalone/apps/web/public
+cp -r apps/web/public apps/web/.next/standalone/apps/web/public
+rm -rf apps/web/.next/standalone/apps/web/.next/static
+cp -r apps/web/.next/static apps/web/.next/standalone/apps/web/.next/static
 
 # 5. Recarregar PM2 (zero-downtime reload)
 info "♻️  Recarregando PM2..."
