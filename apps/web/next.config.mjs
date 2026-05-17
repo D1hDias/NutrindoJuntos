@@ -150,15 +150,13 @@ const productionConfig = {
     },
   },
 
-  // TypeScript and ESLint configuration for production
+  // TypeScript configuration for production
   typescript: {
-    // Type checking during build
-    ignoreBuildErrors: false, // Validar tipos durante build
+    ignoreBuildErrors: false,
   },
-  eslint: {
-    // Lint during builds
-    ignoreDuringBuilds: true, // ESLint pode ficar desabilitado temporariamente
-  },
+
+  // Required: silence Turbopack warning when webpack config is present
+  turbopack: {},
 }
 
 export default productionConfig
