@@ -249,6 +249,7 @@ export function CategorySection() {
                             <Link
                               key={child.href}
                               href={child.href}
+                              prefetch={false}
                               className="flex items-center gap-3 rounded-lg px-4 py-3 text-white/90 transition-colors hover:bg-white/10 hover:text-white"
                             >
                               <ChevronRight className="h-4 w-4 shrink-0 text-primary-400" />

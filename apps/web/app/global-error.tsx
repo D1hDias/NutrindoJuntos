@@ -10,7 +10,10 @@ export default function GlobalError({
   reset: () => void
 }) {
   useEffect(() => {
-    // Log error to error reporting service (e.g., Sentry)
+    if (error?.name === 'ChunkLoadError') {
+      window.location.reload()
+      return
+    }
     console.error('Global error caught:', error)
   }, [error])
 

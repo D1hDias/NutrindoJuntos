@@ -1,8 +1,4 @@
-'use client'
-
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { PixModal } from '@/components/eventos/PixModal'
 import { CreditCard, Zap } from 'lucide-react'
 
 const INCLUDES = [
@@ -14,40 +10,30 @@ const INCLUDES = [
 ]
 
 export function WebdietSidebar() {
-  const [pixOpen, setPixOpen] = useState(false)
-
   return (
-    <>
-      <div className="sticky top-24 space-y-6">
+    <div className="sticky top-24 space-y-6">
         {/* Card de Inscrição */}
         <div className="rounded-xl border bg-card p-6 shadow-sm">
-          <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-neutral-500">
-            Lote 2 — AINDA DÁ TEMPO
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            Vendas Encerradas
           </p>
 
-          <div className="mb-1 flex items-baseline gap-2">
-            <span className="font-display text-4xl font-bold text-primary-600">
-              5x R$ 37,39
+          <div className="mb-4 rounded-lg bg-neutral-100 px-4 py-3 text-center">
+            <span className="text-sm font-medium text-neutral-500">
+              As vagas para esta edição foram esgotadas.
             </span>
           </div>
-          <p className="mb-4 text-sm text-neutral-500">sem juros no cartão</p>
 
           <button
-            onClick={() => setPixOpen(true)}
-            className="mb-6 flex w-full items-center gap-2 rounded-lg bg-primary-50 px-3 py-2 text-sm font-medium text-primary-700 transition-colors hover:bg-primary-100"
+            disabled
+            className="mb-6 flex w-full cursor-not-allowed items-center gap-2 rounded-lg bg-neutral-100 px-3 py-2 text-sm font-medium text-neutral-400"
           >
             <Zap className="h-4 w-4 shrink-0" />
-            Pix com desconto — clique para ver
+            Pix com desconto — indisponível
           </button>
 
-          <Button size="lg" className="w-full font-semibold" asChild>
-            <a
-              href="https://www.asaas.com/c/8nyvb03r9ty3qxvq"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Garantir Minha Vaga
-            </a>
+          <Button size="lg" className="w-full cursor-not-allowed font-semibold opacity-50" disabled>
+            Vagas Esgotadas
           </Button>
 
           <div className="mt-4 border-t pt-4">
@@ -75,9 +61,6 @@ export function WebdietSidebar() {
             ))}
           </div>
         </div>
-      </div>
-
-      <PixModal isOpen={pixOpen} onClose={() => setPixOpen(false)} />
-    </>
+    </div>
   )
 }
