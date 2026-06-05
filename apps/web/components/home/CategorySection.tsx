@@ -40,10 +40,11 @@ const categories: CategoryItem[] = [
   {
     id: '04',
     title: 'Assinatura',
-    courseCount: 0,
+    courseCount: 1,
     icon: Apple,
-    href: '#',
-    disabled: true,
+    children: [
+      { label: 'Nutrindo Mentes', href: '/eventos/nutrindo-mentes' },
+    ],
   },
   {
     id: '05',
