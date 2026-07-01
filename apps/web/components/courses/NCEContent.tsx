@@ -97,7 +97,7 @@ export function NCEContent() {
             <h3 className="text-lg font-bold text-amber-900">A Realidade</h3>
           </div>
           <p className="text-base leading-relaxed text-amber-800">
-            O Brasil é o 2o pais com mais casos de burnout no trabalho, somando 30 milhões de registros (ANAMT, 2022).
+            O Brasil é o 2º país com mais casos de burnout no trabalho, somando 30 milhões de registros (ANAMT, 2022).
             Nós estamos no centro de um cenário onde muitos nutricionistas ainda saem da graduação inseguros, sem
             clareza de como viver de fato da Nutrição, além de sobrecarregados pela própria autocobrança: a pressão em
             já começar a trabalhar e construir o mais breve possível uma carreira sólida e próspera, levam ao

@@ -326,7 +326,7 @@ export const MOCK_CURSOS: Curso[] = [
     whatYouWillLearn: ['Fundamentos da nutrição clínica', 'Estratégias de prescrição personalizada', 'Gestão de consultório'],
     requirements: ['Graduação em Nutrição (em curso ou concluída)', 'Interesse em atendimento clínico'],
     paymentLink: 'https://pay.hotmart.com/exemplo-nca-curso',
-    isLive: true,
+    isLive: false,
     status: 'published',
   },
   {
@@ -400,11 +400,11 @@ export const MOCK_CURSOS: Curso[] = [
     installments: 12,
     salesCount: 0,
     practicalFocus: 'Abordagem prática com foco em aplicação clínica avançada',
-    targetAudience: ['Profissionais que já possuem base clínica', 'Nutricionistas que desejam aprofundar em protocolos avançados', 'Profissionais interessados em gestão estratégica'],
+    targetAudience: ['Profissionais que já possuem base clínica', ' Nutricionistas que desejam aprofundar em protocolos avançados', ' Profissionais interessados em gestão estratégica'],
     whatYouWillLearn: ['Protocolos avançados em nutrição clínica', 'Gestão estratégica de consultório', 'Protagonismo profissional'],
     requirements: ['Base clínica sólida', 'Experiência prévia em atendimento'],
     paymentLink: 'https://pay.hotmart.com/exemplo-nce-curso',
-    isLive: true,
+    isLive: false,
     status: 'published',
   },
 ]
