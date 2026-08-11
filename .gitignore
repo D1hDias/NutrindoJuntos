@@ -128,6 +128,9 @@ storybook-static/
 .claude/settings.json
 .claude/*.json
 
+# Contexto interno do projeto (contem links de checkout, chave PIX e dados do VPS)
+docs/CONTEXTO-PROJETO.md
+
 # Assets e arquivos grandes (movidos para ../nutrindo-juntos-assets/)
 NJ_temp/
 *.zip

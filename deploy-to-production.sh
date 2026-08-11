@@ -64,7 +64,7 @@ echo ""
 echo -e "${BLUE}[4/5] Executando deploy no VPS...${NC}"
 echo -e "${YELLOW}(Isso pode levar 1-2 minutos)${NC}"
 echo ""
-ssh root@31.97.245.82 "cd /var/www/nutrindojuntos && ./deploy.sh" || {
+ssh hostinger-nj "cd /var/www/nutrindojuntos && ./deploy.sh" || {
     echo -e "${RED}❌ Erro no deploy!${NC}"
     exit 1
 }

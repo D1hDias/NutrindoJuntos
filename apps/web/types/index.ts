@@ -67,6 +67,8 @@ export interface Curso {
   createdAt?: string
   paymentLink?: string
   installments?: number
+  /** Valor de cada parcela. Use quando o parcelado não for o preço à vista dividido. */
+  installmentValue?: number
   isLive?: boolean
 }
 

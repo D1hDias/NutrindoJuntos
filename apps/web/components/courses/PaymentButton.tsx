@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { ExternalLink, CreditCard } from 'lucide-react'
+import { ExternalLink, CreditCard, Check, PlayCircle, Radio } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
+import { cn } from '@/lib/utils'
 
 interface PaymentButtonProps {
   paymentLink?: string
@@ -157,6 +159,273 @@ export function PaymentOptions({ course }: PaymentOptionsProps) {
           </p>
         </div>
       )}
+    </div>
+  )
+}
+
+// Modalidades do curso (Gravado x Ao Vivo) — exibidas como abas na coluna de preço
+const MODALITIES = [
+  {
+    id: 'gravado',
+    label: 'Gravado',
+    title: 'NCA Gravado',
+    badge: '100% GRAVADO',
+    Icon: PlayCircle,
+    features: [
+      'Aulas 100% gravadas',
+      'Acesso por 1 ano',
+      'Estude no seu ritmo',
+      'Materiais complementares',
+      'Certificado de conclusão',
+    ],
+    headerClass: 'bg-primary-600',
+    badgeClass: 'bg-primary-100 text-primary-700',
+    checkClass: 'text-primary-500',
+    priceClass: 'text-primary-600',
+    tabActiveClass: 'bg-primary-50 text-primary-600',
+    tabIconClass: 'text-primary-500',
+    tabBarClass: 'bg-primary-500',
+    partnerClass: 'text-primary-600',
+  },
+  {
+    id: 'ao-vivo',
+    label: 'Ao Vivo',
+    title: 'NCA Ao Vivo',
+    badge: 'AO VIVO COM ESPECIALISTAS',
+    Icon: Radio,
+    features: [
+      'Tudo do NCA Gravado',
+      'Aulas ao vivo com especialistas',
+      'Discussão de casos clínicos',
+      'Encontros para dúvidas',
+      'Materiais extras e exclusivos',
+    ],
+    headerClass: 'bg-amber-500',
+    badgeClass: 'bg-amber-100 text-amber-800',
+    checkClass: 'text-amber-500',
+    priceClass: 'text-amber-600',
+    tabActiveClass: 'bg-amber-50 text-amber-600',
+    tabIconClass: 'text-amber-500',
+    tabBarClass: 'bg-amber-500',
+    partnerClass: 'text-amber-700',
+  },
+] as const
+
+const WAITLIST_WHATSAPP =
+  'https://wa.me/5521980082458?text=' +
+  encodeURIComponent(
+    'Olá! Quero entrar na lista de espera do NCA Ao Vivo e ser avisado em primeira mão.',
+  )
+
+interface CourseModalitiesProps {
+  course: {
+    slug: string
+    title: string
+    price: number
+    installments?: {
+      count: number
+      value: number
+    }
+    paymentLink?: string
+  }
+}
+
+export function CourseModalities({ course }: CourseModalitiesProps) {
+  const [active, setActive] = useState<string>('gravado')
+  const modality = MODALITIES.find((m) => m.id === active)!
+
+  const formatPrice = (price: number) =>
+    new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(price)
+
+  const handleCheckoutClick = () => {
+    trackEvent('course_payment_click', {
+      course_slug: course.slug,
+      course_title: course.title,
+      price: course.price,
+      modality: 'gravado',
+      payment_provider: 'hotmart',
+    })
+  }
+
+  const handleWaitlistClick = () => {
+    trackEvent('course_waitlist_click', {
+      course_slug: course.slug,
+      course_title: course.title,
+      modality: 'ao-vivo',
+    })
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="text-center">
+        <h3 className="text-base font-bold text-graphite">
+          Escolha a modalidade ideal para você
+        </h3>
+        <p className="mt-1 text-xs text-neutral-500">
+          Dois formatos completos para você aprender do seu jeito.
+        </p>
+      </div>
+
+      <div className="overflow-hidden rounded-xl border shadow-sm">
+        {/* Abas */}
+        <div className="grid grid-cols-2 border-b">
+          {MODALITIES.map((m) => (
+            <button
+              key={m.id}
+              type="button"
+              onClick={() => setActive(m.id)}
+              aria-pressed={active === m.id}
+              className={cn(
+                'relative flex items-center justify-center gap-1.5 px-2 py-3 text-xs font-semibold transition-colors',
+                active === m.id
+                  ? m.tabActiveClass
+                  : 'text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700',
+              )}
+            >
+              <m.Icon
+                className={cn(
+                  'h-4 w-4',
+                  active === m.id ? m.tabIconClass : 'text-neutral-400',
+                )}
+              />
+              {m.label}
+              {active === m.id && (
+                <span
+                  className={cn(
+                    'absolute bottom-0 left-0 h-0.5 w-full rounded-full',
+                    m.tabBarClass,
+                  )}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Cabeçalho da modalidade */}
+        <div className={cn('px-4 py-3 text-center', modality.headerClass)}>
+          <p className="text-base font-bold uppercase tracking-wide text-white">
+            {modality.title}
+          </p>
+        </div>
+
+        <div className="space-y-4 p-5">
+          <div className="text-center">
+            <span
+              className={cn(
+                'inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide',
+                modality.badgeClass,
+              )}
+            >
+              {modality.badge}
+            </span>
+          </div>
+
+          <ul className="space-y-2">
+            {modality.features.map((feature) => (
+              <li key={feature} className="flex items-start gap-2 text-sm text-neutral-700">
+                <Check
+                  className={cn('mt-0.5 h-4 w-4 flex-shrink-0', modality.checkClass)}
+                />
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <p
+            className={cn(
+              'border-t pt-4 text-sm font-medium leading-snug',
+              modality.partnerClass,
+            )}
+          >
+            Acesso às condições especiais da parceria com a RH+*
+          </p>
+
+          {/* Investimento */}
+          <div className="text-center">
+            <p className="text-sm text-neutral-500">Investimento</p>
+
+            {modality.id === 'gravado' ? (
+              <>
+                {course.installments && (
+                  <p
+                    className={cn(
+                      'mt-1 font-display text-3xl font-bold',
+                      modality.priceClass,
+                    )}
+                  >
+                    {course.installments.count} x de {formatPrice(course.installments.value)}
+                  </p>
+                )}
+                <p className="mt-1 text-sm text-neutral-600">
+                  Ou {formatPrice(course.price)} à vista
+                </p>
+              </>
+            ) : (
+              <>
+                <p
+                  className={cn(
+                    'mt-1 font-display text-3xl font-bold',
+                    modality.priceClass,
+                  )}
+                >
+                  Em breve!
+                </p>
+                <p className="mt-1 text-sm leading-snug text-neutral-600">
+                  Entre na lista de espera e seja avisado em primeira mão.
+                </p>
+              </>
+            )}
+          </div>
+
+          {modality.id === 'gravado' ? (
+            <Button
+              size="lg"
+              className="w-full bg-primary-600 text-white hover:bg-primary-700"
+              disabled={!course.paymentLink}
+              asChild={!!course.paymentLink}
+            >
+              {course.paymentLink ? (
+                <a
+                  href={course.paymentLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleCheckoutClick}
+                >
+                  Quero o NCA Gravado
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              ) : (
+                <span>Quero o NCA Gravado</span>
+              )}
+            </Button>
+          ) : (
+            <Button
+              size="lg"
+              className="w-full bg-amber-500 text-white hover:bg-amber-600"
+              asChild
+            >
+              <a
+                href={WAITLIST_WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleWaitlistClick}
+              >
+                Entrar na Lista de Espera
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <p className="text-[11px] leading-snug text-neutral-500">
+        *Serviços da RH+ não inclusos no valor do NCA e contratados separadamente.
+      </p>
     </div>
   )
 }

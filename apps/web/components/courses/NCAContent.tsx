@@ -72,14 +72,13 @@ const modules = [
 ]
 
 const bonusContent = {
-  title: 'Aulas Bônus',
+  title: 'Aula Bônus.',
   subtitle: 'Sinais, Sintomas e Micronutrientes',
   items: [
     'Diagnóstico nutricional por sinais clínicos',
     'Microbiota, disbiose e assimilação',
     'Vitaminas, minerais e compostos bioativos na prática',
   ],
-  extra: 'Bônus: aulas da pós-graduação VP ao vivo, semanalmente, por 3 meses.',
 }
 
 const stats = [
@@ -91,48 +90,6 @@ const stats = [
 export function NCAContent() {
   return (
     <div className="space-y-16">
-      {/* Intro */}
-      <div className="space-y-6">
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-graphite">
-            Ainda sente que falta clareza para aplicar o que está aprendendo na faculdade?
-          </h2>
-          <p className="text-lg leading-relaxed text-neutral-600">
-            O curso de Nutrição Clínica Aplicada foi criado justamente para te ajudar a dominar
-            o básico muito bem feito, com fundamentos sólidos e aplicáveis no dia a dia da clínica.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold text-graphite">
-            Sente que falta algo para praticar Nutrição com confiança?
-          </h2>
-          <p className="text-lg leading-relaxed text-neutral-600">
-            No N.C.A. você não só une o aprendizado acadêmico com aplicação prática, otimizando
-            tempo e adquirindo segurança desde já, como também consegue construir a confiança que
-            faltava no seu próprio raciocínio clínico.
-          </p>
-        </div>
-
-        <div className="rounded-xl bg-primary-50 p-6 border-l-4 border-primary-500">
-          <p className="text-lg font-semibold text-primary-900">
-            É o passo que faltava para transformar teoria em prática com confiança.
-          </p>
-        </div>
-      </div>
-
-      {/* Stats */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-xl border border-neutral-200 bg-white p-6 text-center shadow-sm"
-          >
-            <p className="font-display text-3xl font-bold text-primary-600">{stat.value}</p>
-            <p className="mt-2 text-sm text-neutral-600">{stat.label}</p>
-          </div>
-        ))}
-      </div>
 
       {/* O que é o NCA */}
       <div className="space-y-4">
@@ -146,6 +103,19 @@ export function NCAContent() {
         <p className="text-lg font-medium text-graphite">
           No N.C.A, você não só estuda — você realmente pratica e domina o que aprende.
         </p>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
+            className="rounded-xl border border-neutral-200 bg-white p-6 text-center shadow-sm"
+          >
+            <p className="font-display text-3xl font-bold text-primary-600">{stat.value}</p>
+            <p className="mt-2 text-sm text-neutral-600">{stat.label}</p>
+          </div>
+        ))}
       </div>
 
       {/* Módulos */}
@@ -218,10 +188,6 @@ export function NCAContent() {
                     </li>
                   ))}
                 </ul>
-
-                <p className="rounded-lg bg-amber-100 p-3 text-sm font-medium text-amber-900">
-                  {bonusContent.extra}
-                </p>
               </div>
             </div>
           </div>

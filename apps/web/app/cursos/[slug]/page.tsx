@@ -6,7 +6,8 @@ import { getCursoBySlug, getCursos } from '@/lib/database'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { PaymentOptions } from '@/components/courses/PaymentButton'
+import { PaymentOptions, CourseModalities } from '@/components/courses/PaymentButton'
+import { RHPartnership } from '@/components/courses/RHPartnership'
 import { CourseSchema } from '@/components/seo/CourseSchema'
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { RichTextRenderer } from '@/components/blog/RichTextRenderer'
@@ -210,17 +211,30 @@ export default async function CursoPage({ params }: CursoPageProps) {
             <div className="sticky top-24 space-y-6">
               {/* Payment Card */}
               <div className="rounded-lg border bg-card p-6 shadow-sm">
-                <PaymentOptions course={{
-                  slug: curso.slug,
-                  title: curso.title,
-                  price: curso.price,
-                  installments: curso.installments && typeof curso.installments === 'number' ? {
-                    count: curso.installments,
-                    value: Math.round((curso.price / curso.installments) * 100) / 100
-                  } : undefined,
-                  paymentLink: curso.paymentLink,
-                  isLive: curso.isLive
-                }} />
+                {curso.slug === 'nca-nutricao-clinica-aplicada' ? (
+                  <CourseModalities course={{
+                    slug: curso.slug,
+                    title: curso.title,
+                    price: curso.price,
+                    installments: curso.installments && typeof curso.installments === 'number' ? {
+                      count: curso.installments,
+                      value: curso.installmentValue ?? Math.round((curso.price / curso.installments) * 100) / 100
+                    } : undefined,
+                    paymentLink: curso.paymentLink
+                  }} />
+                ) : (
+                  <PaymentOptions course={{
+                    slug: curso.slug,
+                    title: curso.title,
+                    price: curso.price,
+                    installments: curso.installments && typeof curso.installments === 'number' ? {
+                      count: curso.installments,
+                      value: Math.round((curso.price / curso.installments) * 100) / 100
+                    } : undefined,
+                    paymentLink: curso.paymentLink,
+                    isLive: curso.isLive
+                  }} />
+                )}
 
                 <div className="mt-4 pt-4 border-t">
                   <Button variant="outline" className="w-full" asChild>
@@ -235,7 +249,10 @@ export default async function CursoPage({ params }: CursoPageProps) {
                 </div>
               </div>
 
-              {/* Course Features */}
+              {/* Parceria RH+ (NCA) ou features padrão */}
+              {curso.slug === 'nca-nutricao-clinica-aplicada' ? (
+                <RHPartnership />
+              ) : (
               <div className="rounded-lg border bg-card p-6 shadow-sm">
                 <h3 className="font-semibold mb-4">O que está incluso:</h3>
                 <div className="space-y-3 text-sm">
@@ -274,6 +291,7 @@ export default async function CursoPage({ params }: CursoPageProps) {
                   )}
                 </div>
               </div>
+              )}
             </div>
           </aside>
         </div>
