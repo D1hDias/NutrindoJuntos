@@ -408,6 +408,41 @@ export const MOCK_CURSOS: Curso[] = [
     isLive: false,
     status: 'published',
   },
+  {
+    id: 'nutri-ceo-1',
+    title: 'Nutri CEO',
+    slug: 'nutri-ceo',
+    description: 'Desenvolvimento de gestão e empreendedorismo para nutricionistas que querem construir um negócio sólido. Vendas, marca, finanças, IA e jornada do paciente — em parceria com a faculdade VP.',
+    headline: 'Da Nutrição ao Negócio: aprenda a transformar conhecimento em uma carreira que cresce.',
+    content: [
+      {
+        children: [
+          {
+            text: 'O Nutri CEO é uma iniciativa da Nutrindo Juntos em parceria com a faculdade VP, criada para nutricionistas que estão começando a empreender e querem construir seu negócio com mais estratégia, segurança e profissionalismo.'
+          }
+        ]
+      }
+    ],
+    category: {
+      id: 'cat-gestao',
+      name: 'Gestão & Empreendedorismo',
+      slug: 'gestao'
+    },
+    level: 'iniciante',
+    modules: [],
+    rating: 0,
+    price: 497.00,
+    installments: 12,
+    installmentValue: 51.40,
+    salesCount: 0,
+    practicalFocus: 'Gestão e empreendedorismo aplicados à prática do nutricionista',
+    targetAudience: ['Nutricionistas que estão começando a empreender', 'Profissionais que querem estruturar o próprio negócio', 'Nutricionistas que desejam se posicionar no mercado'],
+    whatYouWillLearn: ['Mentalidade empreendedora e visão de negócio', 'Vendas, captação e posicionamento de marca', 'Finanças, precificação e segurança jurídica'],
+    requirements: ['Graduação em Nutrição (em curso ou concluída)', 'Interesse em empreender na área'],
+    paymentLink: 'https://pay.hotmart.com/R107636625S',
+    isLive: true,
+    status: 'published',
+  },
 ]
 
 export const MOCK_EQUIPE: Membro[] = [

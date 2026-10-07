@@ -45,7 +45,8 @@ echo -e "${BLUE}[2/5] Fazendo commit...${NC}"
 git add -A
 git commit -m "$COMMIT_MSG
 
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>" || {
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01GJ6zBinuNDRt2efwFdTDTK" || {
     echo -e "${YELLOW}⚠️  Nada para commitar ou commit já existe${NC}"
 }
 echo -e "${GREEN}✅ Commit realizado!${NC}"

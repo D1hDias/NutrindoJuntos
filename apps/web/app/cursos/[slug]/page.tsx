@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { PaymentOptions, CourseModalities } from '@/components/courses/PaymentButton'
 import { RHPartnership } from '@/components/courses/RHPartnership'
+import { NutriCEOContent } from '@/components/courses/NutriCEOContent'
+import { NutriCEOOffer } from '@/components/courses/NutriCEOOffer'
 import { CourseSchema } from '@/components/seo/CourseSchema'
 import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { RichTextRenderer } from '@/components/blog/RichTextRenderer'
@@ -170,7 +172,14 @@ export default async function CursoPage({ params }: CursoPageProps) {
                 {curso.targetAudience && (
                   <div className="mt-6 rounded-lg bg-primary-50 p-4 border-l-4 border-primary-500">
                     <h3 className="font-semibold text-primary-900 mb-2">Ideal para:</h3>
-                    <p className="text-primary-800">{curso.targetAudience}</p>
+                    <ul className="space-y-1">
+                      {curso.targetAudience.map((item: string) => (
+                        <li key={item} className="flex items-start gap-2 text-primary-800">
+                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400" />
+                          {item.trim()}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </header>
@@ -196,6 +205,8 @@ export default async function CursoPage({ params }: CursoPageProps) {
                   <NCAContent />
                 ) : curso.slug === 'nce-nutricao-clinica-estrategica' ? (
                   <NCEContent />
+                ) : curso.slug === 'nutri-ceo' ? (
+                  <NutriCEOContent />
                 ) : (
                   <RichTextRenderer
                     content={curso.content}
@@ -211,7 +222,18 @@ export default async function CursoPage({ params }: CursoPageProps) {
             <div className="sticky top-24 space-y-6">
               {/* Payment Card */}
               <div className="rounded-lg border bg-card p-6 shadow-sm">
-                {curso.slug === 'nca-nutricao-clinica-aplicada' ? (
+                {curso.slug === 'nutri-ceo' ? (
+                  <NutriCEOOffer course={{
+                    slug: curso.slug,
+                    title: curso.title,
+                    price: curso.price,
+                    installments: curso.installments && typeof curso.installments === 'number' ? {
+                      count: curso.installments,
+                      value: curso.installmentValue ?? Math.round((curso.price / curso.installments) * 100) / 100
+                    } : undefined,
+                    paymentLink: curso.paymentLink
+                  }} />
+                ) : curso.slug === 'nca-nutricao-clinica-aplicada' ? (
                   <CourseModalities course={{
                     slug: curso.slug,
                     title: curso.title,
@@ -239,18 +261,24 @@ export default async function CursoPage({ params }: CursoPageProps) {
                 <div className="mt-4 pt-4 border-t">
                   <Button variant="outline" className="w-full" asChild>
                     <a
-                      href={`https://wa.me/5521980082458?text=${encodeURIComponent(`Olá! Estou interessado em saber mais sobre o curso ${curso.title}`)}`}
+                      href={`https://wa.me/5521980082458?text=${encodeURIComponent(
+                        curso.slug === 'nutri-ceo'
+                          ? `Olá! Já sou ou fui aluno da Nutrindo Juntos e quero garantir meu desconto no curso ${curso.title}`
+                          : `Olá! Estou interessado em saber mais sobre o curso ${curso.title}`
+                      )}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Falar com a Equipe
+                      {curso.slug === 'nutri-ceo'
+                        ? 'Já é ou foi aluno, garanta seu desconto'
+                        : 'Falar com a Equipe'}
                     </a>
                   </Button>
                 </div>
               </div>
 
-              {/* Parceria RH+ (NCA) ou features padrão */}
-              {curso.slug === 'nca-nutricao-clinica-aplicada' ? (
+              {/* Parceria RH+ (NCA), nada (Nutri CEO: já listado na oferta) ou features padrão */}
+              {curso.slug === 'nutri-ceo' ? null : curso.slug === 'nca-nutricao-clinica-aplicada' ? (
                 <RHPartnership />
               ) : (
               <div className="rounded-lg border bg-card p-6 shadow-sm">

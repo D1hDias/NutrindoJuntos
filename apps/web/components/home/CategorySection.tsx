@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 
 type CategoryItem =
   | { id: string; title: string; courseCount: number; icon: React.ElementType; href: string; disabled?: boolean; children?: never }
-  | { id: string; title: string; courseCount: number; icon: React.ElementType; href?: never; disabled?: never; children: { label: string; href: string }[] }
+  | { id: string; title: string; courseCount: number; icon: React.ElementType; href?: never; disabled?: never; children: { label: string; href: string; disabled?: boolean }[] }
 
 const categories: CategoryItem[] = [
   {
@@ -18,7 +18,7 @@ const categories: CategoryItem[] = [
     icon: BookOpen,
     children: [
       { label: 'Curso NCA – Nutrição Clínica Aplicada', href: '/cursos/nca-nutricao-clinica-aplicada' },
-      { label: 'Curso NCE – Nutrição Clínica Estratégica', href: '/cursos/nce-nutricao-clinica-estrategica' },
+      { label: 'Curso NCE – Nutrição Clínica Estratégica', href: '/cursos/nce-nutricao-clinica-estrategica', disabled: true },
     ],
   },
   {
@@ -31,11 +31,12 @@ const categories: CategoryItem[] = [
   },
   {
     id: '03',
-    title: 'Nutri executivo',
-    courseCount: 0,
+    title: 'Nutri Executivo',
+    courseCount: 1,
     icon: Palette,
-    href: '#',
-    disabled: true,
+    children: [
+      { label: 'Nutri CEO', href: '/cursos/nutri-ceo' },
+    ],
   },
   {
     id: '04',
@@ -246,17 +247,31 @@ export function CategorySection() {
                       </button>
                       {isOpen && (
                         <div className="bg-white/10 px-4 pb-3">
-                          {category.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              prefetch={false}
-                              className="flex items-center gap-3 rounded-lg px-4 py-3 text-white/90 transition-colors hover:bg-white/10 hover:text-white"
-                            >
-                              <ChevronRight className="h-4 w-4 shrink-0 text-primary-400" />
-                              <span className="font-serif text-sm font-medium">{child.label}</span>
-                            </Link>
-                          ))}
+                          {category.children.map((child) =>
+                            child.disabled ? (
+                              <div
+                                key={child.href}
+                                aria-disabled="true"
+                                className="flex cursor-not-allowed items-center gap-3 rounded-lg px-4 py-3 text-white/40"
+                              >
+                                <ChevronRight className="h-4 w-4 shrink-0 text-white/25" />
+                                <span className="font-serif text-sm font-medium">{child.label}</span>
+                                <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+                                  Em breve
+                                </span>
+                              </div>
+                            ) : (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                prefetch={false}
+                                className="flex items-center gap-3 rounded-lg px-4 py-3 text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+                              >
+                                <ChevronRight className="h-4 w-4 shrink-0 text-primary-400" />
+                                <span className="font-serif text-sm font-medium">{child.label}</span>
+                              </Link>
+                            )
+                          )}
                         </div>
                       )}
                     </div>
