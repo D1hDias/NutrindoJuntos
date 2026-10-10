@@ -319,6 +319,7 @@ export const MOCK_CURSOS: Curso[] = [
     modules: [],
     rating: 0,
     price: 497.00,
+    originalPrice: 847.00,
     installments: 12,
     installmentValue: 51.40,
     salesCount: 0,
@@ -327,7 +328,7 @@ export const MOCK_CURSOS: Curso[] = [
     whatYouWillLearn: ['Fundamentos da nutrição clínica', 'Estratégias de prescrição personalizada', 'Gestão de consultório'],
     requirements: ['Graduação em Nutrição (em curso ou concluída)', 'Interesse em atendimento clínico'],
     paymentLink: 'https://pay.hotmart.com/G100633318Q?bid=1786479397397',
-    isLive: false,
+    isLive: true,
     status: 'published',
   },
   {
@@ -406,6 +407,7 @@ export const MOCK_CURSOS: Curso[] = [
     requirements: ['Base clínica sólida', 'Experiência prévia em atendimento'],
     paymentLink: 'https://pay.hotmart.com/exemplo-nce-curso',
     isLive: false,
+    hidden: true,
     status: 'published',
   },
   {
@@ -413,7 +415,8 @@ export const MOCK_CURSOS: Curso[] = [
     title: 'Nutri CEO',
     slug: 'nutri-ceo',
     description: 'Desenvolvimento de gestão e empreendedorismo para nutricionistas que querem construir um negócio sólido. Vendas, marca, finanças, IA e jornada do paciente — em parceria com a faculdade VP.',
-    headline: 'Da Nutrição ao Negócio: aprenda a transformar conhecimento em uma carreira que cresce.',
+    headline: 'Construa sua carreira de forma mais assertiva e com direcionamento.',
+    featuredImage: '/images/cursos/nutri-ceo.webp',
     content: [
       {
         children: [
@@ -432,6 +435,7 @@ export const MOCK_CURSOS: Curso[] = [
     modules: [],
     rating: 0,
     price: 497.00,
+    originalPrice: 847.00,
     installments: 12,
     installmentValue: 51.40,
     salesCount: 0,
@@ -572,7 +576,7 @@ export async function getCursos(params?: {
   const startIndex = (page - 1) * limit
   const endIndex = startIndex + limit
 
-  const filtered = MOCK_CURSOS.filter(c => c.status === 'published')
+  const filtered = MOCK_CURSOS.filter(c => c.status === 'published' && !c.hidden)
 
   const paginated = filtered.slice(startIndex, endIndex)
 
@@ -595,7 +599,7 @@ export async function getCursoBySlug(slug: string): Promise<Curso | null> {
 }
 
 export async function getFeaturedCursos(limit: number = 3) {
-  const featured = MOCK_CURSOS.filter(c => c.status === 'published').slice(0, limit)
+  const featured = MOCK_CURSOS.filter(c => c.status === 'published' && !c.hidden).slice(0, limit)
   return {
     docs: featured,
     totalDocs: featured.length,

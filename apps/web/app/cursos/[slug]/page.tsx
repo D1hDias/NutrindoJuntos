@@ -50,9 +50,10 @@ export async function generateMetadata({ params }: CursoPageProps): Promise<Meta
 
   const curso = rawCurso as Curso
 
-  const featuredImage = typeof curso.featuredImage === 'object'
-    ? (curso.featuredImage as Media)
-    : undefined
+  const featuredImage: Media | undefined =
+    typeof curso.featuredImage === 'string'
+      ? { id: curso.slug, url: curso.featuredImage, alt: curso.title }
+      : (curso.featuredImage as Media | undefined)
 
   const cursoUrl = `/cursos/${curso.slug}`
   const imageUrl: string = featuredImage?.url || '/og-image.jpg'
@@ -94,9 +95,10 @@ export default async function CursoPage({ params }: CursoPageProps) {
 
   const curso = rawCurso as Curso
 
-  const featuredImage = typeof curso.featuredImage === 'object'
-    ? (curso.featuredImage as Media)
-    : undefined
+  const featuredImage: Media | undefined =
+    typeof curso.featuredImage === 'string'
+      ? { id: curso.slug, url: curso.featuredImage, alt: curso.title }
+      : (curso.featuredImage as Media | undefined)
 
   const breadcrumbItems = [
     { label: 'Início', href: '/' },
@@ -227,6 +229,7 @@ export default async function CursoPage({ params }: CursoPageProps) {
                     slug: curso.slug,
                     title: curso.title,
                     price: curso.price,
+                    originalPrice: curso.originalPrice,
                     installments: curso.installments && typeof curso.installments === 'number' ? {
                       count: curso.installments,
                       value: curso.installmentValue ?? Math.round((curso.price / curso.installments) * 100) / 100
@@ -238,6 +241,7 @@ export default async function CursoPage({ params }: CursoPageProps) {
                     slug: curso.slug,
                     title: curso.title,
                     price: curso.price,
+                    originalPrice: curso.originalPrice,
                     installments: curso.installments && typeof curso.installments === 'number' ? {
                       count: curso.installments,
                       value: curso.installmentValue ?? Math.round((curso.price / curso.installments) * 100) / 100

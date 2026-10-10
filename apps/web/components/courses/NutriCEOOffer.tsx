@@ -20,6 +20,7 @@ interface NutriCEOOfferProps {
     slug: string
     title: string
     price: number
+    originalPrice?: number
     installments?: {
       count: number
       value: number
@@ -66,6 +67,11 @@ export function NutriCEOOffer({ course }: NutriCEOOfferProps) {
       {/* Investimento */}
       <div className="rounded-lg border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-primary-100 p-4 text-center">
         <p className="text-sm text-neutral-600">Investimento</p>
+        {course.originalPrice && course.originalPrice > course.price && (
+          <p className="text-sm text-neutral-500">
+            De: <span className="line-through">{formatPrice(course.originalPrice)}</span>
+          </p>
+        )}
         {course.installments && (
           <p className="mt-1 font-display text-3xl font-bold text-primary-600">
             {course.installments.count} x de {formatPrice(course.installments.value)}

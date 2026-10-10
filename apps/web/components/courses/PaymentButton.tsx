@@ -222,6 +222,7 @@ interface CourseModalitiesProps {
     slug: string
     title: string
     price: number
+    originalPrice?: number
     installments?: {
       count: number
       value: number
@@ -351,6 +352,11 @@ export function CourseModalities({ course }: CourseModalitiesProps) {
 
             {modality.id === 'gravado' ? (
               <>
+                {course.originalPrice && course.originalPrice > course.price && (
+                  <p className="text-sm text-neutral-500">
+                    De: <span className="line-through">{formatPrice(course.originalPrice)}</span>
+                  </p>
+                )}
                 {course.installments && (
                   <p
                     className={cn(

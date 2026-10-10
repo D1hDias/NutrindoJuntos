@@ -44,7 +44,7 @@ const categories: CategoryItem[] = [
     courseCount: 1,
     icon: Apple,
     children: [
-      { label: 'Nutrindo Mentes', href: '/eventos/nutrindo-mentes' },
+      { label: 'Nutrindo Mentes', href: '/eventos/nutrindo-mentes', disabled: true },
     ],
   },
   {

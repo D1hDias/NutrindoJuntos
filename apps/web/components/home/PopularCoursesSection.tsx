@@ -139,16 +139,18 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                   </Badge>
 
                   <div className="flex items-center gap-3 text-sm text-neutral-600">
-                    {course.modules && (
+                    {Array.isArray(course.modules) && course.modules.length > 0 ? (
                       <div className="flex items-center gap-1">
                         <BookOpen className="h-4 w-4" />
-                        <span>{course.modules} Módulos</span>
+                        <span>{course.modules.length} Módulos</span>
                       </div>
-                    )}
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      <span>{course.duration}</span>
-                    </div>
+                    ) : null}
+                    {course.duration ? (
+                      <div className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        <span>{course.duration}</span>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
 
@@ -174,7 +176,7 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                 {/* Rating */}
                 <div className="mb-4 flex items-center justify-between border-b border-neutral-200 pb-4">
                   <div className="flex items-center gap-2">
-                    {course.rating && (
+                    {course.rating ? (
                       <>
                         <div className="flex items-center gap-1">
                           {renderStars(course.rating)}
@@ -183,7 +185,7 @@ export function PopularCoursesSection({ courses }: PopularCoursesSectionProps) {
                           {course.reviewCount || 0} Avaliações
                         </span>
                       </>
-                    )}
+                    ) : null}
                   </div>
                 </div>
 

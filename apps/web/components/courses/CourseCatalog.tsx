@@ -265,10 +265,10 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
       {filteredCourses.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCourses.map((course, index) => {
-            const featuredImage =
-              typeof course.featuredImage === 'object'
-                ? (course.featuredImage as Media)
-                : undefined
+            const featuredImage: Media | undefined =
+              typeof course.featuredImage === 'string'
+                ? { id: course.slug, url: course.featuredImage, alt: course.title }
+                : (course.featuredImage as Media | undefined)
 
             return (
               <Link
@@ -351,20 +351,20 @@ export function CourseCatalog({ courses }: CourseCatalogProps) {
                           {course.duration}
                         </span>
                       )}
-                      {course.modules ? (
+                      {Array.isArray(course.modules) && course.modules.length > 0 ? (
                         <span className="flex items-center gap-1">
                           <BookOpen className="h-3.5 w-3.5" />
-                          {course.modules} módulos
+                          {course.modules.length} módulos
                         </span>
                       ) : null}
                     </div>
 
-                    {course.rating && (
+                    {course.rating ? (
                       <span className="flex items-center gap-1 text-xs font-medium text-amber-600">
                         <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                         {course.rating}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </Link>

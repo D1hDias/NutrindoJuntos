@@ -69,9 +69,6 @@ export function NutriCEOContent() {
 
       {/* O que é o Nutri CEO */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-graphite">
-          Construa sua carreira de forma mais assertiva e com direcionamento.
-        </h2>
         <p className="text-lg leading-relaxed text-neutral-600">
           Ser um excelente nutricionista é o começo. Mas construir uma carreira sustentável,
           atrair pacientes, vender seus serviços, organizar as finanças e se posicionar no mercado

@@ -70,6 +70,8 @@ export interface Curso {
   /** Valor de cada parcela. Use quando o parcelado não for o preço à vista dividido. */
   installmentValue?: number
   isLive?: boolean
+  /** Oculta o curso das listagens (home e catalogo) sem derrubar a pagina dele. */
+  hidden?: boolean
 }
 
 export interface Categoria {
