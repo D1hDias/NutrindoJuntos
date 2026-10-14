@@ -14,6 +14,8 @@ import { SlidingTextSection } from '@/components/sections/SlidingTextSection'
 import { getFeaturedCursos } from '@/lib/database'
 // import { getGoogleReviews } from '@/lib/google-reviews'
 import { getTestimonialImages, getTestimonialVideos } from '@/lib/testimonials'
+import { getGaleria } from '@/lib/galeria'
+import { GaleriaMural } from '@/components/galeria/GaleriaMural'
 import { Curso } from '@/types'
 
 export default async function Home() {
@@ -23,6 +25,7 @@ export default async function Home() {
   // const googleReviews = await getGoogleReviews()
   const testimonialImages = getTestimonialImages()
   const testimonialVideos = getTestimonialVideos()
+  const galeria = getGaleria()
 
   // const latestPosts = postsResponse.docs || []
   const featuredCourses = (cursosResponse.docs || []) as Curso[]
@@ -50,6 +53,36 @@ export default async function Home() {
 
       {/* Counter Up Section - Contadores Animados */}
       <CounterUpSection />
+
+      {/* Galeria - a prova visual logo abaixo dos números */}
+      <section id="galeria" className="scroll-mt-20 bg-[#f6f2fa] py-24 lg:py-[120px]">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <div className="mb-4 inline-flex items-center gap-2">
+              <div className="h-3 w-3 rounded-full bg-primary-500" />
+              <span className="font-serif text-lg font-semibold text-primary-500">Galeria</span>
+            </div>
+            <h2 className="font-display text-4xl font-bold leading-tight text-graphite lg:text-5xl">
+              Por trás dos{' '}
+              <span className="relative inline-block">
+                números
+                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 10" fill="none" aria-hidden="true">
+                  <path d="M0 5 L200 5" stroke="currentColor" strokeWidth="3" opacity="0.3" className="text-primary-500" />
+                </svg>
+              </span>
+            </h2>
+            <p className="mt-6 text-lg text-neutral-500">
+              Os números acima têm rosto: alunos em sala, palestras e os congressos de que participamos.
+            </p>
+          </div>
+          <GaleriaMural
+            items={galeria}
+            limite={8}
+            limiteCelular={6}
+            cta={{ href: '/sobre#galeria', label: 'Ver todas as fotos' }}
+          />
+        </div>
+      </section>
 
       {/* Team Section - Nossa Equipe */}
       <section id="equipe">

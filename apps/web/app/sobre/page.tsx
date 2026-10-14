@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { TeamGrid } from '@/components/sobre/TeamGrid'
+import { GaleriaMural } from '@/components/galeria/GaleriaMural'
+import { getGaleria } from '@/lib/galeria'
 
 export const metadata: Metadata = {
   title: 'Sobre | Nutrindo Juntos',
@@ -7,6 +9,8 @@ export const metadata: Metadata = {
 }
 
 export default function SobrePage() {
+  const galeria = getGaleria()
+
   return (
     <main className="container mx-auto px-4 py-16">
       {/* Header */}
@@ -37,6 +41,24 @@ export default function SobrePage() {
           </p>
         </section>
       </div>
+
+      {/* Galeria */}
+      <section className="mt-20 scroll-mt-28" id="galeria">
+        <div className="mb-10 text-center">
+          <div className="mb-3 inline-flex items-center gap-2">
+            <div className="h-3 w-3 rounded-full bg-primary-500" />
+            <span className="font-serif text-lg font-semibold text-primary-500">Galeria</span>
+          </div>
+          <h2 className="font-display text-3xl font-bold text-graphite md:text-4xl">
+            Eventos, turmas e <span className="text-primary-600">conquistas</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-neutral-500">
+            Congressos, aulas práticas e certificações que fazem parte da nossa trajetória.
+          </p>
+        </div>
+
+        <GaleriaMural items={galeria} filtros />
+      </section>
 
       {/* Equipe */}
       <section className="mt-16" id="equipe">

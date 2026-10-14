@@ -15,6 +15,8 @@ import { BreadcrumbSchema } from '@/components/seo/BreadcrumbSchema'
 import { RichTextRenderer } from '@/components/blog/RichTextRenderer'
 import { NCAContent } from '@/components/courses/NCAContent'
 import { NCEContent } from '@/components/courses/NCEContent'
+import { GaleriaCarrossel } from '@/components/galeria/GaleriaCarrossel'
+import { getGaleriaDoCurso } from '@/lib/galeria'
 import type { Curso, Media } from '@/types'
 
 // Função para mapear níveis para labels em português
@@ -94,6 +96,7 @@ export default async function CursoPage({ params }: CursoPageProps) {
   }
 
   const curso = rawCurso as Curso
+  const galeriaCurso = getGaleriaDoCurso(curso.slug)
 
   const featuredImage: Media | undefined =
     typeof curso.featuredImage === 'string'
@@ -216,6 +219,12 @@ export default async function CursoPage({ params }: CursoPageProps) {
                   />
                 )}
               </div>
+
+              {galeriaCurso.length > 0 && (
+                <div className="mt-16">
+                  <GaleriaCarrossel items={galeriaCurso} titulo="Turmas e eventos" />
+                </div>
+              )}
             </article>
           </div>
 
