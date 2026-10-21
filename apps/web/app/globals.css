@@ -391,3 +391,62 @@ html {
     border-radius: 5px;
   }
 }
+
+/* ===== Faixa de parceiros (components/home/PartnersSection.tsx) ===== */
+@keyframes parceiros-rolagem {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.parceiros-faixa {
+  overflow: hidden;
+  /* esmaece as bordas: as logos entram e saem suavemente */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.parceiros-trilho {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: parceiros-rolagem var(--parceiros-duracao, 60s) linear infinite;
+}
+
+/* mouse em cima: a faixa para onde está */
+.parceiros-faixa:hover .parceiros-trilho {
+  animation-play-state: paused;
+}
+
+/* foco pelo teclado: a faixa volta ao início, onde ficam as logos focáveis */
+.parceiros-faixa:has(:focus-visible) .parceiros-trilho {
+  animation: none;
+}
+
+/* cinza só onde existe "passar o mouse"; no celular as logos já aparecem coloridas */
+@media (hover: hover) {
+  .parceiros-logo {
+    filter: grayscale(1);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+  .parceiros-item:hover .parceiros-logo,
+  .parceiros-item:focus-visible .parceiros-logo {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+/* versão parada, para quem pediu menos movimento no sistema */
+.parceiros-estatico {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .parceiros-faixa { display: none; }
+  .parceiros-estatico { display: flex; }
+}
+
+/* no foco do teclado, tira o esmaecimento das bordas para a logo focada aparecer inteira */
+.parceiros-faixa:has(:focus-visible) {
+  -webkit-mask-image: none;
+  mask-image: none;
+}

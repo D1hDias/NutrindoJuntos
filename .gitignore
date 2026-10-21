@@ -140,3 +140,6 @@ assets-temp/
 
 # Originais da galeria (o site usa as versoes .webp geradas por scripts/galeria-processar.sh)
 _fotos-entrada/
+
+# Logos originais dos parceiros (o site usa as versoes tratadas em public/images/parceiros)
+_logos-parceiros/

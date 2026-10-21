@@ -103,6 +103,14 @@ export function HeaderServer() {
             >
               Equipe
             </Link>
+            <Link
+              href="#parceiros"
+              data-scroll="true"
+              data-section="parceiros"
+              className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+            >
+              Parceiros
+            </Link>
             <Link 
               href="#contato"
               data-scroll="true"

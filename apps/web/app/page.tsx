@@ -5,6 +5,7 @@ import { PopularCoursesSection } from '@/components/home/PopularCoursesSection'
 import { WhyChooseUsSection } from '@/components/home/WhyChooseUsSection'
 import { CounterUpSection } from '@/components/home/CounterUpSection'
 import { TeamSection } from '@/components/home/TeamSection'
+import { PartnersSection } from '@/components/home/PartnersSection'
 import { NewsletterSection } from '@/components/sections/NewsletterSection'
 // import { TestimonialSection } from '@/components/sections/TestimonialSection'
 import { TestimonialsGallerySection } from '@/components/sections/TestimonialsGallerySection'
@@ -88,6 +89,9 @@ export default async function Home() {
       <section id="equipe">
         <TeamSection />
       </section>
+
+      {/* Parceiros - faixa rolante logo abaixo da Equipe */}
+      <PartnersSection />
 
       {/* Newsletter Section */}
       <NewsletterSection />
