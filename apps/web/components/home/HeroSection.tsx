@@ -1,6 +1,14 @@
 'use client'
 
 import Image from 'next/image'
+
+// Fotos de perfil de alunas, recortadas no rosto (120x120). Decorativas: o texto ao lado já diz o que importa.
+const AVATARES_ALUNAS = [
+  '/images/alunos/milenaelguezabalpro.webp',
+  '/images/alunos/luciaalves_prof.webp',
+  '/images/alunos/paullatorresnutri.webp',
+  '/images/alunos/elgapassosnutri.webp',
+]
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Lightbulb, Clock, ThumbsUp } from 'lucide-react'
@@ -223,17 +231,15 @@ export function HeroSection() {
                   />
                 </div>
 
-                {/* Avatars Stack */}
-                <div className="mb-2 flex items-center">
+                {/* Avatars Stack - alunas reais (uso de imagem autorizado por elas) */}
+                <div className="mb-2 flex items-center" aria-hidden="true">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
+                    {AVATARES_ALUNAS.map((src) => (
                       <div
-                        key={i}
-                        className="h-8 w-8 overflow-hidden rounded-full border-2 border-white bg-gradient-to-br from-primary-300 to-secondary-300 lg:h-10 lg:w-10"
+                        key={src}
+                        className="h-8 w-8 overflow-hidden rounded-full border-2 border-white bg-neutral-200 lg:h-10 lg:w-10"
                       >
-                        <div className="flex h-full w-full items-center justify-center text-xs font-bold text-white">
-                          {i}
-                        </div>
+                        <Image src={src} alt="" width={40} height={40} className="h-full w-full object-cover" />
                       </div>
                     ))}
                   </div>
